@@ -1,1 +1,2 @@
-# My_Real_Estate
+# My Real Estate
+My Real Estate is a comprehensive application designed for property owners to manage their real estate assets efficiently and facilitate seamless communication with tenants. This tool addresses the need for a centralized platform where landlords can oversee various aspects of their properties, including but not limited to maintenance tracking, financial management, and tenant interactions.
