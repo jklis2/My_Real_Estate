@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 export default function RootLayout() {
   return (
-      <div className="container m-auto">
+      <div className="container font-lato m-auto">
         <Navbar />
         <Outlet />
         <Footer />
