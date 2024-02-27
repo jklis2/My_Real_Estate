@@ -18,7 +18,6 @@ export default function Navbar() {
         <a href="#" className="text-xl uppercase leading-6 text-gray-700">Property</a>
         <a href="#" className="text-xl uppercase leading-6 text-gray-700">Contact</a>
       </div>
-      
       <div className="hidden lg:flex lg:flex-1 lg:justify-end">
        <Button>Sign in</Button>
       </div>
