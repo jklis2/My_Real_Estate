@@ -1,13 +1,11 @@
 import aboutImg from "../assets/AboutImg.png";
+import H2 from "../components/H2";
 
 export default function About() {
   return (
-    <section className="flex flex-col md:flex-row items-center lg:p-12 text-neutral-700">
-
+    <section className="flex flex-col md:flex-row items-center my-16 text-neutral-700">
       <div className="md:w-1/2 xl:p-16">
-        <h2 className="text-4xl font-bold mb-12">
-          My Real Estate: Your Trusted Partner in Property Management
-        </h2>
+        <H2> My Real Estate: Your Trusted Partner in Property Management</H2>
         <p className="text-gray-700">
           My Real Estate is where reliability meets convenience in property
           management. Trusted by a wide community, our app streamlines buying,
@@ -17,7 +15,6 @@ export default function About() {
           estate experience.
         </p>
       </div>
-
       <div className="md:w-1/2 md:p-8 2xl:p-16">
         <img className="rounded-lg shadow-md" src={aboutImg} alt="About us" />
       </div>

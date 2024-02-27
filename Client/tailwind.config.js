@@ -4,6 +4,10 @@ export default {
   theme: {
     extend: {
       "bg-hero": "url('./assets/HeroImg.png')",
+      "bg-imgOne": "url('./assets/Gallery1.png')",
+      "bg-imgSecond": "url('./assets/Gallery2.png')",
+      "bg-imgThird": "url('./assets/Gallery3.png')",
+
     },
     fontFamily: {
       lato: ["Lato", "sans-serif"],
