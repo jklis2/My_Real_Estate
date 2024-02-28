@@ -28,7 +28,7 @@ export default function HowItWorks() {
         />
         <StepCard
           img={thirdStep}
-          title="Thirs step"
+          title="Third step"
           description="Lorem ipsum dolor sit amet dolor siti conse ctetur adipiscing elit. Lorem ipsum dolor sit amet dolor siti conse ctetur adipiscing elit. "
         />
 
