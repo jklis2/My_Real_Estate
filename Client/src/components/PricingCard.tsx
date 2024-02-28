@@ -19,7 +19,7 @@ export default function PricingCard({
   return (
     <div
       className={`${
-        variant === "dark" && "bg-sky-200"
+        variant === "dark" && "bg-slate-300"
       } border rounded-2xl mx-8 text-left text-neutral-700`}
     >
       <div className="px-12 py-12">
@@ -34,7 +34,7 @@ export default function PricingCard({
             <li className="flex my-5">
               <FaCheckCircle
                 className={`${
-                  variant === "dark" ? "text-white" : "text-sky-200"
+                  variant === "dark" ? "text-white" : "text-slate-300"
                 }`}
               />
               <span className="ms-2"> {feat}</span>

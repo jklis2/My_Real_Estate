@@ -4,7 +4,7 @@ import H2 from "../components/H2";
 export default function About() {
   return (
     <section className="flex flex-col md:flex-row items-center my-16 text-neutral-700">
-      <div className="md:w-1/2 xl:p-16">
+      <div className="md:w-1/2 xl:p-8">
         <H2> My Real Estate: Your Trusted Partner in Property Management</H2>
         <p className="text-gray-700">
           My Real Estate is where reliability meets convenience in property
