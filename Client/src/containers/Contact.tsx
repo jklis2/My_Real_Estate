@@ -10,7 +10,7 @@ import {
 
 export default function Contact() {
   return (
-    <section className="flex flex-col md:flex-row items-center my-16 text-neutral-700">
+    <section className="flex flex-col md:flex-row my-16 text-neutral-700">
       <div className="md:w-1/2 p-8">
         <H2>Contact Information</H2>
         <ContactInformation

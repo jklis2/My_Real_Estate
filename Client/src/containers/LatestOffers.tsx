@@ -9,7 +9,7 @@ export default function LatestOffers() {
   return (
     <section className="my-16 text-center">
       <H2>Latest Offers</H2>
-      <div className="flex justify-center items-center my-10">
+      <div className="flex gap-8 justify-center items-center my-10">
       <RiArrowLeftSLine size={200} />
         <OfferCard location="Krakow, PL" url="url('../assets/Gallery1.png')"/>
         <OfferCard location="London, UK" url="url('../assets/Gallery2.png')"/>

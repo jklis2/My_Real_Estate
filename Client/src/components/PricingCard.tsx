@@ -22,7 +22,7 @@ export default function PricingCard({
     <div
       className={`${
         variant === "dark" && "bg-slate-300"
-      } border rounded-2xl mx-8 text-left text-neutral-700`}
+      } border rounded-2xl text-left text-neutral-700 hover:scale-110 transition duration-300`}
     >
       <div className="px-12 py-12">
         <H3>{plan}</H3>

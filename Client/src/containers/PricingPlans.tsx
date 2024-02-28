@@ -20,7 +20,7 @@ export default function PricingPlans() {
         voluptate.
       </P>
 
-      <div className="flex justify-center items-center my-10">
+      <div className="flex gap-8 justify-center items-center my-10">
         <PricingCard
           plan="Free"
           variant="light"
