@@ -1,4 +1,5 @@
 import H2 from "../components/H2";
+import P from "../components/P"
 import firstStep from "../assets/FirstStep.png";
 import secondStep from "../assets/SecondStep.png";
 import thirdStep from "../assets/ThirdStep.png";
@@ -10,9 +11,9 @@ export default function HowItWorks() {
     <section className="my-16 text-center">
         
       <H2>How it works?</H2>
-      <p className="text-slate-700 px-16 mx-16 mb-10">
+      <P className="px-16 mx-16 mb-10">
         Lorem ipsum dolor sit amet dolor siti conse ctetur adipiscing elit.
-      </p>
+      </P>
       <div className="flex justify-around my-16 relative">
         <StepArrow className='-translate-x-56'/>
         <StepCard

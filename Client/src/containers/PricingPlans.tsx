@@ -1,4 +1,5 @@
 import H2 from "../components/H2";
+import P from "../components/P"
 import PricingCard from "../components/PricingCard";
 
 export default function PricingPlans() {
@@ -12,12 +13,12 @@ export default function PricingPlans() {
   return (
     <section className="my-16 text-center">
       <H2>Pricing plans</H2>
-      <p className="text-slate-700 px-16 mx-16 mb-10">
+      <P className="px-16 mx-16 mb-10">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
         hic vero molestiae inventore ex facere expedita iste tenetur et vel,
         quia unde assumenda facilis corporis suscipit possimus tempora soluta
         voluptate.
-      </p>
+      </P>
 
       <div className="flex justify-center items-center my-10">
         <PricingCard
@@ -37,7 +38,7 @@ export default function PricingPlans() {
         <PricingCard
           plan="Enterprise"
           variant="light"
-          price={10000}
+          price={100}
           description="Lorem ipsum dolor sit amet consectetur adipisicing elit."
           featuresList={featuresList}
         />

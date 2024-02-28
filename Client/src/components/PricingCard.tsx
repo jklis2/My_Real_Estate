@@ -1,5 +1,7 @@
 import { FaCheckCircle } from "react-icons/fa";
 import Button from "./Button";
+import P from "./P";
+import H3 from "./H3";
 
 interface CardProps {
   plan: string;
@@ -23,11 +25,11 @@ export default function PricingCard({
       } border rounded-2xl mx-8 text-left text-neutral-700`}
     >
       <div className="px-12 py-12">
-        <h3 className="text-2xl font-bold">{plan}</h3>
-        <p className="my-3">
+        <H3>{plan}</H3>
+        <P className="my-3">
           <span className="text-4xl font-bold">${price}</span> /month
-        </p>
-        <p className="mb-4">{description}</p>
+        </P>
+        <P className="mb-4">{description}</P>
         <hr className="bg-neutral-700" />
         <ul className="mt-5">
           {featuresList.map((feat) => (
