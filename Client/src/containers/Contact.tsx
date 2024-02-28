@@ -1,3 +1,4 @@
+import ContactForm from "../components/ContactForm";
 import ContactInformation from "../components/ContactInformation";
 import H2 from "../components/H2";
 import {
@@ -32,6 +33,7 @@ export default function Contact() {
       <div className="md:w-1/2 p-8">
         <H2>Get In Touch</H2>
         <p>Contact with us!</p>
+        <ContactForm />
       </div>
     </section>
   );
