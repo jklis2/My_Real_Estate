@@ -4,6 +4,7 @@ import Hero from "../containers/Hero";
 import LatestOffers from "../containers/LatestOffers";
 import PricingPlans from "../containers/PricingPlans";
 import HowItWorks from "../containers/HowItWorks";
+import FAQ from "../containers/FAQ"
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <LatestOffers />
       <PricingPlans />
       <HowItWorks />
+      <FAQ />
       <Contact />
     </main>
   );
