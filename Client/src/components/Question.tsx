@@ -30,7 +30,7 @@ export default function Question({
               ? "text-gray-700 bg-gray-100"
               : "text-gray-500 bg-white"
           } ${isFirst ? "border-gray-200 rounded-t-xl" : "border-t-0"}
-          border dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3 focus:ring-4 focus:ring-gray-200`}
+          border hover:bg-gray-100  gap-3 focus:ring-4 focus:ring-gray-200`}
           data-accordion-target={`#accordion-collapse-body-${number}`}
           aria-expanded={isAccordionOpen}
           aria-controls={`accordion-collapse-body-${number}`}
@@ -47,7 +47,7 @@ export default function Question({
         id={`accordion-collapse-body-${number}`}
         className={`${
           isAccordionOpen ? "block" : "hidden"
-        } p-5 border border-gray-200 dark:border-gray-700 dark:bg-gray-900`}
+        } p-5 border border-gray-200`}
         aria-labelledby={`accordion-collapse-heading-${number}`}
       >
         <P className="text-left">{answer}</P>
