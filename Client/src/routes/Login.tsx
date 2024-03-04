@@ -4,6 +4,7 @@ import P from "../components/P";
 import Button from "../components/Button";
 import SocialButton from "../components/SocialButton";
 import { FaGoogle, FaApple } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
@@ -28,7 +29,7 @@ export default function Login() {
           <SocialButton icon={<FaApple />} name="Facebook" />
         </div>
       </div>
-      <P className="text-center text-blue-600 mt-5">No account yet? Sign Up</P>
+      <P className="text-center text-blue-600 mt-5">No account yet? <Link to="/auth/register">Sign Up</Link></P>
     </>
   );
 }
