@@ -7,15 +7,15 @@ export default function HeroForm() {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className="px-16 mb-16 z-10 relative"
+      className="px-8 mb-16 z-10 relative"
     >
-      <div className="px-16 ">
-        <div className="bg-slate-50 opacity-80 h-16 rounded-full flex justify-stretch">
-        <HeroSelect name="transaction" id="" text="For sell"/>
-        <HeroSelect name="property" id="" text="Property"/>
-        <HeroInput type="text" placeholder = "Search location or name" />
+      <div className="lg:px-16 ">
+        <div className="lg:bg-slate-50 opacity-80 rounded-full flex flex-col gap-3 lg:flex-row">
+          <HeroSelect name="transaction" id="" text="For sell" />
+          <HeroSelect name="property" id="" text="Property" />
+          <HeroInput type="text" placeholder="Search location or name" />
           <div className="flex align-center py-2 me-2">
-            <Button>
+            <Button className="w-full flex justify-center lg:block">
               <IoSearchOutline size={25} />
             </Button>
           </div>

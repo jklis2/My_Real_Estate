@@ -4,11 +4,13 @@ import P from "./P";
 interface CardProps {
   url: string;
   location: string;
+  style?: object;
 }
-export default function OfferCard({ url, location }: CardProps) {
+export default function OfferCard({ url, location, style }: CardProps) {
   return (
     <div
       className={`h-[35rem] bg-[${url}] bg-cover bg-center rounded-2xl w-full relative`}
+      style={style}
     >
       <div className="absolute flex items-center p-3 text-gray-700">
         <FaMapPin size={25} />
@@ -17,3 +19,5 @@ export default function OfferCard({ url, location }: CardProps) {
     </div>
   );
 }
+
+
