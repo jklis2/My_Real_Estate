@@ -7,7 +7,9 @@ export default {
       "bg-imgOne": "url('./assets/Gallery1.png')",
       "bg-imgSecond": "url('./assets/Gallery2.png')",
       "bg-imgThird": "url('./assets/Gallery3.png')",
-
+      boxShadow: {
+        'full': '0 0 60px -15px rgba(0, 0, 0, 0.3)',
+      }
     },
     fontFamily: {
       lato: ["Lato", "sans-serif"],

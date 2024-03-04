@@ -5,5 +5,9 @@ interface AuthProps {
 }
 
 export default function AuthPanel({ children }: AuthProps) {
-  return <div>{children}</div>;
+  return (
+    <main className="flex items-center justify-center min-h-screen">
+      <div className="shadow-full rounded-lg p-16 m-4">{children}</div>
+    </main>
+  );
 }
