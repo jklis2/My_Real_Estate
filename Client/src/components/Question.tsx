@@ -38,7 +38,7 @@ export default function Question({
         >
           <div className="flex items-center gap-3">
             <FAQNumber number={number} />
-            <H3 className="mb-0">{title}</H3>
+            <H3>{title}</H3>
           </div>
           <AccordionIcon isAccordionOpen={isAccordionOpen} />
         </button>

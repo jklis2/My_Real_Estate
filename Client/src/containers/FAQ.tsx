@@ -15,7 +15,7 @@ export default function FAQ() {
   return (
     <section className="my-16 text-center">
       <H2 className="mb-6">Do you Have Questions?</H2>
-      <H3>We have answers</H3>
+      <H3 className="mb-8">We have answers</H3>
       <div className="flex justify-center items-center border-b-2 border-gray-700">
         <img src={FAQImg} alt="FAQ image" />
       </div>
