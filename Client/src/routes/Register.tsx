@@ -20,7 +20,7 @@ export default function Register() {
         </P>
         <span className="text-red-600">*</span>
       </div>
-      <Button className="mt-4 w-96">Register</Button>
+      <Button className="mt-4 w-full">Register</Button>
       <div className="text-center border-t border-b border-slate-300 mt-5">
         <P className="my-5">Or sign up with:</P>
         <div className="flex gap-2 mb-5">

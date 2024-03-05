@@ -20,7 +20,9 @@ export default function Navbar() {
             <img className="h-16 w-auto" src={NavLogo} alt="NavLogo" />
           </a>
         </div>
-        <BurgerMenu toggleMenu={toggleMenu} />
+        <div className="lg:hidden">
+          <BurgerMenu toggleMenu={toggleMenu} />
+        </div>
         <div className="hidden lg:flex lg:gap-x-12">
           <a href="#" className="text-xl uppercase leading-6 text-gray-700">
             About

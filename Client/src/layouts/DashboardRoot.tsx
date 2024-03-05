@@ -4,9 +4,9 @@ import Sidebar from "./Sidebar";
 
 export default function DashboardLayout() {
   return (
-    <div className="flex">
+    <div className="flex max-w-screen">
       <Sidebar />
-      <main>
+      <main className="w-full">
         <DashboardNav />
         <Outlet />
       </main>
