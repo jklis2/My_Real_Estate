@@ -24,7 +24,7 @@ export default function Register() {
         <P className="my-5">Or sign up with:</P>
         <div className="flex gap-2 mb-5">
           <SocialButton icon={<FaGoogle />} name="Google" />
-          <SocialButton icon={<FaApple />} name="Facebook" />
+          <SocialButton icon={<FaApple />} name="Apple" />
         </div>
       </div>
       <P className="text-center text-blue-600 mt-5">Already have an account?</P>

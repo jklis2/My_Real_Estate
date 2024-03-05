@@ -26,7 +26,7 @@ export default function Login() {
         <P className="my-5">Or sign in with:</P>
         <div className="flex gap-2 mb-5">
           <SocialButton icon={<FaGoogle />} name="Google" />
-          <SocialButton icon={<FaApple />} name="Facebook" />
+          <SocialButton icon={<FaApple />} name="Apple" />
         </div>
       </div>
       <P className="text-center text-blue-600 mt-5">No account yet? <Link to="/auth/register">Sign Up</Link></P>
