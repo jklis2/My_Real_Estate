@@ -18,6 +18,7 @@ export default function Register() {
         <P className="text-xs pl-3">
           I accept the regulations and privacy policy
         </P>
+        <span className="text-red-600">*</span>
       </div>
       <Button className="mt-4 w-96">Register</Button>
       <div className="text-center border-t border-b border-slate-300 mt-5">

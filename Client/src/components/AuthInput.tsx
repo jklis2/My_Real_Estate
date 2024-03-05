@@ -2,19 +2,46 @@ interface AuthProps {
   id: string;
   label: string;
   placeholder: string;
+  options?: string[];
+  required?: boolean;
 }
 
-export default function AuthInput({ id, label, placeholder }: AuthProps) {
+export default function AuthInput({
+  id,
+  label,
+  placeholder,
+  options,
+  required,
+}: AuthProps) {
   return (
-    <form className="flex flex-col space-y-1">
-      <label htmlFor={id} className="mt-4 text-xs text-gray-700">
+    <div className="flex flex-col space-y-1">
+      <label htmlFor={id} className="mt-4 text-base text-gray-700">
         {label}
+        {required && <span className="text-red-600">*</span>}
       </label>
-      <input
-        id={id}
-        placeholder={placeholder}
-        className="text-sm pl-5 h-10 w-96 bg-gray-200 rounded-md border-b border-gray-300 text-gray-500 placeholder-gray-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
-      />
-    </form>
+      {options ? (
+        <select
+          id={id}
+          className="text-lg pl-5 h-10 w-96 bg-gray-200 rounded-md border-b border-gray-300 text-gray-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
+          defaultValue=""
+        >
+          <option value="" disabled hidden>
+            {placeholder}
+          </option>
+          {options.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      ) : (
+        <input
+          id={id}
+          type="text"
+          placeholder={placeholder}
+          className="text-lg pl-5 h-10 w-96 bg-gray-200 rounded-md border-b border-gray-300 text-gray-500 placeholder-gray-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
+        />
+      )}
+    </div>
   );
 }
