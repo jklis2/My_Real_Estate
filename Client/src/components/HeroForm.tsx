@@ -10,7 +10,7 @@ export default function HeroForm() {
       className="px-8 mb-16 z-10 relative"
     >
       <div className="lg:px-16 ">
-        <div className="lg:bg-slate-50 opacity-80 rounded-full flex flex-col gap-3 lg:flex-row">
+        <div className="lg:bg-slate-50 opacity-80 rounded-full flex flex-col gap-3 mt-8 lg:mt-0 lg:flex-row">
           <HeroSelect name="transaction" id="" text="For sell" />
           <HeroSelect name="property" id="" text="Property" />
           <HeroInput type="text" placeholder="Search location or name" />

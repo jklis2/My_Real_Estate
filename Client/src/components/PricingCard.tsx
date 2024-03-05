@@ -24,7 +24,7 @@ export default function PricingCard({
         variant === "dark" && "bg-slate-300"
       } border rounded-2xl text-left text-neutral-700 hover:scale-110 transition duration-300`}
     >
-      <div className="px-12 py-12">
+      <div className="p-8 sm:p-12">
         <H3 className="mb-8">{plan}</H3>
         <P className="my-3">
           <span className="text-4xl font-bold">${price}</span> /month

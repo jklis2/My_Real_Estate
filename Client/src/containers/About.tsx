@@ -5,7 +5,7 @@ import P from "../components/P"
 export default function About() {
   return (
     <section className="flex flex-col md:flex-row items-center my-16 text-neutral-700 ">
-      <div className="md:w-1/2 xl:p-8">
+      <div className="md:w-1/2 p-8">
         <H2> My Real Estate: Your Trusted Partner in Property Management</H2>
         <P className="text-gray-700">
           My Real Estate is where reliability meets convenience in property
@@ -16,7 +16,7 @@ export default function About() {
           estate experience.
         </P>
       </div>
-      <div className="md:w-1/2 md:p-8 2xl:p-16">
+      <div className="md:w-1/2 md:p-8 p-8">
         <img className="rounded-lg shadow-md" src={aboutImg} alt="About us" />
       </div>
     </section>

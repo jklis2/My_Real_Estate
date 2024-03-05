@@ -12,7 +12,7 @@ export default function Contact() {
   return (
     <section className="flex flex-col md:flex-row my-16 text-neutral-700">
       <div className="md:w-1/2 p-8">
-        <H2>Contact Information</H2>
+        <H2 className="text-center sm:text-left">Contact Information</H2>
         <ContactInformation
           text="Random Street 11, Ziemia, 00-000 Internet "
           icon={<BsGeoAltFill size={50} />}

@@ -42,11 +42,21 @@ export default function LatestOffers() {
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
     <section className="lg:my-16 text-center relative">
       <H2>Latest Offers</H2>
+
       <Slider {...settings}>
         {SLIDES.map((slide, index) => (
           <div key={index} className="px-4">

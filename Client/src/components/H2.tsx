@@ -6,7 +6,7 @@ interface H2Props {
 }
 export default function H2({ children, className }: H2Props) {
   return (
-    <h2 className={`${className || ""} text-4xl font-bold mb-12 text-neutral-700`}>
+    <h2 className={`${className || ""} sm:text-3xl text-4xl font-bold mb-12 text-neutral-700`}>
       {children}
     </h2>
   );

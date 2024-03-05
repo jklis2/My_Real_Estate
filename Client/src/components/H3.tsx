@@ -6,7 +6,7 @@ interface H3Props {
 }
 export default function H3({ children, className }: H3Props) {
   return (
-    <h3 className={`${className || ""} text-3xl font-bold text-neutral-700`}>
+    <h3 className={`${className || ""} text-2xl md:text-3xl font-bold text-neutral-700`}>
       {children}
     </h3>
   );

@@ -13,7 +13,7 @@ export default function PricingPlans() {
   return (
     <section className="my-16 text-center">
       <H2>Pricing plans</H2>
-      <P className="px-16 mx-16 mb-10">
+      <P className="px-8 sm:px-16 md:mx-16 mb-10">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
         hic vero molestiae inventore ex facere expedita iste tenetur et vel,
         quia unde assumenda facilis corporis suscipit possimus tempora soluta

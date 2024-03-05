@@ -1,12 +1,12 @@
 interface InformationProps {
-  icon: JSX.Element,
-  text: string
+  icon: JSX.Element;
+  text: string;
 }
 
 export default function ContactInformation({ icon, text }: InformationProps) {
   return (
-    <div className="flex my-8 items-center">
-      {icon} <span className="ml-5 text-xl">{text}</span>
+    <div className="flex flex-col justify-center sm:justify-normal sm:flex-row my-8 items-center ">
+      {icon} <span className="mt-6 text-center md:mt-0 ml-5 text-base sm:text-xl">{text}</span>
     </div>
   );
 }

@@ -21,7 +21,7 @@ export default function Question({
   isFirst,
 }: QuestionProps) {
   return (
-    <div className="w-full px-12">
+    <div className="w-full px-8">
       <h2 id={`accordion-collapse-heading-${number}`}>
         <button
           type="button"
@@ -36,7 +36,7 @@ export default function Question({
           aria-controls={`accordion-collapse-body-${number}`}
           onClick={toggleAccordion}
         >
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 -translate-x-11">
             <FAQNumber number={number} />
             <H3>{title}</H3>
           </div>
