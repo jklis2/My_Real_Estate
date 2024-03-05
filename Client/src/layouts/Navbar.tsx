@@ -1,9 +1,14 @@
+import { useState } from "react";
 import Button from "../components/Button";
 import NavLogo from "../assets/Logo.png";
 import BurgerMenu from "../components/BurgerMenu";
 import { Link } from "react-router-dom";
+import MobileNavbar from "./MobileNavbar";
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   return (
     <header>
       <nav
@@ -15,7 +20,7 @@ export default function Navbar() {
             <img className="h-16 w-auto" src={NavLogo} alt="NavLogo" />
           </a>
         </div>
-        <BurgerMenu />
+        <BurgerMenu toggleMenu={toggleMenu} />
         <div className="hidden lg:flex lg:gap-x-12">
           <a href="#" className="text-xl uppercase leading-6 text-gray-700">
             About
@@ -36,6 +41,8 @@ export default function Navbar() {
           </Link>
         </div>
       </nav>
+
+      {isOpen && <MobileNavbar toggleMenu={toggleMenu} />}
     </header>
   );
 }

@@ -4,6 +4,11 @@ import Home from "./routes/Home";
 import AuthLayout from "./layouts/AuthRoot";
 import Login from "./routes/Login";
 import Register from "./routes/Register";
+import DashboardLayout from "./layouts/DashboardRoot";
+import Dashboard from "./routes/Dashboard";
+import Rent from "./routes/Rent";
+import Properties from "./routes/Properties";
+import Tenants from "./routes/Tenants";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +32,28 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <Dashboard />,
+      },
+      {
+        path: "rent",
+        element: <Rent />,
+      },
+      {
+        path: "properties",
+        element: <Properties />,
+      },
+      {
+        path: "tenants",
+        element: <Tenants />,
       },
     ],
   },
