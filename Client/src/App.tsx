@@ -9,6 +9,8 @@ import Dashboard from "./routes/Dashboard";
 import Rent from "./routes/Rent";
 import Properties from "./routes/Properties";
 import Tenants from "./routes/Tenants";
+import Reports from "./routes/Reports";
+import Settings from "./routes/Settings";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +56,14 @@ const router = createBrowserRouter([
       {
         path: "tenants",
         element: <Tenants />,
+      },
+      {
+        path: "reports",
+        element: <Reports />,
+      },
+      {
+        path: "settings",
+        element: <Settings />,
       },
     ],
   },
