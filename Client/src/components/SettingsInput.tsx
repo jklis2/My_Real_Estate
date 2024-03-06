@@ -10,7 +10,7 @@ export default function SettingsInput({
   className,
 }: SettingsProps) {
   return (
-    <div className={`${className || ""} w-96 flex flex-col my-4`}>
+    <div className={`${className || ""} flex flex-col my-2`}>
       {label && <label className="mb-3">{label}</label>}
       <input
         className="p-3 border border-slate-300 rounded-xl"
