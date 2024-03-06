@@ -16,7 +16,7 @@ export default function Login() {
       <LoginForm />
       <div className="flex justify-between items-center pt-1">
         <div className="pt-5 flex items-center">
-          <input type="checkbox"></input>
+          <input type="checkbox" />
           <P className="text-sm pl-3">Remember me</P>
         </div>
         <P className="text-sm text-blue-600 pt-5">Forgot Password?</P>
@@ -29,7 +29,9 @@ export default function Login() {
           <SocialButton icon={<FaApple />} name="Apple" />
         </div>
       </div>
-      <P className="text-center text-blue-600 mt-5">No account yet? <Link to="/auth/register">Sign Up</Link></P>
+      <P className="text-center text-blue-600 mt-5">
+        No account yet? <Link to="/auth/register">Sign Up</Link>
+      </P>
     </>
   );
 }

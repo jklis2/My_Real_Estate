@@ -33,9 +33,12 @@ export default function Navbar() {
           <a href="#" className="text-xl uppercase leading-6 text-gray-700">
             Property
           </a>
-          <a href="#" className="text-xl uppercase leading-6 text-gray-700">
-            Contact
-          </a>
+          <Link
+            to="dashboard"
+            className="text-xl uppercase leading-6 text-gray-700"
+          >
+            Dashboard
+          </Link>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link to="/auth/login">

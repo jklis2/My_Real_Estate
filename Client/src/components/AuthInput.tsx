@@ -16,7 +16,8 @@ export default function AuthInput({
   return (
     <div className=" flex flex-col space-y-1">
       <label htmlFor={id} className="mt-4 mb-1 text-base text-gray-700">
-        {label}{required && <span className="text-red-600">*</span>}
+        {label}
+        {required && <span className="text-red-600">*</span>}
       </label>
       {options ? (
         <select
