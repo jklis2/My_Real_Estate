@@ -8,7 +8,7 @@ export default function SettingsNav() {
   };
   return (
     <header className="rounded-full bg-slate-300 py-2">
-      <nav className="w-100 flex justify-between items-center text-center text-xl px-6">
+      <nav className="w-100 flex justify-between items-center text-center text-xl px-3">
         <NavLink className={navLinkCssClasses} to="profile">
           Profile
         </NavLink>

@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 import { useState } from "react";
 
 export default function DashboardLayout() {
-  const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
+  const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(window.innerWidth > 768);
   const toggleSidebar = () =>
     setIsSidebarVisible((prevOpen: boolean) => !prevOpen);
 
