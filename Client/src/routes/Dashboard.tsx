@@ -1,6 +1,6 @@
 import P from "../components/P";
 import TimeLine from "../components/TimeLine";
-import LatestProperties from "../containers/LatestProperties";
+import PropertiesList from "../containers/PropertiesList";
 import QuickStats from "../containers/QuickStats";
 
 export default function Dashboard() {
@@ -10,7 +10,7 @@ export default function Dashboard() {
       <P className="mt-3">Here's what's happening with your properties</P>
       <QuickStats />
       <TimeLine />
-      <LatestProperties />
+      <PropertiesList title="Your recent properties"/>
     </div>
   );
 }

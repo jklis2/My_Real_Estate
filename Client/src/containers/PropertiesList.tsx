@@ -1,10 +1,14 @@
 import H2 from "../components/H2";
 import PropertyCard from "../components/PropertyCard";
 
-export default function LatestProperties() {
+interface PropertiesProps {
+  title: string;
+}
+
+export default function PropertiesList({ title }: PropertiesProps) {
   return (
     <section className="my-10">
-      <H2>Your recent properties</H2>
+      <H2>{title}</H2>
       <div className="flex gap-10">
         <PropertyCard
           name="The Verano"
