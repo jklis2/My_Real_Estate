@@ -6,7 +6,7 @@ export default function DashboardLayout() {
   return (
     <div className="flex max-w-screen">
       <Sidebar />
-      <main className="w-full">
+      <main className="w-full relative">
         <DashboardNav />
         <Outlet />
       </main>

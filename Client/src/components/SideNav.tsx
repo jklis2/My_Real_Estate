@@ -1,74 +1,52 @@
 import { useState } from "react";
 import NavLink from "./SideLink";
-import {
-  IoHome,
-  IoHomeOutline,
-  IoKeyOutline,
-  IoSettingsOutline,
-} from "react-icons/io5";
-import { BsPeople } from "react-icons/bs";
-import { FaRegFile } from "react-icons/fa";
+import { LINKS_BEFORE, LINKS_AFTER } from "../consts/links";
 import Button from "./Button";
+import NavLogo from "../assets/Logo.png";
 
 export default function SideNav() {
-  const [activeLink, setActiveLink] = useState<string>("/dashboard"); // Stan inicjalny dla dashboard
+  const [activeLink, setActiveLink] = useState<string>("/dashboard");
 
-  const handleSetActiveLink = (path: string) => {
-    // Przyjęcie pełnej ścieżki dla kliknięcia
+  const handleSetActiveLink = (path: string) =>
     setActiveLink(`/dashboard${path !== "/dashboard" ? `/${path}` : ""}`);
-  };
 
   return (
-    <div>
-      <nav className="mx-12 flex flex-col justify-between">
-        <div>
-          <NavLink
-            to="/dashboard" // Pełna ścieżka dla dashboard
-            icon={IoHome}
-            label="Dashboard"
-            isActive={activeLink === "/dashboard"}
-            onClick={() => handleSetActiveLink("/dashboard")}
-          />
-          <NavLink
-            to="/dashboard/properties" 
-            icon={IoHomeOutline}
-            label="Properties"
-            isActive={activeLink === "/dashboard/properties"}
-            onClick={() => handleSetActiveLink("properties")}
-          />
-          <NavLink
-            to="/dashboard/rent"
-            icon={IoKeyOutline}
-            label="Rent"
-            isActive={activeLink === "/dashboard/rent"}
-            onClick={() => handleSetActiveLink("rent")}
-          />
-          <NavLink
-            to="/dashboard/tenants"
-            icon={BsPeople}
-            label="Tenants"
-            isActive={activeLink === "/dashboard/tenants"}
-            onClick={() => handleSetActiveLink("tenants")}
-          />
+    <nav className="mx-12 fixed h-screen flex flex-col justify-between py-6">
+      <div className="">
+        <div className="flex lg:flex-1 justify-center m-3">
+          <a href="#" className="mb-3">
+            <img className="h-16 w-auto" src={NavLogo} alt="NavLogo" />
+          </a>
         </div>
-        <div className="text-center">
-          <Button className="w-56">New property</Button>
+        {LINKS_BEFORE.map((link, index) => (
           <NavLink
-            to="/dashboard/reports"
-            icon={FaRegFile}
-            label="Reports"
-            isActive={activeLink === "/dashboard/reports"}
-            onClick={() => handleSetActiveLink("reports")}
+            key={index}
+            to={link.to}
+            icon={link.icon}
+            label={link.label}
+            isActive={activeLink === link.to}
+            onClick={() =>
+              handleSetActiveLink(link.to.replace("/dashboard/", ""))
+            }
           />
+        ))}
+      </div>
+
+      <div className="text-center">
+        <Button className="w-full">New property</Button>
+        {LINKS_AFTER.map((link, index) => (
           <NavLink
-            to="/dashboard/settings"
-            icon={IoSettingsOutline}
-            label="Settings"
-            isActive={activeLink === "/dashboard/settings"}
-            onClick={() => handleSetActiveLink("settings")}
+            key={index}
+            to={link.to}
+            icon={link.icon}
+            label={link.label}
+            isActive={activeLink === link.to}
+            onClick={() =>
+              handleSetActiveLink(link.to.replace("/dashboard/", ""))
+            }
           />
-        </div>
-      </nav>
-    </div>
+        ))}
+      </div>
+    </nav>
   );
 }
