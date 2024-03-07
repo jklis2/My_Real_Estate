@@ -11,14 +11,10 @@ interface ArrowProps {
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const NextArrow: React.FunctionComponent<ArrowProps> = ({
-  className,
-  style,
-  onClick,
-}) => {
+const NextArrow: React.FunctionComponent<ArrowProps> = ({ style, onClick }) => {
   return (
     <div
-      className={`text-neutral-700 absolute right-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10 ${className}`}
+      className={`text-slate-500 absolute right-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10`}
       style={{ ...style, display: "block", fontSize: "50px" }}
       onClick={onClick}
     >
@@ -27,14 +23,10 @@ const NextArrow: React.FunctionComponent<ArrowProps> = ({
   );
 };
 
-const PrevArrow: React.FunctionComponent<ArrowProps> = ({
-  className,
-  style,
-  onClick,
-}) => {
+const PrevArrow: React.FunctionComponent<ArrowProps> = ({ style, onClick }) => {
   return (
     <div
-      className={`text-neutral-700 absolute left-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10 ${className}`}
+      className={`text-slate-500 absolute left-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10 `}
       style={{ ...style, display: "block", fontSize: "50px" }}
       onClick={onClick}
     >
@@ -58,12 +50,12 @@ const Gallery = () => {
     <section className="my-6">
       <div className="h-96">
         <img
-          className="w-full h-full"
+          className="w-full h-full rounded-2xl"
           src="https://picsum.photos/2160/1440"
           alt="Sample"
         />
       </div>
-      <Slider {...settings}>
+      <Slider {...settings} className="mt-6">
         <Photo />
         <Photo />
         <Photo />
