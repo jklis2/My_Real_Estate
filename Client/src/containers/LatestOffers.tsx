@@ -4,8 +4,6 @@ import H2 from "../components/H2";
 import OfferCard from "../components/OfferCard";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import { SLIDES } from "../consts/slides";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 interface ArrowProps {
   onClick?: React.MouseEventHandler<HTMLDivElement>;
