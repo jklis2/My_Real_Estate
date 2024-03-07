@@ -7,6 +7,7 @@ interface CardProps {
   price?: string;
   action?: JSX.Element;
   className?: string;
+  area?: string;
 }
 
 export default function PropertyCard({
@@ -16,6 +17,7 @@ export default function PropertyCard({
   price,
   action,
   className,
+  area,
 }: CardProps) {
   return (
     <div className={`${className || ""} rounded-xl flex-1 me-10`}>
@@ -24,6 +26,7 @@ export default function PropertyCard({
       <P>{location}</P>
       {price && <P>{price}</P>}
       {action}
+      {area && <P>{area}</P>}
     </div>
   );
 }
