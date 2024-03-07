@@ -16,6 +16,12 @@ import Billing from "./routes/Billing";
 import Security from "./routes/Security";
 import Notifications from "./routes/Notifications";
 import SettingsLayout from "./layouts/SettingsRoot";
+import PropertyListing from "./routes/PropertyListing";
+import Property from "./routes/Property";
+import AdminPanel from "./routes/AdminPanel";
+import PropertyManagement from "./routes/PropertyManagement";
+import UsersManagement from "./routes/UsersManagement";
+import AdminSettings from "./routes/AdminSettings";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +31,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "properties",
+        element: <PropertyListing />,
+      },
+      {
+        path: "property/:id",
+        element: <Property />,
       },
     ],
   },
@@ -87,6 +101,28 @@ const router = createBrowserRouter([
             element: <Notifications />,
           },
         ],
+      },
+    ],
+  },
+  {
+    path: "admin",
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <AdminPanel />,
+      },
+      {
+        path: "properties",
+        element: <PropertyManagement />,
+      },
+      {
+        path: "users",
+        element: <UsersManagement />,
+      },
+      {
+        path: "settings",
+        element: <AdminSettings />,
       },
     ],
   },
