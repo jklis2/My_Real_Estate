@@ -7,7 +7,7 @@ export default function PushNotifications() {
   return (
     <>
       <H2 className="my-4 mb-0">Push Notifications</H2>
-      <SettingsInput label="Default SMS number"></SettingsInput>
+      <SettingsInput label="Default SMS number" value="563 634 926"></SettingsInput>
       <div className="flex flex-col">
         <SettingsCheck name="Someone comments on your post" />
         <SettingsCheck name="Someone shares your post" />

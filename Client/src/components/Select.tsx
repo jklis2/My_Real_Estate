@@ -3,9 +3,10 @@ import React, { useState } from "react";
 interface SelectProps {
   placeholder: string;
   options: string[];
+  label?: string;
 }
 
-export default function Select({ placeholder, options }: SelectProps) {
+export default function Select({ placeholder, options, label }: SelectProps) {
   const [selectedOption, setSelectedOption] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -13,9 +14,10 @@ export default function Select({ placeholder, options }: SelectProps) {
   };
 
   return (
-    <div>
+    <div className="flex flex-col my-2">
+      {label && <label className="mb-3">{label}</label>}
       <select
-        className="border border-neutral-300 rounded-xl text-neutral-700 text-xl w-96 p-3"
+        className="border border-neutral-300 rounded-xl text-neutral-700 text-xl p-3"
         value={selectedOption}
         onChange={handleChange}
       >

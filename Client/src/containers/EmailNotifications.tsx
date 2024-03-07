@@ -6,7 +6,7 @@ export default function EmailNotifications() {
   return (
     <>
       <H2 className="my-4 mb-0">Email Notifications</H2>
-      <SettingsInput label="Default notification email"></SettingsInput>
+      <SettingsInput label="Default notification email" value="user@gmail.com"></SettingsInput>
       <div className="flex flex-col">
         <SettingsCheck name="Changes made to your account" />
         <SettingsCheck name="Changes are made to groups you're part of" />
