@@ -14,7 +14,7 @@ export default function Select({ placeholder, options, label }: SelectProps) {
   };
 
   return (
-    <div className="flex flex-col my-2">
+    <div className="flex flex-col my-2 w-full">
       {label && <label className="mb-3">{label}</label>}
       <select
         className="border border-neutral-300 rounded-xl text-neutral-700 text-xl p-3"

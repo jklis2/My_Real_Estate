@@ -5,8 +5,8 @@ import SettingsInput from "../components/SettingsInput";
 
 export default function PushNotifications() {
   return (
-    <>
-      <H2 className="my-4 mb-0">Push Notifications</H2>
+    <section className="my-10">
+      <H2 className="mb-4">Push Notifications</H2>
       <SettingsInput label="Default SMS number" value="563 634 926"></SettingsInput>
       <div className="flex flex-col">
         <SettingsCheck name="Someone comments on your post" />
@@ -14,7 +14,7 @@ export default function PushNotifications() {
         <SettingsCheck name="A user follows your account" />
         <SettingsCheck name="New posts are made in groups you're part of" />
       </div>
-      <Button className="my-5">Save Changes</Button>
-    </>
+      <Button className="my-4">Save Changes</Button>
+    </section>
   );
 }

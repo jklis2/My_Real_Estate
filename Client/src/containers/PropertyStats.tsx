@@ -3,8 +3,8 @@ import StatsCard from "../components/StatsCard";
 
 export default function PropertyStats() {
   return (
-    <section className="mt-7">
-      <H2>Property statisics</H2>
+    <section className="my-10">
+      <H2 className="mb-4">Property statisics</H2>
       <div className="flex gap-8 me-6">
         <StatsCard name="New properties" amount="5.920" theme="dark" progress={-15}/>
         <StatsCard name="New units" amount="12.820" theme="dark" progress={20}/>

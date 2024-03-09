@@ -12,7 +12,7 @@ export default function PricingPlans() {
   ];
   return (
     <section className="my-16 text-center">
-      <H2>Pricing plans</H2>
+      <H2 className="mb-8">Pricing plans</H2>
       <P className="px-8 sm:px-16 md:mx-16 mb-10">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
         hic vero molestiae inventore ex facere expedita iste tenetur et vel,
@@ -20,7 +20,7 @@ export default function PricingPlans() {
         voluptate.
       </P>
 
-      <div className="flex flex-col lg:flex-row gap-8 justify-center items-center my-10">
+      <div className="flex flex-col lg:flex-row gap-8 justify-center items-center my-10 p-6">
         <PricingCard
           plan="Free"
           variant="light"

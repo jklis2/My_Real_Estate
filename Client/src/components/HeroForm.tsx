@@ -13,7 +13,7 @@ export default function HeroForm() {
         <div className="lg:bg-slate-50 opacity-80 rounded-full flex flex-col gap-3 mt-8 lg:mt-0 lg:flex-row">
           <HeroSelect name="transaction" id="" text="For sell" />
           <HeroSelect name="property" id="" text="Property" />
-          <HeroInput type="text" placeholder="Search location or name" />
+          <HeroInput type="text" id="search" placeholder="Search location or name" />
           <div className="flex align-center py-2 me-2">
             <Button className="w-full flex justify-center lg:block">
               <IoSearchOutline size={25} />

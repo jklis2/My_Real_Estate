@@ -9,7 +9,7 @@ import StepCard from "../components/StepCard";
 export default function HowItWorks() {
   return (
     <section className="my-16 text-center">
-      <H2>How it works?</H2>
+      <H2 className="mb-8">How it works?</H2>
       <P className="px-8 sm:px-16 md:mx-16 mb-10">
         Lorem ipsum dolor sit amet dolor siti conse ctetur adipiscing elit.
       </P>

@@ -8,7 +8,7 @@ interface PropertiesProps {
 export default function PropertiesList({ title }: PropertiesProps) {
   return (
     <section className="my-10">
-      <H2>{title}</H2>
+      <H2 className="mb-4">{title}</H2>
       <div className="flex gap-10">
         <PropertyCard
           name="The Verano"

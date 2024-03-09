@@ -3,7 +3,7 @@ import H2 from "./H2";
 export default function TimeLine() {
   return (
     <section className="my-10">
-      <H2>Quick Stats</H2>
+      <H2 className="mb-4">Quick Stats</H2>
       <ol className="relative border-s border-gray-400">
         <li className="mb-10 ms-4 ">
           <div className="absolute   w-3 h-3 bg-neutral-700 border-neutral-700 rounded-full mt-1.5 -start-1.5 border"></div>

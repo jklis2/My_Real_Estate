@@ -31,7 +31,7 @@ export default function Contact() {
         />
       </div>
       <div className="md:w-1/2 p-8">
-        <H2>Get In Touch</H2>
+        <H2 className="mb-4">Get In Touch</H2>
         <p>Contact with us!</p>
         <ContactForm />
       </div>

@@ -3,6 +3,7 @@ import NavLink from "./SideLink";
 import { LINKS_BEFORE, LINKS_AFTER } from "../consts/links";
 import Button from "./Button";
 import NavLogo from "../assets/Logo.png";
+import { Link } from "react-router-dom";
 
 export default function SideNav() {
   const [activeLink, setActiveLink] = useState<string>("/dashboard");
@@ -11,16 +12,14 @@ export default function SideNav() {
     setActiveLink(`/dashboard${path !== "/dashboard" ? `/${path}` : ""}`);
 
   return (
-    <nav className="mx-12 fixed h-screen flex flex-col justify-between py-6">
-      <div className="">
-        <div className="flex lg:flex-1 justify-center m-3">
-          <a href="#" className="mb-3">
-            <img className="h-16 w-auto" src={NavLogo} alt="NavLogo" />
-          </a>
-        </div>
-        {LINKS_BEFORE.map((link, index) => (
+    <nav className="mx-10 fixed h-screen flex flex-col justify-between py-6">
+      <div className="text-center">
+        <Link to="/dashboard" className="mb-3 flex justify-center">
+          <img className="h-16 w-auto" src={NavLogo} alt="NavLogo" />
+        </Link>
+        {LINKS_BEFORE.map((link) => (
           <NavLink
-            key={index}
+            key={link.id}
             to={link.to}
             icon={link.icon}
             label={link.label}
@@ -34,9 +33,9 @@ export default function SideNav() {
 
       <div className="text-center">
         <Button className="w-full">New property</Button>
-        {LINKS_AFTER.map((link, index) => (
+        {LINKS_AFTER.map((link) => (
           <NavLink
-            key={index}
+            key={link.id}
             to={link.to}
             icon={link.icon}
             label={link.label}

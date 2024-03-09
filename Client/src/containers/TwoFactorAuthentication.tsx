@@ -5,8 +5,8 @@ import SettingsRadio from "../components/SettingsRadio";
 
 export default function TwoFactorAuthentication() {
   return (
-    <>
-      <H2 className="my-4 mb-0">Two-Factor Authentication</H2>
+    <section className="my-10">
+      <H2 className="mb-4">Two-Factor Authentication</H2>
       <P>
         Add another level of security to your account by enabling two-factor
         authentication. We will send you a text message to verify your login
@@ -15,6 +15,6 @@ export default function TwoFactorAuthentication() {
       <SettingsRadio name="Two-Factor Authentication" />
       <SettingsRadio name="SMS Number" />
       <SettingsInput placeholder="111 222 333" />
-    </>
+    </section>
   );
 }

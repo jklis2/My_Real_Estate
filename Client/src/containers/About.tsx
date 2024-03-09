@@ -6,7 +6,7 @@ export default function About() {
   return (
     <section className="flex flex-col md:flex-row items-center my-16 text-neutral-700 ">
       <div className="md:w-1/2 p-8">
-        <H2> My Real Estate: Your Trusted Partner in Property Management</H2>
+        <H2 className="mb-8"> My Real Estate: Your Trusted Partner in Property Management</H2>
         <P className="text-gray-700">
           My Real Estate is where reliability meets convenience in property
           management. Trusted by a wide community, our app streamlines buying,

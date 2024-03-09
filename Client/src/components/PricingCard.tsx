@@ -25,7 +25,7 @@ export default function PricingCard({
       } border rounded-2xl text-left text-neutral-700 hover:scale-110 transition duration-300`}
     >
       <div className="p-8 sm:p-12">
-        <H3 className="mb-8">{plan}</H3>
+        <H3 className="mb-6">{plan}</H3>
         <P className="my-3">
           <span className="text-4xl font-bold">${price}</span> /month
         </P>
@@ -35,6 +35,7 @@ export default function PricingCard({
           {featuresList.map((feat) => (
             <li className="flex my-5">
               <FaCheckCircle
+              size={16}
                 className={`${
                   variant === "dark" ? "text-white" : "text-slate-300"
                 }`}

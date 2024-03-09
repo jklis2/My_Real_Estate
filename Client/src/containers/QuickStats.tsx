@@ -3,7 +3,7 @@ import StatsCard from "../components/StatsCard";
 export default function QuickStats() {
   return (
     <section className="my-10">
-      <H2>Quick stats</H2>
+      <H2 className="mb-4">Quick stats</H2>
       <div className="flex flex-wrap w-full gap-3 ">
         <StatsCard name="Properties" amount={12} />
         <StatsCard name="Leases" amount={24} />

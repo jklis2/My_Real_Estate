@@ -4,8 +4,8 @@ import { BsPerson, BsBuildings, BsCreditCard, BsUnlock  } from "react-icons/bs";
 
 export default function AllStats() {
   return (
-    <section className="mt-7">
-      <H2>All statisics</H2>
+    <section className="my-10" >
+      <H2 className="mb-4">All statisics</H2>
       <div className="flex gap-8 me-6">
         <StatsCard
           icon={<BsBuildings size={40} className="mb-3" />}

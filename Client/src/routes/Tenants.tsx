@@ -6,13 +6,12 @@ import TenantsList from "../containers/TenantsList";
 export default function Tenants() {
   return (
     <div className="p-6">
-      <H2>Filter</H2>
-      <div className="flex gap-10 pr-4 mb-10">
+      <H2 className="mb-4">Filter</H2>
+      <div className="flex justify-between gap-6">
         <Select placeholder="Property" options={["Property 1", "Property 2"]} />
         <Select placeholder="Order by" options={["A-Z", "Z-A"]} />
-        <Button className="w-36">Filter</Button>
+        <Button className="px-12">Filter</Button>
       </div>
-      <H2>Your Tenants:</H2>
       <TenantsList />
     </div>
   );

@@ -8,13 +8,23 @@ import { BsPeople } from "react-icons/bs";
 import { FaRegFile } from "react-icons/fa";
 
 export const LINKS_BEFORE = [
-  { to: "/dashboard", icon: IoHome, label: "Dashboard" },
-  { to: "/dashboard/properties", icon: IoHomeOutline, label: "Properties" },
-  { to: "/dashboard/rent", icon: IoKeyOutline, label: "Rent" },
-  { to: "/dashboard/tenants", icon: BsPeople, label: "Tenants" },
+  { id: 0, to: "/dashboard", icon: IoHome, label: "Dashboard" },
+  {
+    id: 1,
+    to: "/dashboard/properties",
+    icon: IoHomeOutline,
+    label: "Properties",
+  },
+  { id: 2, to: "/dashboard/rent", icon: IoKeyOutline, label: "Rent" },
+  { id: 3, to: "/dashboard/tenants", icon: BsPeople, label: "Tenants" },
 ];
 
 export const LINKS_AFTER = [
-  { to: "/dashboard/reports", icon: FaRegFile, label: "Reports" },
-  { to: "/dashboard/settings", icon: IoSettingsOutline, label: "Settings" },
+  { id: 0, to: "/dashboard/reports", icon: FaRegFile, label: "Reports" },
+  {
+    id: 1,
+    to: "/dashboard/settings/profile",
+    icon: IoSettingsOutline,
+    label: "Settings",
+  },
 ];

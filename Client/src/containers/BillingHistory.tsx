@@ -4,7 +4,7 @@ import Table from "../components/Table";
 export default function BillingHistory() {
   return (
     <section>
-      <H2>Billing History</H2>
+      <H2 className="mb-4">Billing History</H2>
       <Table />
     </section>
   );

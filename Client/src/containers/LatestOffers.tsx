@@ -42,7 +42,7 @@ export default function LatestOffers() {
     prevArrow: <PrevArrow />,
     responsive: [
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -53,7 +53,7 @@ export default function LatestOffers() {
 
   return (
     <section className="lg:my-16 text-center relative">
-      <H2>Latest Offers</H2>
+      <H2 className="mb-8">Latest Offers</H2>
 
       <Slider {...settings}>
         {SLIDES.map((slide, index) => (

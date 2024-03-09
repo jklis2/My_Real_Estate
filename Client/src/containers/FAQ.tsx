@@ -14,13 +14,13 @@ export default function FAQ() {
 
   return (
     <section className="my-16 text-center">
-      <H2 className="mb-6">Do you Have Questions?</H2>
-      <H3 className="mb-8">We have answers</H3>
+      <H2 className="mb-8">Do you Have Questions?</H2>
+      <H3 className="mb-6">We have answers</H3>
       <div className="flex justify-center items-center border-b-2 border-gray-700">
         <img src={FAQImg} alt="FAQ image" />
       </div>
 
-      <div className="mt-16 flex items-center space-x-4"></div>
+      <div className="mt-12 flex items-center space-x-4"></div>
       <div id="accordion-collapse" data-accordion="collapse">
         {QUESTIONS.map((question) => (
           <Question

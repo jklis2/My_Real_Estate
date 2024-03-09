@@ -1,6 +1,7 @@
 import StatsCard from "../components/StatsCard";
 import P from "../components/P";
 import Button from "../components/Button";
+import H2 from "../components/H2";
 
 export default function BillingStats() {
   const action = (
@@ -9,7 +10,8 @@ export default function BillingStats() {
     </P>
   );
   return (
-    <section>
+    <section className="my-10">
+      <H2 className="my-4 mb-4">Billing stats</H2>
       <div className="flex justify-between flex-wrap w-full gap-10 pe-10">
         <StatsCard
           name="Current monthly bill"
