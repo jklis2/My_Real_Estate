@@ -1,16 +1,16 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import H3 from "../components/H3";
+import H2 from "../components/H2";
 
 export default function Location() {
   return (
-    <section className="my-6">
-      <H3 className="mb-6">Location</H3>
-      <div className="w-full h-96">
+    <section className="my-10 ">
+      <H2 className="mb-6">Location</H2>
+      <div className="w-full h-128">
         <MapContainer
           center={[51.505, -0.09]}
           zoom={13}
           scrollWheelZoom={false}
-          className="h-full"
+          className="h-full rounded-xl"
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

@@ -1,12 +1,12 @@
-import H3 from "../components/H3";
+import H2 from "../components/H2";
 import P from "../components/P";
 
 export default function Description() {
   return (
-    <section className="my-6">
+    <section className="my-10">
       <div className="flex justify-between">
-        <H3>Pacific Heights, San Francisco</H3>
-        <H3>1200$/month</H3>
+        <H2 className="mb-6">Pacific Heights, San Francisco</H2>
+        <H2  className="mb-6">1200$/month</H2>
       </div>
       <P>
         This is a luxury 3 bedroom, 3 bathroom home in the most prestigious

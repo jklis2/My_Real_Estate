@@ -7,35 +7,32 @@ import "slick-carousel/slick/slick-theme.css";
 
 interface ArrowProps {
   className?: string;
-  style?: React.CSSProperties;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const NextArrow: React.FunctionComponent<ArrowProps> = ({ style, onClick }) => {
+const NextArrow: React.FunctionComponent<ArrowProps> = ({ onClick }) => {
   return (
     <div
       className={`text-slate-500 absolute right-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10`}
-      style={{ ...style, display: "block", fontSize: "50px" }}
       onClick={onClick}
     >
-      <RiArrowRightSLine />
+      <RiArrowRightSLine size={80}/>
     </div>
   );
 };
 
-const PrevArrow: React.FunctionComponent<ArrowProps> = ({ style, onClick }) => {
+const PrevArrow: React.FunctionComponent<ArrowProps> = ({ onClick }) => {
   return (
     <div
       className={`text-slate-500 absolute left-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10 `}
-      style={{ ...style, display: "block", fontSize: "50px" }}
       onClick={onClick}
     >
-      <RiArrowLeftSLine />
+      <RiArrowLeftSLine size={80}/>
     </div>
   );
 };
 
-const Gallery = () => {
+export default function Gallery() {
   const settings = {
     dots: false,
     infinite: true,
@@ -48,7 +45,7 @@ const Gallery = () => {
 
   return (
     <section className="my-6">
-      <div className="h-96">
+      <div className="h-128">
         <img
           className="w-full h-full rounded-2xl"
           src="https://picsum.photos/2160/1440"
@@ -64,6 +61,4 @@ const Gallery = () => {
       </Slider>
     </section>
   );
-};
-
-export default Gallery;
+}

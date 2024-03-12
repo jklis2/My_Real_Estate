@@ -1,10 +1,10 @@
-import H3 from "../components/H3";
+import H2 from "../components/H2";
 import PropertyCard from "../components/PropertyCard";
 
 export default function SimilarProperties() {
   return (
     <section className="my-6">
-      <H3 className="mb-4">Similar Properties</H3>
+      <H2 className="mb-6">Similar Properties</H2>
       <div className="flex gap-10">
         <PropertyCard
           name="The Verano"
