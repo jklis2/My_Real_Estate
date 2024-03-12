@@ -11,7 +11,7 @@ export default function Login() {
     <>
       <div className="text-center">
         <H2 className="mb-4">Welcome Back</H2>
-        <P>Please log in to continue</P>
+        <P>Please sign in to continue</P>
       </div>
       <LoginForm />
       <div className="flex justify-between items-center pt-1">
@@ -21,7 +21,7 @@ export default function Login() {
         </div>
         <P className="text-sm text-blue-600 pt-5">Forgot Password?</P>
       </div>
-      <Button className="mt-4 w-full ">Register</Button>
+      <Button className="mt-4 w-full ">Login</Button>
       <div className="text-center border-t border-b border-slate-300 mt-5">
         <P className="my-5">Or sign in with:</P>
         <div className="flex gap-2 mb-5">
