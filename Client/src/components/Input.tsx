@@ -31,6 +31,8 @@ export default function Input(props: InputProps) {
         autoComplete={props.autoComplete ? props.autoComplete : "off"}
         rows={5}
         className={props.className}
+        disabled={props.disabled}
+        value={props.value}
       ></textarea>
     </>
   ) : (
@@ -47,6 +49,8 @@ export default function Input(props: InputProps) {
         placeholder={props.placeholder}
         autoComplete={props.autoComplete ? props.autoComplete : "off"}
         className={props.className}
+        disabled={props.disabled}
+        value={props.value}
       ></input>
     </>
   );

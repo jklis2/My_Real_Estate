@@ -4,7 +4,7 @@ import Table from "../components/Table";
 
 export default function UsersManagement() {
   return (
-    <div className="mx-8">
+    <div className="p-6">
       <H2>Users management</H2>
       <SearchForm />
       <div className="mt-6">

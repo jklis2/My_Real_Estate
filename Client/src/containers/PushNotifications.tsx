@@ -10,7 +10,7 @@ export default function PushNotifications() {
       <H2 className="mb-4">Push Notifications</H2>
 
       <div className="flex flex-col ">
-        <Input type="text" className="p-3 border border-slate-300 rounded-xl" id="smsNumber" label="Default SMS number" value="563 634 926" />
+        <Input disabled={true} type="text" className="p-3 border border-slate-300 rounded-xl" id="smsNumber" label="Default SMS number" value="563 634 926" />
       </div>
       
       <div className="flex flex-col">

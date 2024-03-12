@@ -6,6 +6,9 @@ import {
 } from "react-icons/io5";
 import { BsPeople } from "react-icons/bs";
 import { FaRegFile } from "react-icons/fa";
+import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import { LuUsers2 } from "react-icons/lu";
+
 
 export const LINKS_BEFORE = [
   { id: 0, to: "/dashboard", icon: IoHome, label: "Dashboard" },
@@ -30,13 +33,13 @@ export const LINKS_AFTER = [
 ];
 
 export const LINKS_ADMIN = [
-  { id: 0, to: "/admin", icon: IoHomeOutline, label: "Admin Panel" },
+  { id: 0, to: "/admin", icon: MdOutlineAdminPanelSettings, label: "Admin Panel" },
   {
     id: 1,
     to: "/admin/properties",
     icon: IoHomeOutline,
     label: "Properties",
   },
-  { id: 2, to: "/admin/users", icon: IoKeyOutline, label: "Users" },
+  { id: 2, to: "/admin/users", icon: LuUsers2 , label: "Users" },
   { id: 3, to: "/admin/settings", icon: IoSettingsOutline, label: "Settings" },
 ];

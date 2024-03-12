@@ -12,6 +12,7 @@ export default function EmailNotifications() {
           className="p-3 border border-slate-300 rounded-xl"
           label="Default notification email"
           value="user@gmail.com"
+          disabled={true}
         />
       </div>
       <div className="flex flex-col">

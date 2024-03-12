@@ -1,6 +1,6 @@
 import H2 from "../components/H2";
 import StatsCard from "../components/StatsCard";
-import { BsPerson, BsBuildings, BsCreditCard, BsUnlock  } from "react-icons/bs";
+import { BsPerson, BsBuildings, BsCreditCard } from "react-icons/bs";
 
 export default function AllStats() {
   return (
@@ -21,11 +21,6 @@ export default function AllStats() {
           icon={<BsCreditCard size={40} className="mb-3" />}
           name="Total revenue"
           amount="$1.240.000"
-        />
-        <StatsCard
-          icon={<BsUnlock  size={40} className="mb-3" />}
-          name="Total leases"
-          amount="3.820"
         />
       </div>
     </>

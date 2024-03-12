@@ -105,7 +105,7 @@ export default function AccountForm() {
             />
           </div>
         </div>
-        <Button className="mt-2 px-16">Save changes</Button>
+        <Button className="my-5 px-16">Save changes</Button>
       </form>
     </section>
   );

@@ -29,6 +29,7 @@ export default function SearchForm() {
         </div>
       </div>
       <Select
+        className="border border-neutral-300 rounded-xl text-neutral-700 text-xl p-3"
         label="Type of Operation (Rent or Buy)"
         placeholder="Select"
         options={["Rent", "Buy"]}

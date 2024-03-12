@@ -4,10 +4,10 @@ import Table from "../components/Table";
 
 export default function PropertyManagement() {
   return (
-    <div className="mx-8">
-      <H2>Propierties management</H2>
+    <div className="p-6">
+      <H2>Properties management</H2>
       <SearchForm />
-      <div className="mt-6">
+      <div className="my-10">
         <Table />
       </div>
     </div>

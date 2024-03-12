@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavLink from "./SideLink";
 import { LINKS_BEFORE, LINKS_AFTER, LINKS_ADMIN } from "../consts/links";
 import Button from "./Button";
@@ -10,7 +10,11 @@ export default function SideNav() {
   const isDashboardPage = location.pathname.startsWith("/dashboard");
   const isAdminPage = location.pathname.startsWith("/admin");
 
-  const [activeLink, setActiveLink] = useState<string>("/dashboard");
+  const [activeLink, setActiveLink] = useState<string>("");
+
+  useEffect(() => {
+    setActiveLink(location.pathname); 
+  }, [location.pathname]);
 
   const handleSetActiveLink = (path: string) =>
     setActiveLink(
@@ -38,7 +42,7 @@ export default function SideNav() {
               label={link.label}
               isActive={activeLink === link.to}
               onClick={() =>
-                handleSetActiveLink(link.to.replace("/dashboard/", ""))
+                handleSetActiveLink(link.to.replace("/admin/", ""))
               }
             />
           ))}
@@ -58,9 +62,13 @@ export default function SideNav() {
           ))}
       </div>
 
+            
       <div className="text-center">
-       <Button className="w-full mb-3">New property</Button>
+        <div className="flex flex-col gap-3">
+        {isAdminPage && <Button className="w-full ">New Property</Button>}
         {isAdminPage && <Button className="w-full ">New User</Button>}
+        </div>
+        
         {isDashboardPage &&
           LINKS_AFTER.map((link) => (
             <NavLink
