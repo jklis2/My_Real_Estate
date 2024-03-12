@@ -28,3 +28,15 @@ export const LINKS_AFTER = [
     label: "Settings",
   },
 ];
+
+export const LINKS_ADMIN = [
+  { id: 0, to: "/admin", icon: IoHomeOutline, label: "Admin Panel" },
+  {
+    id: 1,
+    to: "/admin/properties",
+    icon: IoHomeOutline,
+    label: "Properties",
+  },
+  { id: 2, to: "/admin/users", icon: IoKeyOutline, label: "Users" },
+  { id: 3, to: "/admin/settings", icon: IoSettingsOutline, label: "Settings" },
+];
