@@ -1,6 +1,6 @@
 import H2 from "../components/H2";
 import P from "../components/P";
-import SettingsInput from "../components/SettingsInput";
+import Input from "../components/Input";
 import SettingsRadio from "../components/SettingsRadio";
 
 export default function TwoFactorAuthentication() {
@@ -14,7 +14,8 @@ export default function TwoFactorAuthentication() {
       </P>
       <SettingsRadio name="Two-Factor Authentication" />
       <SettingsRadio name="SMS Number" />
-      <SettingsInput placeholder="111 222 333" />
+
+      <Input type="text" className="p-3 border border-slate-300 rounded-xl w-full" id="phoneNumber" placeholder="111 222 333"/>
     </section>
-  );
+   );
 }

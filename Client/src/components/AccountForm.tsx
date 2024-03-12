@@ -1,59 +1,109 @@
 import Button from "./Button";
-import SettingsInput from "./SettingsInput";
+import Input from "./Input";
 
 export default function AccountForm() {
   return (
     <section>
       <form className="w-full">
-        <SettingsInput label="Username" placeholder="Enter username" />
-        <div className="flex justify-between gap-6">
-          <SettingsInput
-            className="w-full"
-            label="First Name"
-            placeholder="Enter first name"
-          />
-          <SettingsInput
-            className="w-full"
+        <div className="flex flex-col">
+          <Input
+            className="p-3 border border-slate-300 rounded-xl"
+            type="text"
             label="Username"
-            placeholder="Enter second Name"
+            id="userName"
+            placeholder="Enter username"
           />
         </div>
-        <SettingsInput label="E-mail" placeholder="Enter e-mail" />
-        <div className="flex justify-between gap-6">
-          <SettingsInput
-            className="w-full"
-            label="Country"
-            placeholder="Enter country"
-          />
-          <SettingsInput
-            className="w-full"
-            label="Region"
-            placeholder="Enter region"
+        <div className="flex justify-between gap-6 mt-3">
+          <div className="flex flex-col w-full">
+            <Input
+              type="text"
+              className="w-full p-3 border border-slate-300 rounded-xl"
+              label="First Name"
+              id="firstName"
+              placeholder="Enter first name"
+            />
+          </div>
+          <div className="flex flex-col w-full">
+            <Input
+              type="text"
+              className="w-full p-3 border border-slate-300 rounded-xl"
+              label="Second Name"
+              id="secondName"
+              placeholder="Enter second Name"
+            />
+          </div>
+        </div>
+        <div className="flex flex-col mt-3">
+          <Input
+            className="p-3 border border-slate-300 rounded-xl"
+            type="text"
+            label="E-mail"
+            id="email"
+            placeholder="Enter e-mail"
+            autoComplete="email"
           />
         </div>
-        <div className="flex justify-between gap-6">
-          <SettingsInput
-            className="w-full"
-            label="City"
-            placeholder="Enter city"
-          />
-          <SettingsInput
-            className="w-full"
-            label="Zip code"
-            placeholder="Enter zip code"
-          />
+        <div className="flex justify-between gap-6 mt-3">
+          <div className="flex flex-col w-full">
+            <Input
+              type="text"
+              className="w-full p-3 border border-slate-300 rounded-xl"
+              label="Country"
+              id="country"
+              placeholder="Enter country"
+            />
+          </div>
+          <div className="flex flex-col w-full">
+            <Input
+              type="text"
+              className="w-full p-3 border border-slate-300 rounded-xl"
+              label="Region"
+              id="region"
+              placeholder="Enter region"
+            />
+          </div>
         </div>
-        <div className="flex justify-between gap-6">
-          <SettingsInput
-            className="w-full"
-            label="Street"
-            placeholder="Enter street"
-          />
-          <SettingsInput
-            className="w-full"
-            label="Number"
-            placeholder="Enter number"
-          />
+        <div className="flex justify-between gap-6 mt-3">
+          <div className="flex flex-col w-full">
+            <Input
+              type="text"
+              className="w-full p-3 border border-slate-300 rounded-xl"
+              label="City"
+              id="city"
+              placeholder="Enter city"
+            />
+          </div>
+          <div className="flex flex-col w-full">
+            <Input
+              type="text"
+              className="w-full p-3 border border-slate-300 rounded-xl"
+              label="Zip code"
+              id="zipCode"
+              placeholder="Enter zip code"
+            />
+          </div>
+        </div>
+
+        <div className="flex justify-between gap-6 mt-3">
+          <div className="flex flex-col w-full">
+            <Input
+              type="text"
+              className="w-full p-3 border border-slate-300 rounded-xl"
+              label="Street"
+              id="street"
+              placeholder="Enter street"
+            />
+          </div>
+          <div className="flex flex-col w-full">
+            <Input
+              type="text"
+              className="w-full p-3 border border-slate-300 rounded-xl"
+              label="Number"
+              id="phoneNumber"
+              placeholder="Enter number"
+            />
+          </div>
         </div>
         <Button className="mt-2 px-16">Save changes</Button>
       </form>
