@@ -3,7 +3,7 @@ import PropertyStats from "../containers/PropertyStats";
 
 export default function AdminPanel() {
   return (
-    <section className="p-6">
+    <section className="p-6 ">
       <AllStats />
       <PropertyStats />
     </section>

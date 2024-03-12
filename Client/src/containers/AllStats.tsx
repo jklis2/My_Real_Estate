@@ -4,7 +4,7 @@ import { BsPerson, BsBuildings, BsCreditCard, BsUnlock  } from "react-icons/bs";
 
 export default function AllStats() {
   return (
-    <section className="my-10" >
+    <>
       <H2 className="mb-4">All statisics</H2>
       <div className="flex gap-8 me-6">
         <StatsCard
@@ -28,6 +28,6 @@ export default function AllStats() {
           amount="3.820"
         />
       </div>
-    </section>
+    </>
   );
 }

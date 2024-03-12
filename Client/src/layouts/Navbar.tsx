@@ -16,9 +16,9 @@ export default function Navbar() {
         aria-label="Navigation menu"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link to="" className="-m-1.5 p-1.5">
             <img className="h-16 w-auto" src={NavLogo} alt="NavLogo" />
-          </a>
+          </Link>
         </div>
         <div className="lg:hidden">
           <BurgerMenu toggleMenu={toggleMenu} />
@@ -27,17 +27,20 @@ export default function Navbar() {
           <a href="#" className="text-xl uppercase leading-6 text-gray-700">
             About
           </a>
-          <a href="#" className="text-xl uppercase leading-6 text-gray-700">
+          <Link to="properties" className="text-xl uppercase leading-6 text-gray-700">
             Offers
-          </a>
-          <a href="#" className="text-xl uppercase leading-6 text-gray-700">
-            Property
-          </a>
+          </Link>  
           <Link
             to="dashboard"
             className="text-xl uppercase leading-6 text-gray-700"
           >
             Dashboard
+          </Link>
+          <Link
+            to="admin"
+            className="text-xl uppercase leading-6 text-gray-700"
+          >
+            Admin
           </Link>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">

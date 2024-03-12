@@ -14,10 +14,10 @@ export default function Register() {
       </div>
       <RegisterForm />
       <div className="pt-5 flex items-center">
-        <input type="checkbox"></input>
-        <P className="text-xs pl-3">
+        <input id="confirmation" type="checkbox"></input>
+        <label htmlFor="confirmation" className="text-md pl-3">
           I accept the regulations and privacy policy
-        </P>
+        </label>
         <span className="text-red-600">*</span>
       </div>
       <Button className="mt-4 w-full">Register</Button>

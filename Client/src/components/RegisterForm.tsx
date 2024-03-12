@@ -1,49 +1,99 @@
-import AuthInput from "./AuthInput";
+import React, { useState } from "react";
 import P from "../components/P";
+import Input from "./Input";
+import Select from "./Select";
 
 export default function RegisterForm() {
+  const inputClasses =
+    "text-lg pl-5 h-10 sm:min-w-96 w-full bg-gray-200 rounded-md border-b border-gray-300 text-gray-500 placeholder-gray-500 focus:ring-2 focus:ring-blue-200 focus:outline-none";
+  const selectClasses =
+    "text-lg pl-5 h-10 w-full bg-gray-200 rounded-md border-b border-gray-300 text-gray-500 focus:ring-2 focus:ring-blue-200 focus:outline-none";
+  const [selectedOption, setSelectedOption] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedOption(e.target.value);
+  };
+
   return (
-    <div>
-      <AuthInput
-        id="FirstName"
-        label="First Name"
-        placeholder="First Name"
-        required={true}
-      />
-      <AuthInput
-        id="LastName"
-        label="Last Name"
-        placeholder="Last Name"
-        required={true}
-      />
-      <AuthInput
-        id="Email"
-        label="E-mail"
-        placeholder="E-mail"
-        required={true}
-      />
-      <AuthInput id="PESEL" label="PESEL" placeholder="PESEL" required={true} />
-      <AuthInput
-        id="Gender"
+    <form>
+      <div className="flex flex-col mb-3">
+        <Input
+          type="text"
+          id="firstName"
+          label="First Name"
+          placeholder="First Name"
+          required={true}
+          className={inputClasses}
+        />
+      </div>
+
+      <div className="flex flex-col mb-3">
+        <Input
+          type="text"
+          id="LastName"
+          label="Last Name"
+          placeholder="Last Name"
+          required={true}
+          className={inputClasses}
+        />
+      </div>
+
+      <div className="flex flex-col mb-3">
+        <Input
+          type="text"
+          id="Email"
+          label="E-mail"
+          placeholder="E-mail"
+          required={true}
+          className={inputClasses}
+        />
+      </div>
+
+      <div className="flex flex-col mb-3">
+        <Input
+          type="text"
+          id="pesel"
+          label="PESEL"
+          placeholder="PESEL"
+          required={true}
+          className={inputClasses}
+        />
+      </div>
+
+      <Select
         label="Gender"
+        id="gender"
         placeholder="Select Gender"
         options={["Male", "Female", "I don't wish to answer"]}
+        selectedOption={selectedOption}
+        className={selectClasses}
+        onChange={handleChange}
       />
-      <AuthInput
-        id="Password"
-        label="Password"
-        placeholder="Password"
-        required={true}
-      />
-      <P className="text-xs">
+
+      <div className="flex flex-col ">
+        <Input
+          type="text"
+          id="password"
+          label="Password"
+          placeholder="Password"
+          required={true}
+          className={inputClasses}
+        />
+      </div>
+
+      <P className="text-xs mb-3">
         It must be a combination of minimum 8 letters, numbers, and symbols.
       </P>
-      <AuthInput
-        id="ConfirmPassword"
-        label="Confirm Password"
-        placeholder="Confirm Password"
-        required={true}
-      />
-    </div>
+      <div className="flex flex-col mb-3">
+        <Input
+          type="text"
+          id="confirmPassword"
+          label="Confirm your password"
+          placeholder="Confirm your password"
+          required={true}
+          className={inputClasses}
+        />
+      </div>
+    </form>
   );
 }

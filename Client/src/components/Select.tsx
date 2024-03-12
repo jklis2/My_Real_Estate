@@ -1,30 +1,33 @@
-import React, { useState } from "react";
+import { ChangeEvent } from "react";
 
 interface SelectProps {
-  placeholder: string;
-  options: string[];
   label?: string;
+  value?: string | number;
+  name?: string;
+  id?: string;
+  error?: boolean;
+  disabled?: boolean;
+  placeholder: string;
+  className?: string;
+  options: string[];
+  selectedOption?: string;
+  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
 }
 
-export default function Select({ placeholder, options, label }: SelectProps) {
-  const [selectedOption, setSelectedOption] = useState("");
-
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOption(e.target.value);
-  };
-
+export default function Select(props: SelectProps) {
   return (
     <div className="flex flex-col my-2 w-full">
-      {label && <label className="mb-3">{label}</label>}
+      {props.label && <label className="mb-3" htmlFor={props.id}>{props.label}</label>}
       <select
-        className="border border-neutral-300 rounded-xl text-neutral-700 text-xl p-3"
-        value={selectedOption}
-        onChange={handleChange}
+        className={props.className}
+        value={props.selectedOption}
+        id={props.id}
+        onChange={props.onChange}
       >
         <option value="" disabled hidden>
-          {placeholder}
+          {props.placeholder}
         </option>
-        {options.map(function (option, index) {
+        {props.options.map(function (option, index) {
           return (
             <option key={index} value={option}>
               {option}

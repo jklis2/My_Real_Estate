@@ -1,15 +1,19 @@
 import H2 from "../components/H2";
+import Input from "../components/Input";
 import SettingsCheck from "../components/SettingsCheck";
-import SettingsInput from "../components/SettingsInput";
 
 export default function EmailNotifications() {
   return (
     <section className="my-10">
       <H2 className="mb-4">Email Notifications</H2>
-      <SettingsInput
-        label="Default notification email"
-        value="user@gmail.com"
-      ></SettingsInput>
+      <div className="flex flex-col">
+        <Input
+          type="text"
+          className="p-3 border border-slate-300 rounded-xl"
+          label="Default notification email"
+          value="user@gmail.com"
+        />
+      </div>
       <div className="flex flex-col">
         <SettingsCheck name="Changes made to your account" />
         <SettingsCheck name="Changes are made to groups you're part of" />
