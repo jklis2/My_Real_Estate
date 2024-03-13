@@ -8,7 +8,7 @@ export default function Features() {
   return (
     <section className="my-10">
       <H2 className="mb-6">Features</H2>
-      <div className="flex gap-10 justify-between">
+      <div className="flex flex-wrap gap-8">
         <FeatureCard name="Gourmet kitchen" icon={<PiKnifeLight size={20} />} />
         <FeatureCard name="Private garage" icon={<IoCarOutline size={20} />} />
         <FeatureCard name="Backyard" icon={<PiTree size={20} />} />

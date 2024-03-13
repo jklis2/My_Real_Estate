@@ -41,11 +41,20 @@ export default function Gallery() {
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+    ],
   };
 
   return (
     <section className="my-6">
-      <div className="h-128">
+      <div className="sm:h-72 md:h-96 lg:h-128">
         <img
           className="w-full h-full rounded-2xl"
           src="https://picsum.photos/2160/1440"
