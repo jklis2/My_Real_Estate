@@ -25,7 +25,6 @@ export default function SideNav() {
   };
 
   const isLinkActive = (linkPath: string) => {
-    // Dla linków "Settings", sprawdza czy obecna ścieżka zaczyna się od /dashboard/settings lub /admin/settings
     if (linkPath.includes("/settings")) {
       return (
         activeLink.startsWith("/dashboard/settings") ||
