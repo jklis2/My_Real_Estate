@@ -12,7 +12,7 @@ export default function BillingStats() {
   return (
     <section className="my-10">
       <H2 className="my-4 mb-4">Billing stats</H2>
-      <div className="flex justify-between flex-wrap w-full gap-10 pe-10">
+      <div className="flex justify-between lg:flex-row flex-col w-full gap-10 pe-10">
         <StatsCard
           name="Current monthly bill"
           amount="$20.000"

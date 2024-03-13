@@ -14,7 +14,7 @@ export default function AccountForm() {
             placeholder="Enter username"
           />
         </div>
-        <div className="flex justify-between gap-6 mt-3">
+        <div className="flex justify-between gap-3 lg:gap-6 mt-3 lg:flex-row flex-col">
           <div className="flex flex-col w-full">
             <Input
               type="text"
@@ -44,7 +44,7 @@ export default function AccountForm() {
             autoComplete="email"
           />
         </div>
-        <div className="flex justify-between gap-6 mt-3">
+        <div className="flex justify-between gap-3 lg:gap-6 mt-3 lg:flex-row flex-col">
           <div className="flex flex-col w-full">
             <Input
               type="text"
@@ -64,7 +64,7 @@ export default function AccountForm() {
             />
           </div>
         </div>
-        <div className="flex justify-between gap-6 mt-3">
+        <div className="flex justify-between gap-3 lg:gap-6 mt-3 lg:flex-row flex-col">
           <div className="flex flex-col w-full">
             <Input
               type="text"
@@ -85,7 +85,7 @@ export default function AccountForm() {
           </div>
         </div>
 
-        <div className="flex justify-between gap-6 mt-3">
+        <div className="flex justify-between gap-3 lg:gap-6 mt-3 lg:flex-row flex-col">
           <div className="flex flex-col w-full">
             <Input
               type="text"

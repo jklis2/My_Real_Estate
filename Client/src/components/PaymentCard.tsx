@@ -7,7 +7,7 @@ interface CardProps {
 }
 export default function PaymentCard({ name, expireDate }: CardProps) {
   return (
-    <div className="w-full bg-gray-50 flex justify-between p-3">
+    <div className="w-full bg-gray-50 flex lg:flex-row flex-col justify-between p-3">
       <div className="flex items-center">
         {/* Add card logo */}
         <div className="w-10 h-6 border rounded-md bg-blue-300"></div>

@@ -6,7 +6,7 @@ export default function TenantsList() {
   return (
     <section className="my-10">
       <H2 className="mb-4">Your Tenants:</H2>
-      <div className="flex gap-10">
+      <div className="flex gap-10 lg:flex-row flex-col">
         <TenantCard
           name="John"
           surname="Wick"

@@ -6,7 +6,7 @@ export default function AllStats() {
   return (
     <>
       <H2 className="mb-4">All statisics</H2>
-      <div className="flex gap-8 me-6">
+      <div className="flex gap-8 me-6 lg:flex-row flex-col">
         <StatsCard
           icon={<BsBuildings size={40} className="mb-3" />}
           name="Total properties"

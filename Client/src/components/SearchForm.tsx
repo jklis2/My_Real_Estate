@@ -7,7 +7,7 @@ export default function SearchForm() {
   return (
     <section className="my-10">
       <H2 className="font-bold mb-8">Search</H2>
-      <div className="flex justify-between gap-6">
+      <div className="flex justify-between gap-6 mb-6 lg:mb-0 lg:flex-row flex-col">
         <div className="flex flex-col w-full">
           <Input
             type="text"
