@@ -13,15 +13,27 @@ export default function SideNav() {
   const [activeLink, setActiveLink] = useState<string>("");
 
   useEffect(() => {
-    setActiveLink(location.pathname); 
+    setActiveLink(location.pathname);
   }, [location.pathname]);
 
-  const handleSetActiveLink = (path: string) =>
+  const handleSetActiveLink = (path: string) => {
     setActiveLink(
       isDashboardPage
         ? `/dashboard${path !== "/dashboard" ? `/${path}` : ""}`
         : path
     );
+  };
+
+  const isLinkActive = (linkPath: string) => {
+    // Dla linków "Settings", sprawdza czy obecna ścieżka zaczyna się od /dashboard/settings lub /admin/settings
+    if (linkPath.includes("/settings")) {
+      return (
+        activeLink.startsWith("/dashboard/settings") ||
+        activeLink.startsWith("/admin/settings")
+      );
+    }
+    return activeLink === linkPath;
+  };
 
   return (
     <nav className="mx-10 fixed h-screen flex flex-col justify-between py-6">
@@ -40,7 +52,7 @@ export default function SideNav() {
               to={link.to}
               icon={link.icon}
               label={link.label}
-              isActive={activeLink === link.to}
+              isActive={isLinkActive(link.to)}
               onClick={() =>
                 handleSetActiveLink(link.to.replace("/admin/", ""))
               }
@@ -54,7 +66,7 @@ export default function SideNav() {
               to={link.to}
               icon={link.icon}
               label={link.label}
-              isActive={activeLink === link.to}
+              isActive={isLinkActive(link.to)}
               onClick={() =>
                 handleSetActiveLink(link.to.replace("/dashboard/", ""))
               }
@@ -62,13 +74,12 @@ export default function SideNav() {
           ))}
       </div>
 
-            
       <div className="text-center">
         <div className="flex flex-col gap-3">
-        {isAdminPage && <Button className="w-full ">New Property</Button>}
-        {isAdminPage && <Button className="w-full ">New User</Button>}
+          <Button className="w-full">New Property</Button>
+          {isAdminPage && <Button className="w-full">New User</Button>}
         </div>
-        
+
         {isDashboardPage &&
           LINKS_AFTER.map((link) => (
             <NavLink
@@ -76,7 +87,7 @@ export default function SideNav() {
               to={link.to}
               icon={link.icon}
               label={link.label}
-              isActive={activeLink === link.to}
+              isActive={isLinkActive(link.to)}
               onClick={() =>
                 handleSetActiveLink(link.to.replace("/dashboard/", ""))
               }
