@@ -20,7 +20,7 @@ export default function PropertyCard({
   area,
 }: CardProps) {
   return (
-    <div className={`${className || ""} rounded-xl flex-1 me-10`}>
+    <div className={`${className || ""} w-full rounded-xl flex-1 me-10`}>
       <img src={imgPath} className="w-full rounded-xl" />
       <h4 className="text-2xl mt-3">{name}</h4>
       <P>{location}</P>

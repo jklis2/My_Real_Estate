@@ -6,7 +6,7 @@ import SimilarProperties from "../containers/SimilarProperties";
 
 export default function Property() {
   return (
-    <div>
+    <div className="sm:p-0 p-6">
       <Gallery />
       <Description />
       <Features />
