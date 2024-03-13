@@ -5,7 +5,7 @@ export default function SimilarProperties() {
   return (
     <section className="my-6">
       <H2 className="mb-6">Similar Properties</H2>
-      <div className="flex gap-10">
+      <div className="flex gap-10 lg:flex-row flex-col">
         <PropertyCard
           name="The Verano"
           location="Los Angeles, CA"
