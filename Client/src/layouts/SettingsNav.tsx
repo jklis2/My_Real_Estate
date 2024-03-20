@@ -7,7 +7,7 @@ export default function SettingsNav() {
     }`;
   };
   return (
-    <nav className="rounded-full bg-slate-300 py-2 w-100 flex justify-between items-center text-center text-xl px-3">
+    <nav className="rounded-3xl md:rounded-full bg-slate-300 py-2 w-100 flex flex-col md:flex-row justify-between items-center text-center text-xl px-3">
       <NavLink className={navLinkCssClasses} to="profile">
         Profile
       </NavLink>

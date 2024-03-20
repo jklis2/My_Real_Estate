@@ -7,7 +7,7 @@ interface CardProps {
 }
 export default function PaymentCard({ name, expireDate }: CardProps) {
   return (
-    <div className="w-full bg-gray-50 flex lg:flex-row flex-col justify-between p-3">
+    <div className="w-full bg-gray-50 flex sm:flex-row flex-col justify-between p-3">
       <div className="flex items-center">
         {/* Add card logo */}
         <div className="w-10 h-6 border rounded-md bg-blue-300"></div>
@@ -16,7 +16,9 @@ export default function PaymentCard({ name, expireDate }: CardProps) {
           <P className="text-neutral-500">{expireDate}</P>
         </div>
       </div>
-      <Button className="px-8">Edit</Button>
+      <div className="flex my-3 sm:my-0 sm:block">
+      <Button className="px-8 w-3/4 sm:w-auto">Edit</Button>
+      </div>
     </div>
   );
 }

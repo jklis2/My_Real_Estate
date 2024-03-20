@@ -1,10 +1,13 @@
+import React, { Suspense } from "react";
 import About from "../containers/About";
-import Contact from "../containers/Contact";
 import Hero from "../containers/Hero";
 import LatestOffers from "../containers/LatestOffers";
-import PricingPlans from "../containers/PricingPlans";
 import HowItWorks from "../containers/HowItWorks";
-import FAQ from "../containers/FAQ"
+import FAQ from "../containers/FAQ";
+import Loader from "../components/Loader";
+
+const Contact = React.lazy(() => import("../containers/Contact"));
+const PricingPlans = React.lazy(() => import("../containers/PricingPlans"));
 
 export default function Home() {
   return (
@@ -12,10 +15,14 @@ export default function Home() {
       <Hero />
       <About />
       <LatestOffers />
-      <PricingPlans />
+      <Suspense fallback={<Loader />}>
+        <PricingPlans />
+      </Suspense>
       <HowItWorks />
       <FAQ />
-      <Contact />
+      <Suspense fallback={<Loader />}>
+        <Contact />
+      </Suspense>
     </main>
   );
 }

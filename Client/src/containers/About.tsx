@@ -17,7 +17,7 @@ export default function About() {
         </P>
       </div>
       <div className="md:w-1/2 md:p-8 p-8">
-        <img className="rounded-lg shadow-md" src={aboutImg} alt="About us" />
+        <img className="rounded-lg shadow-md" src={aboutImg} alt="About us" loading="lazy"/>
       </div>
     </section>
   );

@@ -1,9 +1,11 @@
-import React from "react";
-import Slider from "react-slick";
+import React, { Suspense } from "react";
 import H2 from "../components/H2";
 import OfferCard from "../components/OfferCard";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import { SLIDES } from "../consts/slides";
+import { useInView } from "react-intersection-observer";
+import Loader from "../components/Loader";
+const Slider = React.lazy(() => import("react-slick"));
 
 interface ArrowProps {
   onClick?: React.MouseEventHandler<HTMLDivElement>;
@@ -32,6 +34,10 @@ const PrevArrow = ({ onClick }: ArrowProps) => {
 };
 
 export default function LatestOffers() {
+  const { ref: offersRef, inView: cardsAreVisible } = useInView({
+    threshold: 0.15,
+  });
+
   const settings = {
     dots: false,
     infinite: true,
@@ -52,16 +58,20 @@ export default function LatestOffers() {
   };
 
   return (
-    <section className="lg:my-16 text-center relative">
+    <section className="lg:my-16 text-center relative" ref={offersRef}>
       <H2 className="mb-8">Latest Offers</H2>
 
-      <Slider {...settings}>
-        {SLIDES.map((slide, index) => (
-          <div key={index} className="px-4">
-            <OfferCard location={slide.location} url={slide.url} />
-          </div>
-        ))}
-      </Slider>
+      <Suspense fallback={<Loader />}>
+        {cardsAreVisible && (
+          <Slider {...settings}>
+            {SLIDES.map((slide, index) => (
+              <div key={index} className="px-4">
+                <OfferCard location={slide.location} url={slide.url} />
+              </div>
+            ))}
+          </Slider>
+        )}
+      </Suspense>
     </section>
   );
 }

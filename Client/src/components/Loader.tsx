@@ -1,11 +1,11 @@
 export default function Loader() {
   return (
-    <div>
+    <>
       <div className="text-center">
         <div role="status">
           <svg
             aria-hidden="true"
-            className="inline w-24 h-24 text-gray-200 animate-spin dark:text-gray-600 fill-slate-500"
+            className="inline w-24 h-24 text-gray-200 animate-spin  fill-slate-500"
             viewBox="0 0 100 101"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -22,6 +22,6 @@ export default function Loader() {
           <span className="sr-only">Loading...</span>
         </div>
       </div>
-    </div>
+    </>
   );
 }

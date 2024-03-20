@@ -1,10 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./layouts/Root";
 import Home from "./routes/Home";
-import AuthLayout from "./layouts/AuthRoot";
-import Login from "./routes/Login";
-import Register from "./routes/Register";
-import DashboardLayout from "./layouts/DashboardRoot";
 import Dashboard from "./routes/Dashboard";
 import Rent from "./routes/Rent";
 import Properties from "./routes/Properties";
@@ -16,12 +12,20 @@ import Billing from "./routes/Billing";
 import Security from "./routes/Security";
 import Notifications from "./routes/Notifications";
 import SettingsLayout from "./layouts/SettingsRoot";
-import PropertyListing from "./routes/PropertyListing";
-import Property from "./routes/Property";
 import AdminPanel from "./routes/AdminPanel";
 import PropertyManagement from "./routes/PropertyManagement";
 import UsersManagement from "./routes/UsersManagement";
 import AdminSettings from "./routes/AdminSettings";
+import React, { Suspense } from "react";
+import Loader from "./components/Loader";
+import AuthLayout from "./layouts/AuthRoot";
+
+//Lazy
+const PropertyListing = React.lazy(() => import("./routes/PropertyListing"));
+const Property = React.lazy(() => import("./routes/Property"));
+const DashboardLayout = React.lazy(() => import("./layouts/DashboardRoot"));
+const Login = React.lazy(() => import("./routes/Login"));
+const Register = React.lazy(() => import("./routes/Register"));
 
 const router = createBrowserRouter([
   {
@@ -34,11 +38,19 @@ const router = createBrowserRouter([
       },
       {
         path: "properties",
-        element: <PropertyListing />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <PropertyListing />
+          </Suspense>
+        ),
       },
       {
         path: "property/:id",
-        element: <Property />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Property />
+          </Suspense>
+        ),
       },
     ],
   },
@@ -48,17 +60,35 @@ const router = createBrowserRouter([
     children: [
       {
         path: "login",
-        element: <Login />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Login />
+          </Suspense>
+        ),
       },
       {
         path: "register",
-        element: <Register />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Register />
+          </Suspense>
+        ),
       },
     ],
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <Suspense
+        fallback={
+          <main className="h-screen flex justify-center items-center">
+            <Loader />
+          </main>
+        }
+      >
+        <DashboardLayout />
+      </Suspense>
+    ),
     children: [
       {
         index: true,
