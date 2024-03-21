@@ -1,12 +1,10 @@
 import ContactForm from "../components/ContactForm";
 import ContactInformation from "../components/ContactInformation";
 import H2 from "../components/H2";
-import {
-  BsGeoAltFill,
-  BsFillTelephoneFill,
-  BsEnvelope,
-  BsClockFill,
-} from "react-icons/bs";
+import phone from "../assets/icons/phone.svg";
+import clock from "../assets/icons/clock.svg";
+import envelope from "../assets/icons/envelope.svg";
+import pin from "../assets/icons/pin.svg";
 
 export default function Contact() {
   return (
@@ -15,19 +13,19 @@ export default function Contact() {
         <H2 className="text-center sm:text-left">Contact Information</H2>
         <ContactInformation
           text="Random Street 11, Ziemia, 00-000 Internet "
-          icon={<BsGeoAltFill size={50} />}
+          icon={<img src={pin} alt="pin icon" width={50} height={50} />}
         />
         <ContactInformation
           text="+48 000 000 000 / 12 000 12 2345"
-          icon={<BsFillTelephoneFill size={50} />}
+          icon={<img src={phone} alt="pin icon" width={50} height={50} />}
         />
         <ContactInformation
           text="randomaddress@something.pl"
-          icon={<BsEnvelope size={50} />}
+          icon={<img src={envelope} alt="pin icon" width={50} height={50} />}
         />
         <ContactInformation
           text="12:00 - 19:00 mon-fr 12:00 - 15:00 sat"
-          icon={<BsClockFill size={50} />}
+          icon={<img src={clock} alt="pin icon" width={50} height={50} />}
         />
       </div>
       <div className="md:w-1/2 p-8">

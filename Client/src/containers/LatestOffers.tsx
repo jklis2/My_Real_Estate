@@ -1,10 +1,13 @@
 import React, { Suspense } from "react";
 import H2 from "../components/H2";
 import OfferCard from "../components/OfferCard";
-import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import { SLIDES } from "../consts/slides";
 import { useInView } from "react-intersection-observer";
 import Loader from "../components/Loader";
+import leftArrow from "../assets/icons/leftArrow.svg";
+import rightArrow from "../assets/icons/rightArrow.svg";
+
+
 const Slider = React.lazy(() => import("react-slick"));
 
 interface ArrowProps {
@@ -17,7 +20,7 @@ const NextArrow = ({ onClick }: ArrowProps) => {
       className="text-neutral-700 absolute right-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10"
       onClick={onClick}
     >
-      <RiArrowRightSLine size={100} />
+      <img alt="arrow icon" src={rightArrow} width={70} height={70} />
     </div>
   );
 };
@@ -28,7 +31,7 @@ const PrevArrow = ({ onClick }: ArrowProps) => {
       className="text-neutral-700 absolute left-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10"
       onClick={onClick}
     >
-      <RiArrowLeftSLine size={100} />
+      <img alt="arrow icon" src={leftArrow} width={70} height={70} />
     </div>
   );
 };
@@ -36,6 +39,7 @@ const PrevArrow = ({ onClick }: ArrowProps) => {
 export default function LatestOffers() {
   const { ref: offersRef, inView: cardsAreVisible } = useInView({
     threshold: 0.15,
+    triggerOnce: true,
   });
 
   const settings = {

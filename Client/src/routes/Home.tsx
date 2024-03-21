@@ -5,9 +5,9 @@ import LatestOffers from "../containers/LatestOffers";
 import HowItWorks from "../containers/HowItWorks";
 import FAQ from "../containers/FAQ";
 import Loader from "../components/Loader";
+import PricingPlans from "../containers/PricingPlans";
 
 const Contact = React.lazy(() => import("../containers/Contact"));
-const PricingPlans = React.lazy(() => import("../containers/PricingPlans"));
 
 export default function Home() {
   return (
@@ -15,9 +15,7 @@ export default function Home() {
       <Hero />
       <About />
       <LatestOffers />
-      <Suspense fallback={<Loader />}>
-        <PricingPlans />
-      </Suspense>
+      <PricingPlans />
       <HowItWorks />
       <FAQ />
       <Suspense fallback={<Loader />}>

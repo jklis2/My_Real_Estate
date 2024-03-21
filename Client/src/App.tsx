@@ -1,3 +1,4 @@
+import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./layouts/Root";
 import Home from "./routes/Home";
@@ -16,7 +17,6 @@ import AdminPanel from "./routes/AdminPanel";
 import PropertyManagement from "./routes/PropertyManagement";
 import UsersManagement from "./routes/UsersManagement";
 import AdminSettings from "./routes/AdminSettings";
-import React, { Suspense } from "react";
 import Loader from "./components/Loader";
 import AuthLayout from "./layouts/AuthRoot";
 
@@ -136,7 +136,17 @@ const router = createBrowserRouter([
   },
   {
     path: "admin",
-    element: <DashboardLayout />,
+    element: (
+      <Suspense
+        fallback={
+          <main className="h-screen flex justify-center items-center">
+            <Loader />
+          </main>
+        }
+      >
+        <DashboardLayout />
+      </Suspense>
+    ),
     children: [
       {
         index: true,

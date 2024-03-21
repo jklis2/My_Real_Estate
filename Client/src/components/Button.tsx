@@ -1,7 +1,7 @@
 import { ReactChild } from "react";
 
 interface ButtonProps {
-  children: ReactChild;
+  children: ReactChild ;
   variant?: "dark" | "light";
   className?: string;
 }

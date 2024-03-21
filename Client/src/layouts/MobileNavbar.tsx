@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
-import { IoCloseOutline } from "react-icons/io5";
+import BurgerMenu from "../components/BurgerMenu";
 
 interface MNavbarProps {
   toggleMenu: () => void;
@@ -12,13 +12,7 @@ export default function MobileNavbar({ toggleMenu }: MNavbarProps) {
       <div className="fixed inset-0 z-50"></div>
       <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
         <div className="flex items-center justify-end">
-          <button
-            type="button"
-            className="-m-2.5 rounded-md p-2.5 text-gray-700"
-            onClick={toggleMenu}
-          >
-            <IoCloseOutline size={50}/>
-          </button>
+          <BurgerMenu toggleMenu={toggleMenu} />
         </div>
         <div className="mt-6 flow-root">
           <div className="-my-6 divide-y divide-gray-500/10">

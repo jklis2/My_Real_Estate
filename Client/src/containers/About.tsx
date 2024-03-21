@@ -1,4 +1,4 @@
-import aboutImg from "../assets/AboutImg.png";
+import aboutImg from "../assets/AboutImg.webp";
 import H2 from "../components/H2";
 import P from "../components/P"
 
@@ -17,7 +17,7 @@ export default function About() {
         </P>
       </div>
       <div className="md:w-1/2 md:p-8 p-8">
-        <img className="rounded-lg shadow-md" src={aboutImg} alt="About us" loading="lazy"/>
+        <img className="rounded-lg shadow-md w-full" src={aboutImg} alt="About us" loading="lazy"/>
       </div>
     </section>
   );

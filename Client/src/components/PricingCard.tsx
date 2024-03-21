@@ -1,4 +1,5 @@
-import { FaCheckCircle } from "react-icons/fa";
+import checkLight from "../assets/icons/checkLight.svg";
+import checkDark from "../assets/icons/checkDark.svg";
 import Button from "./Button";
 import P from "./P";
 import H3 from "./H3";
@@ -34,12 +35,13 @@ export default function PricingCard({
         <ul className="mt-5">
           {featuresList.map((feat) => (
             <li className="flex my-5">
-              <FaCheckCircle
-              size={16}
-                className={`${
-                  variant === "dark" ? "text-white" : "text-slate-300"
-                }`}
+              <img
+                src={variant === "dark" ? checkLight : checkDark}
+                alt="check icon"
+                width={16}
+                height={16}
               />
+
               <span className="ms-2"> {feat}</span>
             </li>
           ))}

@@ -1,5 +1,5 @@
 import Button from "./Button";
-import { IoSearchOutline } from "react-icons/io5";
+import search from "../assets/icons/search.svg";
 import HeroSelect from "./HeroSelect";
 import Input from "./Input";
 
@@ -20,8 +20,8 @@ export default function HeroForm() {
             className="outline-none w-full px-6 sm:text-2xl bg-slate-50 lg:bg-transparent py-5 rounded-full lg:rounded-none"
           />
           <div className="flex align-center py-2 me-2">
-            <Button className="w-full flex justify-center lg:block">
-              <IoSearchOutline size={25} />
+            <Button className="w-full flex justify-center items-center ">
+              <img alt="search icon" src={search} className="min-w-6 min-h-6" />
             </Button>
           </div>
         </div>
