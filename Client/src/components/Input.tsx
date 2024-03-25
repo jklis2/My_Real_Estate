@@ -13,7 +13,7 @@ interface InputProps {
   className?: string;
   size?: "big" | "small";
   required?: boolean;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
 export default function Input(props: InputProps) {
@@ -32,7 +32,9 @@ export default function Input(props: InputProps) {
         rows={5}
         className={props.className}
         disabled={props.disabled}
+        name={props.name}
         value={props.value}
+        onChange={props.onChange}
       ></textarea>
     </>
   ) : (
@@ -50,7 +52,9 @@ export default function Input(props: InputProps) {
         autoComplete={props.autoComplete ? props.autoComplete : "off"}
         className={props.className}
         disabled={props.disabled}
+        name={props.name}
         value={props.value}
+        onChange={props.onChange}
       ></input>
     </>
   );

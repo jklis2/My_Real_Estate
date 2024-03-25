@@ -4,12 +4,17 @@ import Button from "./Button";
 import P from "./P";
 import H3 from "./H3";
 
+interface Feature {
+  id: number;
+  name: string;
+}
+
 interface CardProps {
   plan: string;
   variant: "dark" | "light";
   price: number;
   description: string;
-  featuresList: Array<string>;
+  featuresList?: Array<Feature>;
 }
 
 export default function PricingCard({
@@ -33,8 +38,8 @@ export default function PricingCard({
         <P className="mb-4">{description}</P>
         <hr className="bg-neutral-700" />
         <ul className="mt-5">
-          {featuresList.map((feat) => (
-            <li className="flex my-5">
+          {featuresList?.map((feat) => (
+            <li className="flex my-5" key={feat.id}>
               <img
                 src={variant === "dark" ? checkLight : checkDark}
                 alt="check icon"
@@ -42,11 +47,14 @@ export default function PricingCard({
                 height={16}
               />
 
-              <span className="ms-2"> {feat}</span>
+              <span className="ms-2"> {feat.name}</span>
             </li>
           ))}
         </ul>
-        <Button className="w-full" variant={variant}>
+        <Button
+          variant={variant === "dark" ? "dark" : "light"}
+          className="w-full"
+        >
           Get Started
         </Button>
       </div>

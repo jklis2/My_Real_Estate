@@ -4,16 +4,9 @@ import P from "../components/P";
 import PricingCard from "../components/PricingCard";
 import Loader from "../components/Loader";
 import { useInView } from "react-intersection-observer";
+import { PLANS } from "../consts/plans";
 
 export default function PricingPlans() {
-  const featuresList = [
-    "All analytics features",
-    "Basic tracking of payments and bills",
-    "Management of individual properties",
-    "Automatic generation of financial reports",
-    "Normal support",
-  ];
-
   const { ref: plansRef, inView: plansAreVisible } = useInView({
     threshold: 0.15,
     triggerOnce: true,
@@ -32,7 +25,7 @@ export default function PricingPlans() {
       <Suspense fallback={<Loader />}>
         {plansAreVisible && (
           <div className="flex flex-col lg:flex-row gap-8 justify-center items-center my-10 p-6">
-            <PricingCard
+            {/* <PricingCard
               plan="Free"
               variant="light"
               price={0}
@@ -52,7 +45,17 @@ export default function PricingPlans() {
               price={100}
               description="Lorem ipsum dolor sit amet consectetur adipisicing elit."
               featuresList={featuresList}
-            />
+            /> */}
+            {PLANS.map((plan) => (
+              <PricingCard
+                key={plan.id}
+                plan={plan.plan}
+                variant={plan.variant as "dark" | "light"}
+                price={plan.price}
+                description={plan.description}
+                featuresList={plan.features}
+              />
+            ))}
           </div>
         )}
       </Suspense>

@@ -1,24 +1,37 @@
 import Input from "./Input";
 
-export default function LoginForm() {
+interface FormProps {
+  loginData: { email: string; password: string };
+  handleInputChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+}
+
+export default function LoginForm({ loginData, handleInputChange }: FormProps) {
   return (
     <form>
       <div className="flex flex-col mb-3">
         <Input
+          value={loginData.email}
           type="email"
           id="email"
           label="E-mail"
+          name="email"
           placeholder="E-mail Address"
           className="text-lg pl-5 h-10 sm:min-w-96 w-full bg-gray-200 rounded-md border-b border-gray-300 text-gray-500 placeholder-gray-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
+          onChange={handleInputChange}
         />
       </div>
       <div className="flex flex-col">
         <Input
+          value={loginData.password}
           type="password"
           id="password"
+          name="password"
           label="Password"
           placeholder="Password"
           className="text-lg pl-5 h-10 sm:min-w-96 w-full bg-gray-200 rounded-md border-b border-gray-300 text-gray-500 placeholder-gray-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
+          onChange={handleInputChange}
         />
       </div>
     </form>

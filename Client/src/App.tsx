@@ -20,7 +20,6 @@ import AdminSettings from "./routes/AdminSettings";
 import Loader from "./components/Loader";
 import AuthLayout from "./layouts/AuthRoot";
 
-//Lazy
 const PropertyListing = React.lazy(() => import("./routes/PropertyListing"));
 const Property = React.lazy(() => import("./routes/Property"));
 const DashboardLayout = React.lazy(() => import("./layouts/DashboardRoot"));

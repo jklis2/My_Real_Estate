@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { IconType } from "react-icons";
 
 interface NavLinkProps {
   to: string;
-  icon: IconType;
+  icon: string;
   label: string;
   isActive: boolean;
   onClick: (path: string) => void;
@@ -11,7 +10,7 @@ interface NavLinkProps {
 
 export default function NavLink({
   to,
-  icon: Icon,
+  icon,
   label,
   isActive,
   onClick,
@@ -24,7 +23,7 @@ export default function NavLink({
       } hover:bg-gray-200`}
       onClick={() => onClick(to)}
     >
-      <Icon className="text-xl text-neutral-700" />
+      <img src={icon} width={20} height={20} />
       <span className="text-xl text-neutral-700">{label}</span>
     </Link>
   );

@@ -1,7 +1,7 @@
 import H3 from "../components/H3";
 import P from "../components/P";
 import FAQNumber from "./FAQNumber";
-import { BsChevronUp } from "react-icons/bs";
+import chevron from '../assets/icons/chevron.svg'
 
 interface QuestionProps {
   number: number;
@@ -40,7 +40,7 @@ export default function Question({
             <FAQNumber number={number} />
             <H3>{title}</H3>
           </div>
-          <BsChevronUp
+          <img src={chevron}
             className={`transition-all ${
               isAccordionOpen ? "rotate-180" : "rotate-0"
             }`}

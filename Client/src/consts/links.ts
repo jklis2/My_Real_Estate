@@ -1,45 +1,44 @@
-import {
-  IoHome,
-  IoHomeOutline,
-  IoKeyOutline,
-  IoSettingsOutline,
-} from "react-icons/io5";
-import { BsPeople } from "react-icons/bs";
-import { FaRegFile } from "react-icons/fa";
-import { MdOutlineAdminPanelSettings } from "react-icons/md";
-import { LuUsers2 } from "react-icons/lu";
+import adminPanel from "../assets/icons/adminPanel.svg";
+import adminProperties from "../assets/icons/adminProperties.svg";
+import adminUsers from "../assets/icons/adminUsers.svg";
+import settings from "../assets/icons/settings.svg";
 
+import dasboard from "../assets/icons/dashboard.svg";
+import properties from "../assets/icons/properties.svg";
+import key from "../assets/icons/key.svg";
+import users from "../assets/icons/users.svg";
+import reports from "../assets/icons/reports.svg";
 
 export const LINKS_BEFORE = [
-  { id: 0, to: "/dashboard", icon: IoHome, label: "Dashboard" },
+  { id: 0, to: "/dashboard", icon: dasboard, label: "Dashboard" },
   {
     id: 1,
     to: "/dashboard/properties",
-    icon: IoHomeOutline,
+    icon: properties,
     label: "Properties",
   },
-  { id: 2, to: "/dashboard/rent", icon: IoKeyOutline, label: "Rent" },
-  { id: 3, to: "/dashboard/tenants", icon: BsPeople, label: "Tenants" },
+  { id: 2, to: "/dashboard/rent", icon: key, label: "Rent" },
+  { id: 3, to: "/dashboard/tenants", icon: users, label: "Tenants" },
 ];
 
 export const LINKS_AFTER = [
-  { id: 0, to: "/dashboard/reports", icon: FaRegFile, label: "Reports" },
+  { id: 0, to: "/dashboard/reports", icon: reports, label: "Reports" },
   {
     id: 1,
     to: "/dashboard/settings/profile",
-    icon: IoSettingsOutline,
+    icon: settings,
     label: "Settings",
   },
 ];
 
 export const LINKS_ADMIN = [
-  { id: 0, to: "/admin", icon: MdOutlineAdminPanelSettings, label: "Admin Panel" },
+  { id: 0, to: "/admin", icon: adminPanel, label: "Admin Panel" },
   {
     id: 1,
     to: "/admin/properties",
-    icon: IoHomeOutline,
+    icon: adminProperties,
     label: "Properties",
   },
-  { id: 2, to: "/admin/users", icon: LuUsers2 , label: "Users" },
-  { id: 3, to: "/admin/settings", icon: IoSettingsOutline, label: "Settings" },
+  { id: 2, to: "/admin/users", icon: adminUsers, label: "Users" },
+  { id: 3, to: "/admin/settings", icon: settings, label: "Settings" },
 ];
