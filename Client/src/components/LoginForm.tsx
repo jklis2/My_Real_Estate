@@ -14,6 +14,7 @@ export default function LoginForm({ loginData, handleInputChange }: FormProps) {
         <Input
           value={loginData.email}
           type="email"
+          autoComplete="email"
           id="email"
           label="E-mail"
           name="email"

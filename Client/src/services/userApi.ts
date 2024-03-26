@@ -1,14 +1,18 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const userApi = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_API_URL }),
+  reducerPath: "userApi",
+  baseQuery: fetchBaseQuery({ baseUrl: "https://localhost:7275/" }),
   endpoints: (builder) => ({
-    fetchUser: builder.query({
-      query: (id) => `user/${id}`,
+    getUser: builder.query({
+      query: () => ({
+        method: "GET",
+        url: "User",
+      }),
     }),
     createUser: builder.mutation({
       query: (user) => ({
-        url: "user",
+        url: "User",
         method: "POST",
         body: user,
       }),
@@ -16,5 +20,6 @@ const userApi = createApi({
   }),
 });
 
-export const { useFetchUserQuery, useCreateUserMutation } = userApi;
+export const { useGetUserQuery, useCreateUserMutation, useLazyGetUserQuery } =
+  userApi;
 export default userApi;

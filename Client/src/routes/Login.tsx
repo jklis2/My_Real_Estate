@@ -8,13 +8,14 @@ import google from "../assets/icons/google.svg";
 import apple from "../assets/icons/apple.svg";
 import { useState } from "react";
 import { useLoginMutation } from "../services/authApi";
+import { setCookie } from "../utils/setCookie";
 
 export default function Login() {
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   });
-  const [login, { data }] = useLoginMutation();
+  const [login, { error }] = useLoginMutation();
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -25,8 +26,11 @@ export default function Login() {
 
   const handleSubmit = async () => {
     try {
-      await login(loginData).unwrap();
-      console.log(data.token);
+      const response = await login(loginData).unwrap();
+      if (response) {
+        const { token } = response;
+        setCookie("token", token, 24);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -46,7 +50,11 @@ export default function Login() {
         </div>
         <P className="text-sm text-blue-600 pt-5">Forgot Password?</P>
       </div>
-      {/* {error && <P>{error}</P>} */}
+
+      {error && (
+        <P className="text-red-500 mt-3">Incorrect e-mail or password.</P>
+      )}
+
       <Button className="mt-4 w-full " onClick={handleSubmit}>
         Login
       </Button>
