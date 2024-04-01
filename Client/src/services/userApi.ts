@@ -17,6 +17,13 @@ const userApi = createApi({
         body: user,
       }),
     }),
+    editUser: builder.mutation({
+      query: (user) => ({
+        url: "User",
+        method: "PUT",
+        body: user,
+      }),
+    }),
   }),
 });
 

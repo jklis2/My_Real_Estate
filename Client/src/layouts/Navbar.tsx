@@ -1,13 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../components/Button";
 import NavLogo from "../assets/Logo.png";
 import BurgerMenu from "../components/BurgerMenu";
 import { Link } from "react-router-dom";
 import MobileNavbar from "./MobileNavbar";
+import { useLazyGetUserQuery } from "../services/userApi";
+import UserAvatar from "../components/UserAvatar";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
+  const [getUser, { data: userData }] = useLazyGetUserQuery();
+  
+  useEffect(() => {
+    getUser("");
+  }, [getUser]);
 
   return (
     <header>
@@ -27,9 +34,12 @@ export default function Navbar() {
           <a href="#" className="text-xl uppercase leading-6 text-gray-700">
             About
           </a>
-          <Link to="properties" className="text-xl uppercase leading-6 text-gray-700">
+          <Link
+            to="properties"
+            className="text-xl uppercase leading-6 text-gray-700"
+          >
             Offers
-          </Link>  
+          </Link>
           <Link
             to="dashboard"
             className="text-xl uppercase leading-6 text-gray-700"
@@ -44,9 +54,12 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link to="/auth/login">
-            <Button>Sign in</Button>
-          </Link>
+          {userData && <UserAvatar userId={userData.result[0].id} />}
+          {!userData && (
+            <Link to="/auth/login">
+              <Button>Sign in</Button>
+            </Link>
+          )}
         </div>
       </nav>
 

@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import BurgerMenu from "../components/BurgerMenu";
-import DropdownMenu from "../components/Dropdown";
+import UserAvatar from "../components/UserAvatar";
+import { useLazyGetUserQuery } from "../services/userApi";
 
 interface NavProps {
   toggleSidebar: () => void;
 }
 
 export default function DashboardNav({ toggleSidebar }: NavProps) {
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [getUser, { data: userData }] = useLazyGetUserQuery();
+
+  useEffect(() => {
+    getUser("");
+  }, [getUser]);
 
   return (
     <header
@@ -15,13 +20,7 @@ export default function DashboardNav({ toggleSidebar }: NavProps) {
       aria-label="Navigation menu"
     >
       <BurgerMenu toggleMenu={toggleSidebar} />
-      <div className="relative">
-        <div
-          onClick={() => setDropdownOpen(!isDropdownOpen)}
-          className="w-14 h-14 rounded-full bg-red-900 flex items-center justify-center cursor-pointer"
-        ></div>
-        <DropdownMenu isOpen={isDropdownOpen} />
-      </div>
+      {userData && <UserAvatar userId={userData.result[0].id} />}
     </header>
   );
 }

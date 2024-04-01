@@ -1,11 +1,16 @@
-export default function Loader() {
+interface LoaderProps {
+  size?: number;
+}
+export default function Loader({ size }: LoaderProps) {
   return (
     <>
       <div className="text-center">
         <div role="status">
           <svg
             aria-hidden="true"
-            className="inline w-24 h-24 text-gray-200 animate-spin  fill-slate-500"
+            className={`inline w-${size ? size : "24"} h-${
+              size ? size : "24"
+            } text-gray-200 animate-spin  fill-slate-500`}
             viewBox="0 0 100 101"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
