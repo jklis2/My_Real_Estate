@@ -5,7 +5,6 @@ import { useGetUserQuery } from "../services/userApi";
 export default function QuickStats() {
   const { data } = useGetUserQuery(null);
   const userDetails = data && data.result[0];
-  console.log(userDetails)
   return (
     <section className="my-10">
       <H2 className="mb-4">Quick stats</H2>

@@ -1,19 +1,38 @@
+import { useEffect } from "react";
+import { useLazyGetAddressQuery } from "../services/addressApi";
+import { useGetUserQuery } from "../services/userApi";
 import Button from "./Button";
 import Input from "./Input";
 
+interface Address {
+  _id: string;
+  country: string;
+  region: string;
+  zip_code: string;
+  city: string;
+  street_name: string;
+  street_number: string;
+  state: number;
+  propertyId?: string;
+  userId?: string;
+}
+
 export default function AccountForm() {
+  const [getAddress, { data }] = useLazyGetAddressQuery();
+  const { data: userData } = useGetUserQuery(null);
+
+  useEffect(() => {
+    getAddress("");
+  }, [getAddress]);
+
+  const addressData =
+    data?.result.filter((address: Address) => address.userId !== null)[0] ?? [];
+
+  const userDetails = userData && userData.result[0];
+
   return (
     <section>
       <form className="w-full">
-        <div className="flex flex-col">
-          <Input
-            className="p-3 border border-slate-300 rounded-xl"
-            type="text"
-            label="Username"
-            id="userName"
-            placeholder="Enter username"
-          />
-        </div>
         <div className="flex justify-between gap-3 lg:gap-6 mt-3 lg:flex-row flex-col">
           <div className="flex flex-col w-full">
             <Input
@@ -22,15 +41,17 @@ export default function AccountForm() {
               label="First Name"
               id="firstName"
               placeholder="Enter first name"
+              value={userDetails.firstName}
             />
           </div>
           <div className="flex flex-col w-full">
             <Input
               type="text"
               className="w-full p-3 border border-slate-300 rounded-xl"
-              label="Second Name"
-              id="secondName"
-              placeholder="Enter second Name"
+              label="Last Name"
+              id="lastName"
+              placeholder="Enter last Name"
+              value={userDetails.lastName}
             />
           </div>
         </div>
@@ -42,6 +63,7 @@ export default function AccountForm() {
             id="email"
             placeholder="Enter e-mail"
             autoComplete="email"
+            value={userDetails.email}
           />
         </div>
         <div className="flex justify-between gap-3 lg:gap-6 mt-3 lg:flex-row flex-col">
@@ -52,6 +74,7 @@ export default function AccountForm() {
               label="Country"
               id="country"
               placeholder="Enter country"
+              value={addressData.country}
             />
           </div>
           <div className="flex flex-col w-full">
@@ -61,6 +84,7 @@ export default function AccountForm() {
               label="Region"
               id="region"
               placeholder="Enter region"
+              value={addressData.region}
             />
           </div>
         </div>
@@ -72,6 +96,7 @@ export default function AccountForm() {
               label="City"
               id="city"
               placeholder="Enter city"
+              value={addressData.city}
             />
           </div>
           <div className="flex flex-col w-full">
@@ -81,10 +106,10 @@ export default function AccountForm() {
               label="Zip code"
               id="zipCode"
               placeholder="Enter zip code"
+              value={addressData.zipCode}
             />
           </div>
         </div>
-
         <div className="flex justify-between gap-3 lg:gap-6 mt-3 lg:flex-row flex-col">
           <div className="flex flex-col w-full">
             <Input
@@ -93,6 +118,7 @@ export default function AccountForm() {
               label="Street"
               id="street"
               placeholder="Enter street"
+              value={addressData.streetName}
             />
           </div>
           <div className="flex flex-col w-full">
@@ -102,6 +128,7 @@ export default function AccountForm() {
               label="Number"
               id="phoneNumber"
               placeholder="Enter number"
+              value={addressData.streetNumber}
             />
           </div>
         </div>
