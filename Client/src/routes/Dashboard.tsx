@@ -5,6 +5,7 @@ import PropertiesList from "../containers/PropertiesList";
 import QuickStats from "../containers/QuickStats";
 import { useLazyGetUserQuery } from "../services/userApi";
 import Loader from "../components/Loader";
+import Error from "../components/Error";
 
 export default function Dashboard() {
   const [getUser, { data, isLoading, isError }] = useLazyGetUserQuery();
@@ -28,7 +29,7 @@ export default function Dashboard() {
         </>
       )}
       {isLoading && <Loader />}
-      {isError && <P>An error occurs!</P>}
+      {isError && <Error />}
     </div>
   );
 }

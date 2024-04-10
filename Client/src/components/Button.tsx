@@ -1,7 +1,7 @@
-import { ReactChild } from "react";
+import { ReactChild, ReactNode } from "react";
 
 interface ButtonProps {
-  children: ReactChild;
+  children: ReactChild | ReactNode;
   variant?: "dark" | "light";
   className?: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
