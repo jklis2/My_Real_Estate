@@ -9,7 +9,7 @@ import Error from "../components/Error";
 
 export default function Dashboard() {
   const [getUser, { data, isLoading, isError }] = useLazyGetUserQuery();
-
+  
   useEffect(() => {
     getUser("");
   }, [getUser]);

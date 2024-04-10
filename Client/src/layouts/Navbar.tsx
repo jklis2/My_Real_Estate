@@ -10,8 +10,9 @@ import UserAvatar from "../components/UserAvatar";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
-  const [getUser, { data: userData }] = useLazyGetUserQuery();
   
+  const [getUser, { data: userData }] = useLazyGetUserQuery();
+
   useEffect(() => {
     getUser("");
   }, [getUser]);
@@ -40,12 +41,14 @@ export default function Navbar() {
           >
             Offers
           </Link>
-          <Link
-            to="dashboard"
-            className="text-xl uppercase leading-6 text-gray-700"
-          >
-            Dashboard
-          </Link>
+          {userData && (
+            <Link
+              to="dashboard"
+              className="text-xl uppercase leading-6 text-gray-700"
+            >
+              Dashboard
+            </Link>
+          )}
           <Link
             to="admin"
             className="text-xl uppercase leading-6 text-gray-700"

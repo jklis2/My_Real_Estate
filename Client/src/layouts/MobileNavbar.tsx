@@ -1,12 +1,21 @@
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import BurgerMenu from "../components/BurgerMenu";
+import { useEffect } from "react";
+import { useLazyGetUserQuery } from "../services/userApi";
+import UserAvatar from "../components/UserAvatar";
 
 interface MNavbarProps {
   toggleMenu: () => void;
 }
 
 export default function MobileNavbar({ toggleMenu }: MNavbarProps) {
+  const [getUser, { data: userData }] = useLazyGetUserQuery();
+
+  useEffect(() => {
+    getUser("");
+  }, [getUser]);
+
   return (
     <div className="lg:hidden" role="dialog" aria-modal="true">
       <div className="fixed inset-0 z-50"></div>
@@ -20,20 +29,34 @@ export default function MobileNavbar({ toggleMenu }: MNavbarProps) {
               <a href="#" className="text-xl uppercase leading-6 text-gray-700">
                 About
               </a>
-              <a href="#" className="text-xl uppercase leading-6 text-gray-700">
+              <Link
+                to="properties"
+                className="text-xl uppercase leading-6 text-gray-700"
+              >
                 Offers
-              </a>
-              <a href="#" className="text-xl uppercase leading-6 text-gray-700">
-                Property
-              </a>
-              <a href="#" className="text-xl uppercase leading-6 text-gray-700">
-                Contact
-              </a>
-            </div>
-            <div className="py-6 ">
-              <Link to="/auth/login">
-                <Button className="w-full">Sign in</Button>
               </Link>
+              {userData && (
+                <Link
+                  to="dashboard"
+                  className="text-xl uppercase leading-6 text-gray-700"
+                >
+                  Dashboard
+                </Link>
+              )}
+              <Link
+                to="admin"
+                className="text-xl uppercase leading-6 text-gray-700"
+              >
+                Admin
+              </Link>
+            </div>
+            <div className="py-6 flex justify-end">
+              {userData && <UserAvatar userId={userData.result[0].id} />}
+              {!userData && (
+                <Link to="/auth/login">
+                  <Button>Sign in</Button>
+                </Link>
+              )}
             </div>
           </div>
         </div>
