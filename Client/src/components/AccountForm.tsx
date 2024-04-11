@@ -3,19 +3,7 @@ import { useLazyGetAddressQuery } from "../services/addressApi";
 import { useGetUserQuery } from "../services/userApi";
 import Button from "./Button";
 import Input from "./Input";
-
-interface Address {
-  _id: string;
-  country: string;
-  region: string;
-  zip_code: string;
-  city: string;
-  street_name: string;
-  street_number: string;
-  state: number;
-  propertyId?: string;
-  userId?: string;
-}
+import { Address } from "../interfaces/Address";
 
 export default function AccountForm() {
   const [getAddress, { data }] = useLazyGetAddressQuery();

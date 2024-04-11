@@ -21,12 +21,13 @@ export default function AditionalInfo({ size, numberOfRooms, numberOfPeople}: Ad
       getPropertyType(id);
     }, [getPropertyType, id]);
     const propertyType = data?.result[0];
-  console.log(propertyType)
+
+
   return (
     <section className="my-10">
       <H2 className="mb-6">Aditional Information</H2>
       <div className="flex flex-wrap gap-8">
-        <FeatureCard name={`Type: ${propertyType.propertyTypeName}`} icon={<PiTree size={20} />} />
+        <FeatureCard name={`Type: ${propertyType?.propertyTypeName}`} icon={<PiTree size={20} />} />
         <FeatureCard name={`Size: ${size} m2`} icon={<IoCarOutline size={20} />} />
         <FeatureCard name={`Rooms: ${numberOfRooms}`} icon={<PiTree size={20} />} />
         <FeatureCard name={`People: ${numberOfPeople}`} icon={<PiTree size={20} />} />

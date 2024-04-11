@@ -1,24 +1,19 @@
-import { useEffect } from "react";
-import { useLazyGetPropertyQuery } from "../services/propertyApi";
 import AditionalInfo from "../containers/AditionalInfo";
 import Description from "../containers/Description";
 import Features from "../containers/Features";
 import Gallery from "../containers/Gallery";
 import Location from "../containers/Location";
 import SimilarProperties from "../containers/SimilarProperties";
-import Loader from "../components/Loader";
+import { useMergedProperty } from "../hooks/useMergedProperty";
+import { useParams } from "react-router-dom";
 
 export default function Property() {
-  const [getProperty, { data, isLoading }] = useLazyGetPropertyQuery();
+  const { id } = useParams<{ id?: string }>();
 
-  useEffect(() => {
-    getProperty("");
-  }, [getProperty]);
-  const property = data?.result[0];
-
+  const property = useMergedProperty(id || "65f82029010a574fe727cbc4");
   return (
     <div className="sm:p-0 p-6">
-      {data && (
+      {property && (
         <>
           <Gallery />
           <Description />
@@ -32,7 +27,6 @@ export default function Property() {
           <SimilarProperties />
         </>
       )}
-      {isLoading && <Loader />}
     </div>
   );
 }
