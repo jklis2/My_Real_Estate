@@ -5,6 +5,7 @@ import userApi from "../services/userApi";
 import addressApi from "../services/addressApi";
 import propertyApi from "../services/propertyApi";
 import propertyTypeApi from "../services/propertyTypeApi";
+import featuresApi from "../services/featuresApi";
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     [addressApi.reducerPath]: addressApi.reducer,
     [propertyApi.reducerPath]: propertyApi.reducer,
     [propertyTypeApi.reducerPath]: propertyTypeApi.reducer,
+    [featuresApi.reducerPath]: featuresApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
@@ -20,7 +22,8 @@ export const store = configureStore({
       userApi.middleware,
       addressApi.middleware,
       propertyApi.middleware,
-      propertyTypeApi.middleware
+      propertyTypeApi.middleware,
+      featuresApi.middleware
     ),
 });
 
