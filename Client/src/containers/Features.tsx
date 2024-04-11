@@ -1,18 +1,28 @@
 import FeatureCard from "../components/FeatureCard";
-import { PiKnifeLight, PiTree } from "react-icons/pi";
-import { IoCarOutline } from "react-icons/io5";
-import { AiOutlineFire } from "react-icons/ai";
+import { PiKnifeLight } from "react-icons/pi";
 import H2 from "../components/H2";
 
-export default function Features() {
+interface Feature {
+  id: string;
+  featureName: string;
+}
+
+interface FeaturesProps {
+  featuresList: Feature[];
+}
+
+export default function Features({ featuresList }: FeaturesProps) {
   return (
     <section className="my-10">
       <H2 className="mb-6">Features</H2>
       <div className="flex flex-wrap gap-8">
-        <FeatureCard name="Gourmet kitchen" icon={<PiKnifeLight size={20} />} />
-        <FeatureCard name="Private garage" icon={<IoCarOutline size={20} />} />
-        <FeatureCard name="Backyard" icon={<PiTree size={20} />} />
-        <FeatureCard name="Fireplace" icon={<AiOutlineFire size={20} />} />
+        {featuresList.map((feature: Feature) => (
+          <FeatureCard
+            key={feature.id}
+            name={feature.featureName}
+            icon={<PiKnifeLight size={20} />}
+          />
+        ))}
       </div>
     </section>
   );

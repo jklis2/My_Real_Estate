@@ -42,6 +42,6 @@ export const useMergedProperty = (propertyId: string) => {
     ...propertyData?.result[0],
     ...typeData?.result[0],
     ...selectedAddress,
-    featuresList: featuresData.result,
+    featuresList: featuresData?.result,
   };
 };

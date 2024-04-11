@@ -18,7 +18,7 @@ export default function Description({
     <section className="my-10">
       <div className="flex justify-between">
         <H2 className="mb-6">{`${name}, ${city}`}</H2>
-        <H2 className="mb-6">{`${price} pln/month`}</H2>
+        <H2 className="mb-6">{`${price} $/month`}</H2>
       </div>
       <P>{description}</P>
     </section>

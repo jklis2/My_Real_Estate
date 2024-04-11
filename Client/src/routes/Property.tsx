@@ -23,7 +23,7 @@ export default function Property() {
             numberOfRooms={property.numberOfRooms}
             numberOfPeople={property.numberOfPeople}
           />
-          <Features />
+          <Features featuresList={property.featuresList}/>
           <Location />
           <SimilarProperties />
         </>
