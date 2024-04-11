@@ -16,8 +16,9 @@ export default function Property() {
       {property && (
         <>
           <Gallery />
-          <Description />
+          <Description name={property.name} city={property.city} price={property.price} description={property.description}/>
           <AditionalInfo
+            propertyTypeName={property.propertyTypeName}
             size={property.size}
             numberOfRooms={property.numberOfRooms}
             numberOfPeople={property.numberOfPeople}
