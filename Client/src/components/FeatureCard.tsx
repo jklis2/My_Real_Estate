@@ -1,7 +1,7 @@
 import P from "./P";
 
 interface FeatureProps {
-  name: string;
+  name: string | number;
   icon: JSX.Element;
 }
 
