@@ -15,15 +15,20 @@ export default function Property() {
     <div className="sm:p-0 p-6">
       {property && (
         <>
-          <Gallery />
-          <Description name={property.name} city={property.city} price={property.price} description={property.description}/>
+          <Gallery photos={property.photos} propertyId={id} />
+          <Description
+            name={property.name}
+            city={property.city}
+            price={property.price}
+            description={property.description}
+          />
           <AditionalInfo
             propertyTypeName={property.propertyTypeName}
             size={property.size}
             numberOfRooms={property.numberOfRooms}
             numberOfPeople={property.numberOfPeople}
           />
-          <Features featuresList={property.featuresList}/>
+          <Features featuresList={property.featuresList} />
           <Location />
           <SimilarProperties />
         </>

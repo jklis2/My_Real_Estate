@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useAvatar = (userId: string | number) => {
+export default function useAvatar(userId: string | number) {
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
 
   useEffect(() => {
@@ -29,6 +29,4 @@ const useAvatar = (userId: string | number) => {
   }, []);
 
   return avatarUrl as string;
-};
-
-export default useAvatar;
+}

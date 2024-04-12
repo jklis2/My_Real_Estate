@@ -16,7 +16,7 @@ export default function Features({ featuresList }: FeaturesProps) {
     <section className="my-10">
       <H2 className="mb-6">Features</H2>
       <div className="flex flex-wrap gap-8">
-        {featuresList.map((feature: Feature) => (
+        {featuresList?.map((feature: Feature) => (
           <FeatureCard
             key={feature.id}
             name={feature.featureName}
