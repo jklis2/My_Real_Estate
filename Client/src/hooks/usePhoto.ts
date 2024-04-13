@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_URL } from "../consts/api";
 
 export default function usePhoto(propertyId: string | undefined, photos: string[]) {
   const [propertyPhotos, setPropertyPhotos] = useState<string[]>([]);
@@ -10,8 +11,9 @@ export default function usePhoto(propertyId: string | undefined, photos: string[
 
         const fetchedPhotos: string[] = [];
         for (const photoId of photos) {
+          console.log(propertyId, photoId)
           const response = await fetch(
-            `https://localhost:7275/Photo?propertyId=${propertyId}&photoId=${photoId}`
+            `${API_URL}/Photo?propertyId=${propertyId}&photoId=${photoId}`
           );
           const blob = await response.blob();
           const imageUrl = URL.createObjectURL(blob);

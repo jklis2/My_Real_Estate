@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_URL } from "../consts/api";
 
 export default function useAvatar(userId: string | number) {
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
@@ -7,7 +8,7 @@ export default function useAvatar(userId: string | number) {
     const fetchAvatar = async () => {
       try {
         const response = await fetch(
-          `https://localhost:7275/Avatar?userId=${userId}`
+          `${API_URL}/Avatar?userId=${userId}`
         );
         const blob = await response.blob();
         const imageUrl = URL.createObjectURL(blob);

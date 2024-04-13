@@ -1,8 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { API_URL } from "../consts/api";
 
 const featuresApi = createApi({
   reducerPath: "featuresApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "https://localhost:7275/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
   endpoints: (builder) => ({
     getFeatures: builder.query({
       query: (id) => ({
