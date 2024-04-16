@@ -46,7 +46,7 @@ const router = createBrowserRouter([
       {
         path: "property/:id",
         element: (
-          <Suspense fallback={<Loader />}>
+          <Suspense fallback={<Loader size={12}/>}>
             <Property />
           </Suspense>
         ),

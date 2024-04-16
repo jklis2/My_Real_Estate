@@ -7,7 +7,6 @@ import Loader from "../components/Loader";
 import leftArrow from "../assets/icons/leftArrow.svg";
 import rightArrow from "../assets/icons/rightArrow.svg";
 
-
 const Slider = React.lazy(() => import("react-slick"));
 
 interface ArrowProps {
