@@ -10,8 +10,19 @@ const propertyApi = createApi({
         url: "Property",
       }),
     }),
+    getOwnProperty: builder.query({
+      query: (userId) => ({
+        method: "GET",
+        url: `Property?userId=${userId} `,
+      }),
+    }),
   }),
 });
 
-export const { useGetPropertyQuery, useLazyGetPropertyQuery } = propertyApi;
+export const {
+  useGetPropertyQuery,
+  useLazyGetPropertyQuery,
+  useGetOwnPropertyQuery,
+  useLazyGetOwnPropertyQuery,
+} = propertyApi;
 export default propertyApi;

@@ -1,7 +1,7 @@
-import { ReactChild } from "react";
+import { ReactChild, ReactNode } from "react";
 
 interface H2Props {
-  children: ReactChild;
+  children: ReactChild | JSX.Element | ReactNode;
   className?: string;
 }
 export default function H2({ children, className }: H2Props) {
