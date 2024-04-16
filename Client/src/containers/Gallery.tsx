@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import Photo from "../components/Photo";
-import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
+import rightArrow from "../assets/icons/rightArrow.svg";
+import leftArrow from "../assets/icons/leftArrow.svg";
 
 interface ArrowProps {
   className?: string;
@@ -19,7 +20,7 @@ function NextArrow({ onClick }: ArrowProps) {
       className="text-slate-500 absolute right-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10"
       onClick={onClick}
     >
-      <RiArrowRightSLine size={80} />
+     <img alt="arrow icon" src={rightArrow} width={80} height={80} />
     </div>
   );
 }
@@ -30,7 +31,7 @@ function PrevArrow({ onClick }: ArrowProps) {
       className="text-slate-500 absolute left-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10"
       onClick={onClick}
     >
-      <RiArrowLeftSLine size={80} />
+        <img alt="arrow icon" src={leftArrow} width={80} height={80} />
     </div>
   );
 }
@@ -72,7 +73,9 @@ export default function Gallery({ propertyId, photos }: GalleryProps) {
     const visibleSlides = windowWidth < 768 ? 3 : 5;
     const middleIndex =
       (activeSlide + Math.floor(visibleSlides / 2)) % photos.length;
-    return `https://localhost:7275/Photo?propertyId=${propertyId}&photoId=${photos[middleIndex]}`;
+    return `${
+      import.meta.env.VITE_API_URL
+    }Photo?propertyId=${propertyId}&photoId=${photos[middleIndex]}`;
   };
 
   const isMiddleSlide = (index: number) => {
@@ -98,7 +101,9 @@ export default function Gallery({ propertyId, photos }: GalleryProps) {
           {photos?.map((photo, i) => (
             <Photo
               key={i}
-              path={`https://localhost:7275/Photo?propertyId=${propertyId}&photoId=${photo}`}
+              path={`${
+                import.meta.env.VITE_API_URL
+              }Photo?propertyId=${propertyId}&photoId=${photo}`}
               className={isMiddleSlide(i) ? "opacity-60" : ""}
             ></Photo>
           ))}
