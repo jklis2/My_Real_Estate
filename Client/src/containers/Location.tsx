@@ -1,31 +1,27 @@
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import H2 from "../components/H2";
-import {
-  APIProvider,
-  Map,
-  AdvancedMarker,
-  Pin,
-} from "@vis.gl/react-google-maps";
-
 
 export default function Location() {
-  const position = { lat: 50.068149, lng: 19.9410266 };
   return (
     <section className="my-10 ">
       <H2 className="mb-6">Location</H2>
       <div className="w-full h-128">
-        <APIProvider apiKey={import.meta.env.VITE_MAP_API}>
-          <div className="h-full">
-            <Map zoom={15} center={position} mapId={import.meta.env.VITE_MAP_ID}>
-              <AdvancedMarker position={position}>
-                <Pin
-                  background={"red"}
-                  borderColor={"red"}
-                  glyphColor={"white"}
-                />
-              </AdvancedMarker>
-            </Map>
-          </div>
-        </APIProvider>
+        <MapContainer
+          center={[51.505, -0.09]}
+          zoom={13}
+          scrollWheelZoom={false}
+          className="h-full rounded-xl"
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={[51.505, -0.09]}>
+            <Popup>
+              A pretty CSS3 popup. <br /> Easily customizable.
+            </Popup>
+          </Marker>
+        </MapContainer>
       </div>
     </section>
   );
