@@ -7,7 +7,7 @@ export default function useAvatar(userId: string | number) {
     const fetchAvatar = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/Avatar?userId=${userId}`
+          `${import.meta.env.VITE_API_URL}Avatar?userId=${userId}`
         );
         const blob = await response.blob();
         const imageUrl = URL.createObjectURL(blob);

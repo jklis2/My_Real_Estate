@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import Photo from "../components/Photo";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import usePhoto from "../hooks/usePhoto";
 
 interface ArrowProps {
   className?: string;
@@ -16,7 +13,7 @@ interface GalleryProps {
   photos: string[];
 }
 
-const NextArrow: React.FunctionComponent<ArrowProps> = ({ onClick }) => {
+function NextArrow({ onClick }: ArrowProps) {
   return (
     <div
       className="text-slate-500 absolute right-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10"
@@ -25,9 +22,9 @@ const NextArrow: React.FunctionComponent<ArrowProps> = ({ onClick }) => {
       <RiArrowRightSLine size={80} />
     </div>
   );
-};
+}
 
-const PrevArrow: React.FunctionComponent<ArrowProps> = ({ onClick }) => {
+function PrevArrow({ onClick }: ArrowProps) {
   return (
     <div
       className="text-slate-500 absolute left-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10"
@@ -36,11 +33,10 @@ const PrevArrow: React.FunctionComponent<ArrowProps> = ({ onClick }) => {
       <RiArrowLeftSLine size={80} />
     </div>
   );
-};
+}
 
 export default function Gallery({ propertyId, photos }: GalleryProps) {
   const [activeSlide, setActiveSlide] = useState<number>(0);
-  const photosList = usePhoto(propertyId, photos);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const settings = {
@@ -67,27 +63,29 @@ export default function Gallery({ propertyId, photos }: GalleryProps) {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const getMiddlePhoto = () => {
-    if (!photosList || photosList.length === 0) return '';
+    if (!photos || photos.length === 0) return "";
     const visibleSlides = windowWidth < 768 ? 3 : 5;
-    const middleIndex = (activeSlide + Math.floor(visibleSlides / 2)) % photosList.length;
-    return photosList[middleIndex];
+    const middleIndex =
+      (activeSlide + Math.floor(visibleSlides / 2)) % photos.length;
+    return `https://localhost:7275/Photo?propertyId=${propertyId}&photoId=${photos[middleIndex]}`;
   };
 
   const isMiddleSlide = (index: number) => {
     const visibleSlides = windowWidth < 768 ? 3 : 5;
-    const middleIndex = (activeSlide + Math.floor(visibleSlides / 2)) % photosList.length;
+    const middleIndex =
+      (activeSlide + Math.floor(visibleSlides / 2)) % photos.length;
     return index === middleIndex;
   };
 
   return (
     <section className="my-6">
       <div className="sm:h-72 md:h-96 lg:h-128">
-        {photosList && (
+        {photos && (
           <img
             className="w-full h-full rounded-2xl"
             src={getMiddlePhoto()}
@@ -95,10 +93,14 @@ export default function Gallery({ propertyId, photos }: GalleryProps) {
           />
         )}
       </div>
-      {photosList && photosList.length > 0 && (
+      {photos && photos.length > 0 && (
         <Slider {...settings} className="mt-6">
-          {photosList.map((photo, index) => (
-            <Photo key={index} path={photo} className={isMiddleSlide(index) ? 'opacity-60' : ''} />
+          {photos?.map((photo, i) => (
+            <Photo
+              key={i}
+              path={`https://localhost:7275/Photo?propertyId=${propertyId}&photoId=${photo}`}
+              className={isMiddleSlide(i) ? "opacity-60" : ""}
+            ></Photo>
           ))}
         </Slider>
       )}
