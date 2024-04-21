@@ -5,12 +5,13 @@ const propertyApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_API_URL }),
   endpoints: (builder) => ({
     getProperty: builder.query({
-      query: () => ({
+      query: (properyId: string) => ({
         method: "GET",
-        url: "Property",
+        url: `Property?Id=${properyId}`,
       }),
     }),
-    getOwnProperty: builder.query({
+
+    getOwnProperties: builder.query({
       query: (userId) => ({
         method: "GET",
         url: `Property?userId=${userId} `,
@@ -22,7 +23,7 @@ const propertyApi = createApi({
 export const {
   useGetPropertyQuery,
   useLazyGetPropertyQuery,
-  useGetOwnPropertyQuery,
-  useLazyGetOwnPropertyQuery,
+  useGetOwnPropertiesQuery,
+  useLazyGetOwnPropertiesQuery,
 } = propertyApi;
 export default propertyApi;

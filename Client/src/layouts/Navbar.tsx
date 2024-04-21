@@ -10,7 +10,7 @@ import UserAvatar from "../components/UserAvatar";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
-  
+
   const [getUser, { data: userData }] = useLazyGetUserQuery();
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <header>
       <nav
-        className="flex items-center justify-between p-6 lg:p-8"
+        className="flex items-center justify-between py-6 lg:py-8"
         aria-label="Navigation menu"
       >
         <div className="flex lg:flex-1">
@@ -57,8 +57,9 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          {userData && <UserAvatar userId={userData.result[0].id} />}
-          {!userData && (
+          {userData && userData.result.length > 0 ? (
+            <UserAvatar userId={userData.result[0]?.id} />
+          ) : (
             <Link to="/auth/login">
               <Button>Sign in</Button>
             </Link>

@@ -2,7 +2,7 @@ export function parseLatLng(input: string) {
   const regex = /(\d+)°\s*(\d+)'\s*(\d+(?:\.\d+)?)''\s*([NSEW])/g;
   const matches = regex.exec(input);
   if (!matches) {
-    return null; 
+    return null;
   }
 
   const degrees = parseFloat(matches[1]);

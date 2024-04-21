@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import H2 from "../components/H2";
 import Select from "../components/Select";
 import PropertiesList from "../containers/PropertiesList";
+import { useOwnProperties } from "../hooks/useOwnProperties";
+import { Property } from "../interfaces/Property";
 
 export default function Rent() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -9,6 +11,11 @@ export default function Rent() {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(e.target.value);
   };
+
+  const properties = useOwnProperties();
+  const rentedProperties = properties?.result?.filter(
+    (prop: Property) => prop.state === 1
+  );
 
   return (
     <div className="p-6">
@@ -20,7 +27,11 @@ export default function Rent() {
         selectedOption={selectedOption}
         onChange={handleChange}
       />
-      <PropertiesList title="Your rented properties (12):" />
+      <PropertiesList
+        title="Rented properties:"
+        properties={rentedProperties}
+        addresses={properties?.addresses}
+      />
     </div>
   );
 }

@@ -1,29 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import H2 from "../components/H2";
 import Select from "../components/Select";
 import PropertiesList from "../containers/PropertiesList";
-import { useLazyGetOwnPropertyQuery } from "../services/propertyApi";
-import { useGetUserQuery } from "../services/userApi";
+import { useOwnProperties } from "../hooks/useOwnProperties";
 
 export default function Properties() {
   const [selectedOption, setSelectedOption] = useState("");
-  const { data: userData } = useGetUserQuery(null);
-  const [getOwnProperty, { data }] = useLazyGetOwnPropertyQuery();
 
+  const properties = useOwnProperties();
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(e.target.value);
   };
-
-  useEffect(() => {
-    if (userData && userData.result && userData.result.length > 0) {
-      const { id } = userData.result[0];
-
-      if (id) {
-        getOwnProperty(id);
-      }
-    }
-  }, [userData, getOwnProperty]);
-  console.log(userData);
 
   return (
     <div className="p-6">
@@ -35,7 +22,11 @@ export default function Properties() {
         selectedOption={selectedOption}
         onChange={handleChange}
       />
-      <PropertiesList title="Your properties: " properties={data?.result} />
+      <PropertiesList
+        title="Your properties: "
+        properties={properties?.result}
+        addresses={properties?.addresses}
+      />
     </div>
   );
 }

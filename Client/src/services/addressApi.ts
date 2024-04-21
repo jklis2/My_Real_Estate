@@ -5,9 +5,9 @@ const addressApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_API_URL }),
   endpoints: (builder) => ({
     getAddress: builder.query({
-      query: () => ({
+      query: (propertyId: string) => ({
         method: "GET",
-        url: "Address",
+        url: `Address?PropertyId=${propertyId}`,
       }),
     }),
   }),

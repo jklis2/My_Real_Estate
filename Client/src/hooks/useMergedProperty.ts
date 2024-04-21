@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useLazyGetPropertyQuery } from "../services/propertyApi";
 import { useLazyGetPropertyTypeQuery } from "../services/propertyTypeApi";
 import { useLazyGetAddressQuery } from "../services/addressApi";
-import { Address } from "../interfaces/Address";
 import { useLazyGetFeaturesQuery } from "../services/featuresApi";
 
 export const useMergedProperty = (propertyId: string) => {
@@ -23,25 +22,19 @@ export const useMergedProperty = (propertyId: string) => {
 
   useEffect(() => {
     if (propertyData) {
-      getAddress("");
+      getAddress(propertyId);
     }
-  }, [getAddress, propertyData]);
+  }, [getAddress, propertyData, propertyId]);
 
   propertyError && console.log(propertyError);
   typeError && console.log(typeError);
   addressError && console.log(addressError);
   featuresError && console.log(featuresError);
 
-  const selectedAddress =
-    addressData &&
-    addressData.result.filter(
-      (addr: Address) => addr.propertyId === propertyId
-    )[0];
-
   return {
     ...propertyData?.result[0],
     ...typeData?.result[0],
-    ...selectedAddress,
+    ...addressData?.result[0],
     featuresList: featuresData?.result,
   };
 };

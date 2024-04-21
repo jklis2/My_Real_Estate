@@ -6,15 +6,18 @@ import QuickStats from "../containers/QuickStats";
 import { useLazyGetUserQuery } from "../services/userApi";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
+import { useOwnProperties } from "../hooks/useOwnProperties";
 
 export default function Dashboard() {
   const [getUser, { data, isLoading, isError }] = useLazyGetUserQuery();
-  
+
   useEffect(() => {
     getUser("");
   }, [getUser]);
 
   const user = data && data.result[0];
+
+  const properties = useOwnProperties();
   return (
     <div className="p-6">
       {data && (
@@ -25,7 +28,11 @@ export default function Dashboard() {
           <P>Here's what's happening with your properties</P>
           <QuickStats />
           <TimeLine />
-          <PropertiesList title="Your recent properties" />
+          <PropertiesList
+            title="Your recent properties: "
+            properties={properties?.result?.slice(-3)}
+            addresses={properties?.addresses}
+          />
         </>
       )}
       {isLoading && <Loader />}

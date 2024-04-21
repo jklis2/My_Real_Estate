@@ -20,8 +20,8 @@ export default function PropertyCard({
   area,
 }: CardProps) {
   return (
-    <div className={`${className || ""} w-1/3 rounded-xl me-10`}>
-      <img src={imgPath} className="w-full rounded-xl" />
+    <div className={`${className || ""} w-full rounded-xl me-10`}>
+      <img src={imgPath} className="rounded-xl h-56 w-full" />
       <h4 className="text-2xl mt-3">{name}</h4>
       <P>{location}</P>
       {price && <P>{price}</P>}

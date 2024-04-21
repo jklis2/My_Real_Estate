@@ -6,8 +6,8 @@ export interface Property {
   numberOfPeople: number;
   size: number;
   price: number;
-  rentStart: string; 
-  rentEnd: string; 
+  rentStart: string;
+  rentEnd: string;
   state: number;
   userId: string;
   photos: string[];

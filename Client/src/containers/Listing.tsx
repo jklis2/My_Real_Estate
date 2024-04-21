@@ -12,7 +12,7 @@ export default function Listing() {
 
   return (
     <section>
-      <div className="flex flex-wrap gap-10">
+      <div className="grid gap-10 sm:grid-cols-2 xl:grid-cols-3">
         <PropertyCard
           className="w-1/3"
           name="The Verano"
