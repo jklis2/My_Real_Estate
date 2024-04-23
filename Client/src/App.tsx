@@ -19,6 +19,7 @@ import UsersManagement from "./routes/UsersManagement";
 import AdminSettings from "./routes/AdminSettings";
 import Loader from "./components/Loader";
 import AuthLayout from "./layouts/AuthRoot";
+import CreateProperty from "./routes/CreateProperty";
 
 const PropertyListing = React.lazy(() => import("./routes/PropertyListing"));
 const Property = React.lazy(() => import("./routes/Property"));
@@ -46,7 +47,7 @@ const router = createBrowserRouter([
       {
         path: "property/:id",
         element: (
-          <Suspense fallback={<Loader size={12}/>}>
+          <Suspense fallback={<Loader size={12} />}>
             <Property />
           </Suspense>
         ),
@@ -108,6 +109,10 @@ const router = createBrowserRouter([
       {
         path: "reports",
         element: <Reports />,
+      },
+      {
+        path: "create",
+        element: <CreateProperty />,
       },
       {
         path: "settings",

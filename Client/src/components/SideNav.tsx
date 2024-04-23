@@ -75,7 +75,9 @@ export default function SideNav() {
 
       <div className="text-center">
         <div className="flex flex-col gap-3">
-          <Button className="w-full">New Property</Button>
+          <Link to="create">
+            <Button className="w-full">New Property</Button>
+          </Link>
           {isAdminPage && <Button className="w-full">New User</Button>}
         </div>
 
