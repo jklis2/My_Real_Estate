@@ -5,9 +5,9 @@ const featuresApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_API_URL }),
   endpoints: (builder) => ({
     getFeatures: builder.query({
-      query: (id) => ({
+      query: (id?) => ({
         method: "GET",
-        url: `Features?PropertyId=${id}`,
+        url: `Features${id && `?PropertyId=${id}`}`,
       }),
     }),
   }),

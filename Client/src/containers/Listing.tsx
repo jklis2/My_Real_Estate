@@ -2,8 +2,16 @@ import { useState } from "react";
 import Button from "../components/Button";
 import Pagination from "../components/Pagination";
 import PropertyCard from "../components/PropertyCard";
+import { Property } from "../interfaces/Property";
+import { Address } from "../interfaces/Address";
+import { Link } from "react-router-dom";
 
-export default function Listing() {
+interface ListingProps {
+  properties: Array<Property>;
+  addresses: Array<Address>;
+}
+
+export default function Listing({ properties, addresses }: ListingProps) {
   const [currentPage, setCurrentPage] = useState(1);
 
   const handlePageChange = (page: number) => {
@@ -13,30 +21,25 @@ export default function Listing() {
   return (
     <section>
       <div className="grid gap-10 sm:grid-cols-2 xl:grid-cols-3">
-        <PropertyCard
-          className="w-1/3"
-          name="The Verano"
-          location="Los Angeles, CA"
-          price="535"
-          imgPath="https://picsum.photos/500/300"
-          action={<Button className="w-full mt-3">Details</Button>}
-        />
-        <PropertyCard
-          className="w-1/3"
-          name="The Verano"
-          location="Los Angeles, CA"
-          price="535"
-          imgPath="https://picsum.photos/500/300"
-          action={<Button className="w-full mt-3">Details</Button>}
-        />
-        <PropertyCard
-          className="w-1/3"
-          name="The Verano"
-          location="Los Angeles, CA"
-          price="535"
-          imgPath="https://picsum.photos/500/300"
-          action={<Button className="w-full mt-3">Details</Button>}
-        />
+        {properties?.map((prop) => {
+          const location = addresses.filter(
+            (addr) => addr.propertyId === prop.id
+          )[0];
+          return (
+            <PropertyCard
+              name={prop?.name}
+              location={`${location?.city},${location.country} `}
+              imgPath={`${import.meta.env.VITE_API_URL}Photo?propertyId=${
+                prop.id
+              }&photoId=${prop.photos[0]}`}
+              action={
+                <Link to={`/property/${prop.id}`}>
+                  <Button className="w-full mt-3">Details</Button>
+                </Link>
+              }
+            />
+          );
+        })}
       </div>
       <Pagination
         pages={9}

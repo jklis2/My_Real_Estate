@@ -10,13 +10,14 @@ export default function AccountForm() {
   const { data: userData } = useGetUserQuery(null);
 
   useEffect(() => {
-    getAddress("");
-  }, [getAddress]);
+    userData?.result[0] && getAddress(userData?.result[0].id);
+  }, [getAddress, userData]);
 
   const addressData =
-    data?.result.filter((address: Address) => address.userId !== null)[0] ?? [];
+    data?.result.filter((address: Address) => address?.userId !== null)[0] ??
+    [];
 
-  const userDetails = userData && userData.result[0];
+  const userDetails = userData?.result[0];
 
   return (
     <section>
@@ -29,7 +30,7 @@ export default function AccountForm() {
               label="First Name"
               id="firstName"
               placeholder="Enter first name"
-              value={userDetails.firstName}
+              value={userDetails?.firstName}
             />
           </div>
           <div className="flex flex-col w-full">
@@ -39,7 +40,7 @@ export default function AccountForm() {
               label="Last Name"
               id="lastName"
               placeholder="Enter last Name"
-              value={userDetails.lastName}
+              value={userDetails?.lastName}
             />
           </div>
         </div>
@@ -51,7 +52,7 @@ export default function AccountForm() {
             id="email"
             placeholder="Enter e-mail"
             autoComplete="email"
-            value={userDetails.email}
+            value={userDetails?.email}
           />
         </div>
         <div className="flex justify-between gap-3 lg:gap-6 mt-3 lg:flex-row flex-col">
@@ -62,7 +63,7 @@ export default function AccountForm() {
               label="Country"
               id="country"
               placeholder="Enter country"
-              value={addressData.country}
+              value={addressData?.country}
             />
           </div>
           <div className="flex flex-col w-full">
@@ -72,7 +73,7 @@ export default function AccountForm() {
               label="Region"
               id="region"
               placeholder="Enter region"
-              value={addressData.region}
+              value={addressData?.region}
             />
           </div>
         </div>
@@ -84,7 +85,7 @@ export default function AccountForm() {
               label="City"
               id="city"
               placeholder="Enter city"
-              value={addressData.city}
+              value={addressData?.city}
             />
           </div>
           <div className="flex flex-col w-full">
@@ -94,7 +95,7 @@ export default function AccountForm() {
               label="Zip code"
               id="zipCode"
               placeholder="Enter zip code"
-              value={addressData.zipCode}
+              value={addressData?.zipCode}
             />
           </div>
         </div>
@@ -106,7 +107,7 @@ export default function AccountForm() {
               label="Street"
               id="street"
               placeholder="Enter street"
-              value={addressData.streetName}
+              value={addressData?.streetName}
             />
           </div>
           <div className="flex flex-col w-full">
@@ -116,7 +117,7 @@ export default function AccountForm() {
               label="Number"
               id="phoneNumber"
               placeholder="Enter number"
-              value={addressData.streetNumber}
+              value={addressData?.streetNumber}
             />
           </div>
         </div>

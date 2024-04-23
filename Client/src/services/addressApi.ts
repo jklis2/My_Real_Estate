@@ -4,6 +4,12 @@ const addressApi = createApi({
   reducerPath: "addressApi",
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_API_URL }),
   endpoints: (builder) => ({
+    getAddresses: builder.query({
+      query: () => ({
+        method: "GET",
+        url: `Address`,
+      }),
+    }),
     getAddress: builder.query({
       query: (propertyId: string) => ({
         method: "GET",
@@ -13,5 +19,10 @@ const addressApi = createApi({
   }),
 });
 
-export const { useGetAddressQuery, useLazyGetAddressQuery } = addressApi;
+export const {
+  useGetAddressQuery,
+  useLazyGetAddressQuery,
+  useGetAddressesQuery,
+  useLazyGetAddressesQuery,
+} = addressApi;
 export default addressApi;

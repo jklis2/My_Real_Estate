@@ -10,7 +10,7 @@ export default function UploadAvatar() {
   return (
     <section className="my-10">
       <div className="flex items-center mb-10">
-        <Picture id={userDetails.id} />
+        <Picture id={userDetails?.id} />
         <div className="ml-10">
           <H2 className="mb-2">Profile Picture</H2>
           <P className="mb-">JPG or PNG no larger than 5 MB</P>
