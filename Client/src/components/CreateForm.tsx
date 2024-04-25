@@ -1,11 +1,18 @@
+import React from "react";
 import H3 from "./H3";
 import Input from "./Input";
 import Select from "./Select";
 import FeatureCard from "./FeatureCard";
 import { PiTree } from "react-icons/pi";
 import Button from "./Button";
+import { FEATURES_LIST } from "../consts/features";
 
 export default function CreateForm() {
+  const [selectedFeature, setSelectedFeature] = React.useState("");
+
+  const handleFeatureChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedFeature(event.target.value);
+  };
   return (
     <section>
       <form className="my-10">
@@ -87,25 +94,13 @@ export default function CreateForm() {
         </div>
         <H3 className="my-10">Features</H3>
         <div className="flex flex-wrap gap-12">
-          <FeatureCard
-            name="Pool"
-            icon={<PiTree size={20} />}
-            showCheckbox={true}
-          />
-          <FeatureCard
-            name={"Private garage"}
-            icon={<PiTree size={20} />}
-            showCheckbox={true}
-          />
-          <FeatureCard
-            name={"Aircondition"}
-            icon={<PiTree size={20} />}
-            showCheckbox={true}
-          />
-          <FeatureCard
-            name={"TV"}
-            icon={<PiTree size={20} />}
-            showCheckbox={true}
+          <Select
+            options={FEATURES_LIST}
+            className="w-full p-3 border border-slate-300 rounded-xl"
+            id="features"
+            placeholder="Select a feature"
+            selectedOption={selectedFeature}
+            onChange={handleFeatureChange}
           />
         </div>
         <H3 className="my-10">Location</H3>
