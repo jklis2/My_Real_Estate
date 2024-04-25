@@ -4,6 +4,7 @@ import { useGetUserQuery } from "../services/userApi";
 import Button from "./Button";
 import Input from "./Input";
 import { Address } from "../interfaces/Address";
+import H2 from "./H2";
 
 export default function AccountForm() {
   const [getAddress, { data }] = useLazyGetAddressQuery();
@@ -55,6 +56,8 @@ export default function AccountForm() {
             value={userDetails?.email}
           />
         </div>
+        <Button className="my-5 px-16">Save changes</Button>
+        <H2 className="my-4">Address Details</H2>
         <div className="flex justify-between gap-3 lg:gap-6 mt-3 lg:flex-row flex-col">
           <div className="flex flex-col w-full">
             <Input
