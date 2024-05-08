@@ -22,7 +22,7 @@ export default function Listing({ properties, addresses }: ListingProps) {
     <section>
       <div className="grid gap-10 sm:grid-cols-2 xl:grid-cols-3">
         {properties?.map((prop) => {
-          const location = addresses.filter(
+          const location = addresses?.filter(
             (addr) => addr.propertyId === prop.id
           )[0];
           return (

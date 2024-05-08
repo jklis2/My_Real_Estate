@@ -30,6 +30,7 @@ export default function Location() {
     <section className="my-10 ">
       <H2 className="mb-6">Location</H2>
       <div className="w-full h-128">
+      {!coords && <p>No coords</p>}
         {coords && (
           <MapContainer
             center={[50.06, 19.94]}

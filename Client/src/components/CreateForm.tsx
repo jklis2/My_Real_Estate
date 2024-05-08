@@ -1,11 +1,10 @@
 import H3 from "./H3";
 import Input from "./Input";
 import Select from "./Select";
-import MultiSelect from "react-select";
+import MultiSelect from "./MultiSelect";
 import FeatureCard from "./FeatureCard";
 import { PiTree } from "react-icons/pi";
 import Button from "./Button";
-import { FEATURES_LIST } from "../consts/features";
 
 export default function CreateForm() {
   return (
@@ -89,18 +88,7 @@ export default function CreateForm() {
         </div>
         <H3 className="my-10">Features</H3>
         <div className="flex flex-wrap gap-12">
-          {/* <MultiSelect options={FEATURES_LIST} /> */}
-          <MultiSelect
-            isMulti // Włącza wybór wielu opcji
-            options={FEATURES_LIST.map((feature) => ({
-              value: feature,
-              label: feature,
-            }))} 
-            placeholder="Select features"
-            className="w-full rounded-xl "
-            
-          />
-
+          <MultiSelect />
         </div>
         <H3 className="my-10">Location</H3>
         <div className="flex justify-between gap-3 lg:gap-6 mt-3 lg:flex-row flex-col">
