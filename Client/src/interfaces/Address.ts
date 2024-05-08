@@ -1,11 +1,11 @@
 export interface Address {
-  _id: string;
+  id: string;
   country: string;
   region: string;
-  zip_code: string;
+  zipCode: string;
   city: string;
-  street_name: string;
-  street_number: string;
+  streetName: string;
+  streetNumber: string;
   state: number;
   propertyId?: string;
   userId?: string;

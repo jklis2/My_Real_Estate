@@ -43,6 +43,7 @@
     "leaflet": "^1.9.4",
     "mapbox-gl": "^3.3.0",
     "postcss": "^8.4.33",
+    "react-hook-form": "^7.51.4",
     "react-icons": "^5.0.1",
     "react-intersection-observer": "^9.8.1",
     "react-leaflet": "^4.2.1",

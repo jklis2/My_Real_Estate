@@ -18,7 +18,7 @@ export const useMergedProperty = (propertyId: string) => {
 
   useEffect(() => {
     if (propertyData) {
-      getAddress(propertyId);
+      getAddress({ propertyId });
     }
   }, [getAddress, propertyData, propertyId]);
 

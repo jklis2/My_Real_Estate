@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, ForwardedRef, forwardRef } from "react";
 
 interface InputProps {
   type: "text" | "number" | "email" | "password" | "upload";
@@ -16,7 +16,10 @@ interface InputProps {
   onChange?: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
-export default function Input(props: InputProps) {
+const Input = forwardRef(function Input(
+  props: InputProps,
+  ref: ForwardedRef<HTMLInputElement> | undefined
+) {
   return props.size === "big" ? (
     <>
       {props.label && (
@@ -55,7 +58,10 @@ export default function Input(props: InputProps) {
         name={props.name}
         value={props.value}
         onChange={props.onChange}
+        ref={ref}
       ></input>
     </>
   );
-}
+});
+
+export default Input;

@@ -18,15 +18,19 @@ const userApi = createApi({
       }),
     }),
     editUser: builder.mutation({
-      query: (user) => ({
-        url: "User",
+      query: (userData) => ({
+        url: `User?userId=${userData.id}`,
         method: "PUT",
-        body: user,
+        body: userData.data,
       }),
     }),
   }),
 });
 
-export const { useGetUserQuery, useCreateUserMutation, useLazyGetUserQuery } =
-  userApi;
+export const {
+  useGetUserQuery,
+  useCreateUserMutation,
+  useEditUserMutation,
+  useLazyGetUserQuery,
+} = userApi;
 export default userApi;

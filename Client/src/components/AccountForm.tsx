@@ -1,28 +1,51 @@
-import { useEffect } from "react";
-import { useLazyGetAddressQuery } from "../services/addressApi";
-import { useGetUserQuery } from "../services/userApi";
-import Button from "./Button";
+import { useForm, SubmitHandler } from "react-hook-form";
 import Input from "./Input";
-import { Address } from "../interfaces/Address";
-import H2 from "./H2";
+import Button from "./Button";
+import { useEffect } from "react";
+import { useEditUserMutation } from "../services/userApi";
+import { useState } from "react";
+import Alert from "./Alert";
 
-export default function AccountForm() {
-  const [getAddress, { data }] = useLazyGetAddressQuery();
-  const { data: userData } = useGetUserQuery(null);
+interface AccountInputs {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+}
+
+export default function AccountForm({
+  id,
+  firstName,
+  lastName,
+  email,
+}: AccountInputs) {
+  const [show, setShow] = useState(false);
+  const { register, handleSubmit, reset } = useForm<AccountInputs>();
+  const [editUser, { error }] = useEditUserMutation();
+
+  const onSubmit: SubmitHandler<AccountInputs> = (data) => {
+    try {
+      editUser({ data, id });
+      setShow(true);
+    } catch {
+      console.log(error);
+      setShow(true)
+    }
+  };
 
   useEffect(() => {
-    userData?.result[0] && getAddress(userData?.result[0].id);
-  }, [getAddress, userData]);
-
-  const addressData =
-    data?.result.filter((address: Address) => address?.userId !== null)[0] ??
-    [];
-
-  const userDetails = userData?.result[0];
+    if (firstName || lastName || email) {
+      reset({
+        firstName,
+        lastName,
+        email,
+      });
+    }
+  }, [firstName, lastName, email, reset]);
 
   return (
-    <section>
-      <form className="w-full">
+    <>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex justify-between gap-3 lg:gap-6 mt-3 lg:flex-row flex-col">
           <div className="flex flex-col w-full">
             <Input
@@ -31,7 +54,7 @@ export default function AccountForm() {
               label="First Name"
               id="firstName"
               placeholder="Enter first name"
-              value={userDetails?.firstName}
+              {...register("firstName")}
             />
           </div>
           <div className="flex flex-col w-full">
@@ -41,7 +64,7 @@ export default function AccountForm() {
               label="Last Name"
               id="lastName"
               placeholder="Enter last Name"
-              value={userDetails?.lastName}
+              {...register("lastName")}
             />
           </div>
         </div>
@@ -53,79 +76,29 @@ export default function AccountForm() {
             id="email"
             placeholder="Enter e-mail"
             autoComplete="email"
-            value={userDetails?.email}
+            {...register("email")}
           />
         </div>
         <Button className="my-5 px-16">Save changes</Button>
-        <H2 className="my-4">Address Details</H2>
-        <div className="flex justify-between gap-3 lg:gap-6 mt-3 lg:flex-row flex-col">
-          <div className="flex flex-col w-full">
-            <Input
-              type="text"
-              className="w-full p-3 border border-slate-300 rounded-xl"
-              label="Country"
-              id="country"
-              placeholder="Enter country"
-              value={addressData?.country}
-            />
-          </div>
-          <div className="flex flex-col w-full">
-            <Input
-              type="text"
-              className="w-full p-3 border border-slate-300 rounded-xl"
-              label="Region"
-              id="region"
-              placeholder="Enter region"
-              value={addressData?.region}
-            />
-          </div>
-        </div>
-        <div className="flex justify-between gap-3 lg:gap-6 mt-3 lg:flex-row flex-col">
-          <div className="flex flex-col w-full">
-            <Input
-              type="text"
-              className="w-full p-3 border border-slate-300 rounded-xl"
-              label="City"
-              id="city"
-              placeholder="Enter city"
-              value={addressData?.city}
-            />
-          </div>
-          <div className="flex flex-col w-full">
-            <Input
-              type="text"
-              className="w-full p-3 border border-slate-300 rounded-xl"
-              label="Zip code"
-              id="zipCode"
-              placeholder="Enter zip code"
-              value={addressData?.zipCode}
-            />
-          </div>
-        </div>
-        <div className="flex justify-between gap-3 lg:gap-6 mt-3 lg:flex-row flex-col">
-          <div className="flex flex-col w-full">
-            <Input
-              type="text"
-              className="w-full p-3 border border-slate-300 rounded-xl"
-              label="Street"
-              id="street"
-              placeholder="Enter street"
-              value={addressData?.streetName}
-            />
-          </div>
-          <div className="flex flex-col w-full">
-            <Input
-              type="text"
-              className="w-full p-3 border border-slate-300 rounded-xl"
-              label="Number"
-              id="phoneNumber"
-              placeholder="Enter number"
-              value={addressData?.streetNumber}
-            />
-          </div>
-        </div>
-        <Button className="my-5 px-16">Save changes</Button>
       </form>
-    </section>
+
+      {error && show && (
+        <Alert
+          name="An error occured!"
+          type="Error"
+          isVisible={show}
+          onClose={() => setShow(false)}
+        />
+      )}
+
+      {!error && show && (
+        <Alert
+          name="Account updated successfully"
+          type="Success"
+          isVisible={show}
+          onClose={() => setShow(false)}
+        />
+      )}
+    </>
   );
 }

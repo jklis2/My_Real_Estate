@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { Address } from "../interfaces/Address";
 
 const addressApi = createApi({
   reducerPath: "addressApi",
@@ -11,9 +12,18 @@ const addressApi = createApi({
       }),
     }),
     getAddress: builder.query({
-      query: (propertyId: string) => ({
+      query: ({ propertyId, userId }) => ({
         method: "GET",
-        url: `Address?PropertyId=${propertyId}`,
+        url: `Address?${
+          propertyId ? `PropertyId=${propertyId}` : `userId=${userId}`
+        }`,
+      }),
+    }),
+    editAddress: builder.mutation({
+      query: (address: Address) => ({
+        url: `Address?addressId=${address.id}`,
+        method: "PUT",
+        body: address,
       }),
     }),
   }),
@@ -24,5 +34,6 @@ export const {
   useLazyGetAddressQuery,
   useGetAddressesQuery,
   useLazyGetAddressesQuery,
+  useEditAddressMutation,
 } = addressApi;
 export default addressApi;
