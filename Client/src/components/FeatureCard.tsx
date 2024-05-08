@@ -2,11 +2,12 @@ import P from "./P";
 
 interface FeatureProps {
   name: string | number;
-  icon: JSX.Element;
+  icon?: JSX.Element;
   options?: Array<string>;
   input?: string | number;
   placeholder?: string;
   showCheckbox?: boolean;
+  className?: string;
 }
 
 export default function FeatureCard({
@@ -16,9 +17,10 @@ export default function FeatureCard({
   input,
   placeholder,
   showCheckbox,
+  className = "",
 }: FeatureProps) {
   return (
-    <div className="flex px-16 py-4 border rounded-xl text-center items-center">
+    <div className={`flex px-16 py-4 border rounded-xl text-center items-center ${className}`}>
       <div className="mr-3">{icon}</div>
       <P>{name}</P>
       {showCheckbox && <input type="checkbox" className="ml-2" />}

@@ -7,17 +7,40 @@ interface FeatureOption {
 }
 
 const selectStyles: StylesConfig<FeatureOption> = {
-  control: (base) => ({
+  control: (base, state) => ({
     ...base,
     width: "100%",
     borderRadius: "0.75rem",
     padding: "0.5rem",
-    border: "1px solid #CBD5E1",
+    border: "1px solid #e1d2cb",
+    borderColor: state.isFocused ? 'black' : '#e1d2cb',
+    '&:hover': {
+      borderColor: state.isFocused ? 'black' : '#e1d2cb',
+    },
+    boxShadow: state.isFocused ? '0 0 0 1px black' : 'none',
   }),
-//   placeholder: (base) => ({
-//     ...base,
-//     color: "#cbd5e1ad",
-//   }),
+  option: (base, state) => ({
+    ...base,
+    backgroundColor: state.isFocused ? '#CBD5E1' : base.backgroundColor,
+    ':hover': {
+      backgroundColor: '#CBD5E1',
+    }
+  }),
+  multiValue: base => ({
+    ...base,
+    backgroundColor: '#CBD5E1'
+  }),
+  multiValueLabel: base => ({
+    ...base,
+    color: 'black',
+  }),
+  multiValueRemove: base => ({
+    ...base,
+    ':hover': {
+      backgroundColor: 'red',
+      color: 'white',
+    }
+  }),
 };
 
 export default function MultiSelect() {
@@ -28,6 +51,7 @@ export default function MultiSelect() {
 
   return (
     <Select
+      isMulti
       options={options}
       placeholder="Select features"
       styles={selectStyles}

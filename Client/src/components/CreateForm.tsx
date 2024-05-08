@@ -3,7 +3,6 @@ import Input from "./Input";
 import Select from "./Select";
 import MultiSelect from "./MultiSelect";
 import FeatureCard from "./FeatureCard";
-import { PiTree } from "react-icons/pi";
 import Button from "./Button";
 
 export default function CreateForm() {
@@ -41,7 +40,7 @@ export default function CreateForm() {
           </div>
         </div>
         <div className="flex justify-between gap-3 lg:gap-6 mt-3 lg:flex-row flex-col">
-          <div className="flex flex-col w-full">
+          <div className="flex flex-col w-full my-2">
             <Input
               type="text"
               className="w-full p-3 border border-slate-300 rounded-xl"
@@ -62,29 +61,42 @@ export default function CreateForm() {
         </div>
         <H3 className="my-10">Aditional Information</H3>
         <div className="flex flex-wrap gap-12">
-          <FeatureCard
-            name="Type:"
-            icon={<PiTree size={20} />}
-            options={["Garage", "Room", "Apartment", "House"]}
-          />
-          <FeatureCard
-            name={"Size:"}
-            icon={<PiTree size={20} />}
-            input={"s"}
-            placeholder="Enter size"
-          />
-          <FeatureCard
-            name={"Rooms:"}
-            icon={<PiTree size={20} />}
-            input={"s"}
-            placeholder="Enter number of rooms"
-          />
-          <FeatureCard
-            name={"People:"}
-            icon={<PiTree size={20} />}
-            input={"s"}
-            placeholder="Enter number of people"
-          />
+          <div className="flex w-full gap-12">
+            <FeatureCard
+              className="w-1/2"
+              name="Type:"
+              options={[
+                "House",
+                "Apartment",
+                "Villa",
+                "Multi-family building",
+                "Single-family building",
+                "Tenement house",
+                "Studio apartment",
+                "Garage",
+              ]}
+            />
+            <FeatureCard
+              className="w-1/2"
+              name="Size:"
+              input="size"
+              placeholder="Enter size"
+            />
+          </div>
+          <div className="flex w-full gap-12">
+            <FeatureCard
+              className="w-1/2"
+              name="Rooms:"
+              input="noRooms"
+              placeholder="Enter number of rooms"
+            />
+            <FeatureCard
+              className="w-1/2"
+              name="People:"
+              input="noPeople"
+              placeholder="Enter number of people"
+            />
+          </div>
         </div>
         <H3 className="my-10">Features</H3>
         <div className="flex flex-wrap gap-12">
