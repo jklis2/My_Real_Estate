@@ -10,7 +10,7 @@ import { useState } from "react";
 export default function AddressForm(addressData: Address) {
   const [show, setShow] = useState(false);
   const { register, handleSubmit, reset } = useForm<Address>();
-  const [editAddress, { error }] = useEditAddressMutation();
+  const [editAddress, { error, isLoading }] = useEditAddressMutation();
 
   useEffect(() => {
     if (addressData) {
@@ -18,14 +18,19 @@ export default function AddressForm(addressData: Address) {
     }
   }, [addressData, reset]);
 
-  const onSubmit: SubmitHandler<Address> = (data) => {
+  const onSubmit: SubmitHandler<Address> = async (data) => {
     try {
-      editAddress(data);
-      setShow(true);
+      await editAddress(data).unwrap();
+      if (!isLoading) {
+        setShow(true);
+      }
     } catch {
-      setShow(true);
+      if (!isLoading) {
+        setShow(true);
+      }
     }
   };
+
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -98,16 +103,21 @@ export default function AddressForm(addressData: Address) {
         <Button className="my-5 px-16">Save changes</Button>
       </form>
 
-      {error && show && (
+      {!isLoading && error && show && (
         <Alert
-          name="An error occured!"
+          name={
+            typeof error === "object" && error !== null && "data" in error
+              ? (error.data as { message?: string }).message ||
+                "An error occurred."
+              : "An error occurred."
+          }
           type="Error"
           isVisible={show}
           onClose={() => setShow(false)}
         />
       )}
 
-      {!error && show && (
+      {!isLoading && !error && show && (
         <Alert
           name="Address updated successfully"
           type="Success"

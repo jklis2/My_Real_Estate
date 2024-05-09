@@ -21,15 +21,18 @@ export default function AccountForm({
 }: AccountInputs) {
   const [show, setShow] = useState(false);
   const { register, handleSubmit, reset } = useForm<AccountInputs>();
-  const [editUser, { error }] = useEditUserMutation();
+  const [editUser, { error, isLoading }] = useEditUserMutation();
 
-  const onSubmit: SubmitHandler<AccountInputs> = (data) => {
+  const onSubmit: SubmitHandler<AccountInputs> = async (data) => {
     try {
-      editUser({ data, id });
-      setShow(true);
+      editUser({ data, id }).unwrap();
+      if (!isLoading) {
+        setShow(true);
+      }
     } catch {
-      console.log(error);
-      setShow(true)
+      if (!isLoading) {
+        setShow(true);
+      }
     }
   };
 
@@ -82,18 +85,23 @@ export default function AccountForm({
         <Button className="my-5 px-16">Save changes</Button>
       </form>
 
-      {error && show && (
+      {!isLoading && error && show && (
         <Alert
-          name="An error occured!"
+          name={
+            typeof error === "object" && error !== null && "data" in error
+              ? (error.data as { message?: string }).message ||
+                "An error occurred."
+              : "An error occurred."
+          }
           type="Error"
           isVisible={show}
           onClose={() => setShow(false)}
         />
       )}
 
-      {!error && show && (
+      {!isLoading && !error && show && (
         <Alert
-          name="Account updated successfully"
+          name="Address updated successfully"
           type="Success"
           isVisible={show}
           onClose={() => setShow(false)}
