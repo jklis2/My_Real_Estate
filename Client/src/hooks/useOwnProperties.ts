@@ -10,7 +10,6 @@ interface Addresses {
     result: Address[];
   };
 }
-
 export const useOwnProperties = () => {
   const { data: userData } = useGetUserQuery(null);
   const [addresses, setAddresses] = useState<Addresses>({});

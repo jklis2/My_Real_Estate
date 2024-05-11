@@ -1,9 +1,8 @@
 export function parseLatLng(input: string) {
   const regex = /(\d+)°\s*(\d+)'\s*(\d+(?:\.\d+)?)''\s*([NSEW])/g;
   const matches = regex.exec(input);
-  if (!matches) {
-    return null;
-  }
+
+  if (!matches) return null;
 
   const degrees = parseFloat(matches[1]);
   const minutes = parseFloat(matches[2]);
@@ -11,9 +10,7 @@ export function parseLatLng(input: string) {
   const direction = matches[4];
 
   let decimal = degrees + minutes / 60 + seconds / 3600;
-  if (direction === "S" || direction === "W") {
-    decimal = -decimal;
-  }
+  if (direction === "S" || direction === "W") decimal = -decimal;
 
   return +decimal.toFixed(2);
 }

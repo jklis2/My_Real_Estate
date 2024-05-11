@@ -1,7 +1,7 @@
 import { ChangeEvent, ForwardedRef, forwardRef } from "react";
 
 interface InputProps {
-  type: "text" | "number" | "email" | "password" | "upload";
+  type: "text" | "number" | "email" | "password" | "file";
   label?: string;
   value?: string | number;
   name?: string;
@@ -38,6 +38,7 @@ const Input = forwardRef(function Input(
         name={props.name}
         value={props.value}
         onChange={props.onChange}
+        ref={ref as ForwardedRef<HTMLTextAreaElement>}
       ></textarea>
     </>
   ) : (

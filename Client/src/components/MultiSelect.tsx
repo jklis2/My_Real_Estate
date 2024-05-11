@@ -1,5 +1,6 @@
 import Select, { StylesConfig } from "react-select";
 import { FEATURES_LIST } from "../consts/features";
+import { useFormContext, Controller } from "react-hook-form";
 
 interface FeatureOption {
   value: string;
@@ -13,49 +14,58 @@ const selectStyles: StylesConfig<FeatureOption> = {
     borderRadius: "0.75rem",
     padding: "0.5rem",
     border: "1px solid #e1d2cb",
-    borderColor: state.isFocused ? 'black' : '#e1d2cb',
-    '&:hover': {
-      borderColor: state.isFocused ? 'black' : '#e1d2cb',
+    borderColor: state.isFocused ? "black" : "#e1d2cb",
+    "&:hover": {
+      borderColor: state.isFocused ? "black" : "#e1d2cb",
     },
-    boxShadow: state.isFocused ? '0 0 0 1px black' : 'none',
+    boxShadow: state.isFocused ? "0 0 0 1px black" : "none",
   }),
   option: (base, state) => ({
     ...base,
-    backgroundColor: state.isFocused ? '#CBD5E1' : base.backgroundColor,
-    ':hover': {
-      backgroundColor: '#CBD5E1',
-    }
+    backgroundColor: state.isFocused ? "#CBD5E1" : base.backgroundColor,
+    ":hover": {
+      backgroundColor: "#CBD5E1",
+    },
   }),
-  multiValue: base => ({
+  multiValue: (base) => ({
     ...base,
-    backgroundColor: '#CBD5E1'
+    backgroundColor: "#CBD5E1",
   }),
-  multiValueLabel: base => ({
+  multiValueLabel: (base) => ({
     ...base,
-    color: 'black',
+    color: "black",
   }),
-  multiValueRemove: base => ({
+  multiValueRemove: (base) => ({
     ...base,
-    ':hover': {
-      backgroundColor: 'red',
-      color: 'white',
-    }
+    ":hover": {
+      backgroundColor: "red",
+      color: "white",
+    },
   }),
 };
 
 export default function MultiSelect() {
+  const { control } = useFormContext();
+
   const options: FeatureOption[] = FEATURES_LIST.map((feature) => ({
     value: feature,
     label: feature,
   }));
 
   return (
-    <Select
-      isMulti
-      options={options}
-      placeholder="Select features"
-      styles={selectStyles}
-      className="w-full"
+    <Controller
+      name="property.features"
+      control={control}
+      render={({ field }) => (
+        <Select
+          {...field}
+          isMulti
+          options={options}
+          placeholder="Select features"
+          styles={selectStyles}
+          className="w-full"
+        />
+      )}
     />
   );
 }

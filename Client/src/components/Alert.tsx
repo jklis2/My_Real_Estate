@@ -24,6 +24,7 @@ export default function Alert({
       : "bg-red-100 text-red-800 border-l-4 border-red-500";
   const iconStyles = type === "Success" ? "text-green-600" : "text-red-600";
 
+  // Używamy useEffect do ustawiania timera
   useEffect(() => {
     if (isVisible) {
       const timer = setTimeout(() => {
@@ -37,7 +38,9 @@ export default function Alert({
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 flex justify-center items-center w-full`}
+      className={`fixed inset-x-0 bottom-0 flex justify-center items-center w-full ${
+        isVisible ? 'transition-opacity duration-300 opacity-100 transform translate-y-0' : 'transition-opacity duration-300 opacity-0 transform translate-y-6'
+      }`}
     >
       <div
         className={`flex justify-center mb-4 px-4 py-2 ${alertStyles} rounded-md shadow-md`}
