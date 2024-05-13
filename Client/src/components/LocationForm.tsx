@@ -9,23 +9,22 @@ export default function LocationForm() {
   return (
     <>
       <H3 className="my-10">Location</H3>
-      {LOCATION_INPUTS.map((input) => (
-        <div
-          key={input.id}
-          className="flex justify-between gap-3 lg:gap-6 mt-3 lg:flex-row flex-col"
-        >
-          <div className="flex flex-col w-full">
-            <Input
-              type="text"
-              className="w-full p-3 border border-slate-300 rounded-xl"
-              label={input.label}
-              id={input.id}
-              placeholder={input.placeholder}
-              {...register(input.name)}
-            />
+      <div className="flex flex-wrap -mx-3">
+        {LOCATION_INPUTS.map((input) => (
+          <div key={input.id} className="w-full sm:w-1/2 px-3 mb-6">
+            <div className="flex flex-col w-full">
+              <Input
+                type="text"
+                className="w-full p-3 border border-slate-300 rounded-xl"
+                label={input.label}
+                id={input.id}
+                placeholder={input.placeholder}
+                {...register(input.name)}
+              />
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </>
   );
 }

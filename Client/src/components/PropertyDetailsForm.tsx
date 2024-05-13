@@ -1,8 +1,8 @@
-import FeatureCard from "./FeatureCard";
 import Select from "./Select";
 import Input from "./Input";
 import H3 from "./H3";
 import { useFormContext } from "react-hook-form";
+import { PROPERTY_TYPE } from "../consts/propertyType";
 
 export default function PropertyDetailsForm() {
   const { register } = useFormContext();
@@ -62,44 +62,47 @@ export default function PropertyDetailsForm() {
           />
         </div>
       </div>
-
       <H3 className="my-10">Aditional Information</H3>
       <div className="flex flex-wrap gap-12">
-        <div className="flex w-full gap-12">
-          <FeatureCard
-            className="w-1/2"
-            name="Type:"
-            options={[
-              "House",
-              "Apartment",
-              "Villa",
-              "Multi-family building",
-              "Single-family building",
-              "Tenement house",
-              "Studio apartment",
-              "Garage",
-            ]}
-          />
-          <FeatureCard
-            className="w-1/2"
-            name="Size:"
-            input="size"
-            placeholder="Enter size"
-          />
+        <div className="flex w-full sm:flex-row flex-col gap-12">
+          <div className="w-full sm:w-1/2 flex flex-col">
+            <Select
+              options={PROPERTY_TYPE}
+              className="p-3 border border-slate-300 rounded-xl"
+              label="Property type"
+              id="operation"
+              placeholder="Select type of property"
+            />
+          </div>
+          <div className="w-full sm:w-1/2 flex flex-col">
+            <Input
+              type="text"
+              className="p-3 border border-slate-300 rounded-xl"
+              label="Size"
+              id="size"
+              placeholder="Enter size of property"
+            />
+          </div>
         </div>
-        <div className="flex w-full gap-12">
-          <FeatureCard
-            className="w-1/2"
-            name="Rooms:"
-            input="noRooms"
-            placeholder="Enter number of rooms"
-          />
-          <FeatureCard
-            className="w-1/2"
-            name="People:"
-            input="noPeople"
-            placeholder="Enter number of people"
-          />
+        <div className="flex w-full sm:flex-row flex-col gap-12">
+          <div className="w-full sm:w-1/2 flex flex-col">
+            <Input
+              type="text"
+              className="p-3 border border-slate-300 rounded-xl"
+              label="Amount of rooms"
+              id="noRooms"
+              placeholder="Enter amount of rooms"
+            />
+          </div>
+          <div className="w-full sm:w-1/2 flex flex-col">
+            <Input
+              type="text"
+              className="p-3 border border-slate-300 rounded-xl"
+              label="Amount of people"
+              id="noPeople"
+              placeholder="Enter amount of people"
+            />
+          </div>
         </div>
       </div>
     </>
