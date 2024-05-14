@@ -5,6 +5,7 @@ import PropertyCard from "../components/PropertyCard";
 import { Property } from "../interfaces/Property";
 import { Address } from "../interfaces/Address";
 import { Link } from "react-router-dom";
+import PlaceholderImage from "../assets/PropertyPlaceholder.png";
 
 interface ListingProps {
   properties: Array<Property>;
@@ -25,13 +26,19 @@ export default function Listing({ properties, addresses }: ListingProps) {
           const location = addresses?.filter(
             (addr) => addr.propertyId === prop.id
           )[0];
+          const imgPath =
+            prop.photos && prop.photos.length > 0
+              ? `${import.meta.env.VITE_API_URL}Photo?propertyId=${
+                  prop.id
+                }&photoId=${prop.photos[0]}`
+              : PlaceholderImage;
+
           return (
             <PropertyCard
+              key={prop.id}
               name={prop?.name}
-              location={`${location?.city},${location.country} `}
-              imgPath={`${import.meta.env.VITE_API_URL}Photo?propertyId=${
-                prop.id
-              }&photoId=${prop.photos ? prop.photos[0] : ''}`}
+              location={`${location?.city},${location?.country} `}
+              imgPath={imgPath}
               action={
                 <Link to={`/property/${prop.id}`}>
                   <Button className="w-full mt-3">Details</Button>
