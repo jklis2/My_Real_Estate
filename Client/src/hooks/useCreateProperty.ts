@@ -1,4 +1,4 @@
-export const useCreateProperty = ({ userId: string }) => {
+export const useCreateProperty = (userId: string) => {
   //POST -> PROPERTY
   //POST -> PHOTOS (NOT IMPLEMENTED YET)
   //POST -> PROPERTY TYPE?

@@ -11,6 +11,7 @@ interface InputProps {
   disabled?: boolean;
   autoComplete?: string;
   className?: string;
+  labelClassName?: string;
   size?: "big" | "small";
   required?: boolean;
   onChange?: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
@@ -44,7 +45,7 @@ const Input = forwardRef(function Input(
   ) : (
     <>
       {props.label && (
-        <label className="mb-3" htmlFor={props.id}>
+        <label className={`mb-3 ${props.labelClassName}`} htmlFor={props.id}>
           {props.label}
           {props.required && <span className="text-red-700">*</span>}
         </label>
