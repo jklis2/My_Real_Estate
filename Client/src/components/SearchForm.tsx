@@ -1,9 +1,17 @@
+import { useState } from "react";
 import H2 from "../components/H2";
 import Select from "../components/Select";
 import P from "../components/P";
 import Input from "./Input";
+import AdvancedForm from "../containers/AdvancedForm";
 
 export default function SearchForm() {
+  const [showAdvanced, setShowAdvanced] = useState(false);
+
+  const toggleAdvancedSettings = () => {
+    setShowAdvanced((prevState) => !prevState);
+  };
+
   return (
     <section className="my-10">
       <H2 className="font-bold mb-8">Search</H2>
@@ -34,7 +42,10 @@ export default function SearchForm() {
         placeholder="Select"
         options={["Rent", "Buy"]}
       />
-      <P>Advanced Settings</P>
+      {showAdvanced && <AdvancedForm />}
+      <P onClick={toggleAdvancedSettings} className="cursor-pointer mt-4">
+        {showAdvanced ? "Hide advanced settings" : "Show advanced settings"}
+      </P>
     </section>
   );
 }

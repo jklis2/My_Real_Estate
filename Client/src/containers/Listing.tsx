@@ -31,7 +31,7 @@ export default function Listing({ properties, addresses }: ListingProps) {
               location={`${location?.city},${location.country} `}
               imgPath={`${import.meta.env.VITE_API_URL}Photo?propertyId=${
                 prop.id
-              }&photoId=${prop.photos[0]}`}
+              }&photoId=${prop.photos ? prop.photos[0] : ''}`}
               action={
                 <Link to={`/property/${prop.id}`}>
                   <Button className="w-full mt-3">Details</Button>

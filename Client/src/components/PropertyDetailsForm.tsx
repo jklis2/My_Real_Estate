@@ -63,7 +63,7 @@ export default function PropertyDetailsForm() {
         </div>
       </div>
       <H3 className="my-10">Aditional Information</H3>
-      <div className="flex flex-wrap gap-12">
+      <div className="flex flex-wrap">
         <div className="flex w-full sm:flex-row flex-col gap-12">
           <div className="w-full sm:w-1/2 flex flex-col">
             <Select
@@ -77,7 +77,7 @@ export default function PropertyDetailsForm() {
           <div className="w-full sm:w-1/2 flex flex-col">
             <Input
               type="text"
-              className="p-3 border border-slate-300 rounded-xl"
+              className="p-3 border border-slate-300 rounded-xl my-2"
               label="Size"
               id="size"
               placeholder="Enter size of property"
