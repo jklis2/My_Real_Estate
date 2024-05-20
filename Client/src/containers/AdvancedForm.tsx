@@ -1,6 +1,7 @@
 import Select from "../components/Select";
 import Input from "../components/Input";
 import { PROPERTY_TYPE } from "../consts/propertyType";
+import MultiSelect from "../components/MultiSelect";
 
 export default function AdvancedForm() {
   return (
@@ -67,14 +68,8 @@ export default function AdvancedForm() {
           </div>
         </div>
       </div>
-      <div className="flex flex-wrap gap-12">
-        <Select
-          options={["Feature 1", "Feature 2"]}
-          className="p-3 border border-slate-300 rounded-xl"
-          label="Features"
-          id="operation"
-          placeholder="Select features which you want"
-        />
+      <div className="flex flex-wrap gap-2">
+        <MultiSelect />
       </div>
     </div>
   );

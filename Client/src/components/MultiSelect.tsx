@@ -45,7 +45,8 @@ const selectStyles: StylesConfig<FeatureOption> = {
 };
 
 export default function MultiSelect() {
-  const { control } = useFormContext();
+  const formContext = useFormContext();
+  const control = formContext?.control;
 
   const options: FeatureOption[] = FEATURES_LIST.map((feature) => ({
     value: feature,
@@ -53,19 +54,37 @@ export default function MultiSelect() {
   }));
 
   return (
-    <Controller
-      name="property.features"
-      control={control}
-      render={({ field }) => (
-        <Select
-          {...field}
-          isMulti
-          options={options}
-          placeholder="Select features"
-          styles={selectStyles}
-          className="w-full"
+    <>
+      {control && (
+        <Controller
+          name="property.features"
+          control={control}
+          render={({ field }) => (
+            <Select
+              {...field}
+              isMulti
+              options={options}
+              placeholder="Select features"
+              styles={selectStyles}
+              className="w-full"
+            />
+          )}
         />
       )}
-    />
+      {!control && (
+        <>
+          <label htmlFor="Features">Features</label>
+          <Select
+            isMulti
+            id="Features"
+            options={options}
+            aria-label="Features"
+            placeholder="Select features which you want"
+            styles={selectStyles}
+            className="w-full"
+          />
+        </>
+      )}
+    </>
   );
 }
