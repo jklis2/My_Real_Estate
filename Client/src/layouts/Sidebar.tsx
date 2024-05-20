@@ -9,7 +9,7 @@ export default function Sidebar({ toggleSidebar }: sidebarProps) {
   return (
     <aside className="h-screen fixed w-80 lg:relative md:w-96 bg-white z-50">
       <div className="fixed p-3 lg:hidden">
-        <IoCloseOutline size={50} onClick={toggleSidebar} />
+        <IoCloseOutline className="z-50" size={50} onClick={toggleSidebar} />
       </div>
       <SideNav />
     </aside>

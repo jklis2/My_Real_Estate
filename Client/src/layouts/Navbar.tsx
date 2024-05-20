@@ -17,6 +17,8 @@ export default function Navbar() {
     getUser("");
   }, [getUser]);
 
+  const [data] = userData?.result || [];
+
   return (
     <header>
       <nav
@@ -58,7 +60,7 @@ export default function Navbar() {
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           {userData && userData.result.length > 0 ? (
-            <UserAvatar userId={userData.result[0]?.id} />
+            <UserAvatar userId={data?.id} />
           ) : (
             <Link to="/auth/login">
               <Button>Sign in</Button>

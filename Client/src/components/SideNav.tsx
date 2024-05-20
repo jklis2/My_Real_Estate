@@ -39,7 +39,7 @@ export default function SideNav() {
       <div className="text-center">
         <Link
           to={`${isDashboardPage ? "/dashboard" : "/admin"}`}
-          className="mb-3 flex justify-center"
+          className="mb-3 flex justify-center z-10"
         >
           <img className="h-16 w-auto" src={NavLogo} alt="NavLogo" />
         </Link>

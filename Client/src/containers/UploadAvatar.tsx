@@ -8,7 +8,8 @@ import Alert from "../components/Alert";
 import { useUpdateAvatarMutation } from "../services/avatarApi";
 
 export default function UploadAvatar() {
-  const [updateAvatar, { error, isLoading }] = useUpdateAvatarMutation();
+  const [updateAvatar, { error, isLoading, isSuccess }] =
+    useUpdateAvatarMutation();
 
   const [alertData, setAlertData] = useState({
     name: "",
@@ -26,7 +27,6 @@ export default function UploadAvatar() {
       const [file] = inputElement.files;
 
       if (file.size > 1024 * 1024 * 5) {
-        console.log("Too big file!");
         setAlertData({
           type: "Error",
           name: "File is larger than 5MB!",
@@ -37,11 +37,9 @@ export default function UploadAvatar() {
       const acceptedTypes = ["image/jpeg", "image/png"];
       if (acceptedTypes.includes(file.type)) {
         const { id } = userDetails;
-        console.log(file)
         if (id) {
           updateAvatar({ id, file });
         }
-
         setAlertData({
           type: "Success",
           name: "Successfully updated avatar!",
@@ -69,7 +67,7 @@ export default function UploadAvatar() {
     <>
       <section className="my-10">
         <div className="flex items-center mb-10">
-          <Picture id={userDetails?.id} />
+          <Picture isSuccess={isSuccess} id={userDetails?.id} />
           <div className="ml-10">
             <H2 className="mb-2">Profile Picture</H2>
             <P className="mb-">JPG or PNG no larger than 5 MB</P>
