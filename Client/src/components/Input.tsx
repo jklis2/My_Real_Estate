@@ -1,7 +1,7 @@
 import { ChangeEvent, ForwardedRef, forwardRef } from "react";
 
 interface InputProps {
-  type: "text" | "number" | "email" | "password" | "file";
+  type: "text" | "number" | "email" | "password" | "file" | "date";
   label?: string;
   value?: string | number;
   name?: string;
