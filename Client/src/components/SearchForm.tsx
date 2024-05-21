@@ -14,7 +14,7 @@ export default function SearchForm() {
 
   return (
     <section className="my-10">
-      <H2 className="font-bold mb-8">Search</H2>
+      <H2 className="font-bold mb-4">Search</H2>
       <div className="flex justify-between gap-6 mb-6 lg:mb-0 lg:flex-row flex-col">
         <div className="flex flex-col w-full">
           <Input
@@ -36,12 +36,14 @@ export default function SearchForm() {
           />
         </div>
       </div>
-      <Select
-        className="border border-neutral-300 rounded-xl text-neutral-700 text-xl p-3"
-        label="Type of Operation (Rent or Buy)"
-        placeholder="Select"
-        options={["Rent", "Buy"]}
-      />
+      <div className="mt-3">
+        <Select
+          className="border border-neutral-300 rounded-xl text-neutral-700 text-xl p-3"
+          label="Type of Operation (Rent or Buy)"
+          placeholder="Select"
+          options={["Rent", "Buy"]}
+        />
+      </div>
       {showAdvanced && <AdvancedForm />}
       <P onClick={toggleAdvancedSettings} className="cursor-pointer mt-4">
         {showAdvanced ? "Hide advanced settings" : "Show advanced settings"}

@@ -5,7 +5,7 @@ import SearchForm from "../components/SearchForm";
 export default function PropertiesSearch() {
   return (
     <section className="">
-      <H2 className="mb-8">Properties</H2>
+      <H2 className="mb-4">Properties</H2>
       <P>Manage your properties, tenants, and leases all in one place.</P>
       <SearchForm />
     </section>

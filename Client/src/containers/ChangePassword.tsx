@@ -5,8 +5,8 @@ import Input from "../components/Input";
 export default function ChangePassword() {
   return (
     <section className="my-10">
-      <H2 className="mb-4">Change Password</H2>
-      <div className="flex flex-col mb-3">
+      <H2 className="mb-6">Change Password</H2>
+      <div className="flex flex-col mt-5">
         <Input
           type="text"
           id="currentPassword"
@@ -14,7 +14,7 @@ export default function ChangePassword() {
           placeholder="Enter current password"
         />
       </div>
-      <div className="flex flex-col mb-3">
+      <div className="flex flex-col mt-5">
         <Input
           type="text"
           id="newPassword"
@@ -22,7 +22,7 @@ export default function ChangePassword() {
           placeholder="Enter new password"
         />
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col mt-5">
         <Input
           type="text"
           id="confirmNewPassword"

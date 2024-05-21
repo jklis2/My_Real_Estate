@@ -5,9 +5,9 @@ import MultiSelect from "../components/MultiSelect";
 
 export default function AdvancedForm() {
   return (
-    <div className="mt-4">
+    <div className="mt-3">
       <div className="flex flex-wrap">
-        <div className="flex w-full sm:flex-row flex-col gap-10">
+        <div className="flex w-full sm:flex-row flex-col gap-10 mt-3">
           <div className="w-full sm:w-1/2 flex flex-col">
             <Input
               type="text"
@@ -27,7 +27,7 @@ export default function AdvancedForm() {
             />
           </div>
         </div>
-        <div className="flex w-full sm:flex-row flex-col gap-12">
+        <div className="flex w-full sm:flex-row flex-col gap-10 mt-3">
           <div className="w-full sm:w-1/2 flex flex-col">
             <Select
               options={PROPERTY_TYPE}
@@ -47,7 +47,7 @@ export default function AdvancedForm() {
             />
           </div>
         </div>
-        <div className="flex w-full sm:flex-row flex-col gap-12">
+        <div className="flex w-full sm:flex-row flex-col gap-10 mt-3">
           <div className="w-full sm:w-1/2 flex flex-col">
             <Input
               type="text"
@@ -68,7 +68,7 @@ export default function AdvancedForm() {
           </div>
         </div>
       </div>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 mt-5">
         <MultiSelect />
       </div>
     </div>
