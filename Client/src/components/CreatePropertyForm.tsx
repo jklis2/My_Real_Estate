@@ -6,10 +6,12 @@ import LocationForm from "./LocationForm";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { Property } from "../interfaces/Property";
 import { Address } from "../interfaces/Address";
+import { PropertyType } from "../interfaces/PropertyType";
 
 interface PropertyInputs {
   property: Property;
   address: Address;
+  propertyType: PropertyType
 }
 
 export default function CreatePropertyForm() {

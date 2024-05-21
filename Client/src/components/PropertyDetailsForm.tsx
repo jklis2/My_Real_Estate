@@ -50,6 +50,7 @@ export default function PropertyDetailsForm() {
             label="Price"
             id="price"
             placeholder="Enter price for property"
+            {...register("property.price")}
           />
         </div>
         <div className="flex flex-col w-full">
@@ -59,6 +60,7 @@ export default function PropertyDetailsForm() {
             label="Type of operation"
             id="operation"
             placeholder="Select type of operation"
+            {...register("property.price")}
           />
         </div>
       </div>
@@ -72,6 +74,7 @@ export default function PropertyDetailsForm() {
               label="Property type"
               id="operation"
               placeholder="Select type of property"
+              {...register("propertyType.propertyTypeName")}
             />
           </div>
           <div className="w-full sm:w-1/2 flex flex-col">
@@ -81,6 +84,7 @@ export default function PropertyDetailsForm() {
               label="Size"
               id="size"
               placeholder="Enter size of property"
+              {...register("property.size")}
             />
           </div>
         </div>
@@ -92,6 +96,7 @@ export default function PropertyDetailsForm() {
               label="Amount of rooms"
               id="noRooms"
               placeholder="Enter amount of rooms"
+              {...register("property.numberOfRooms")}
             />
           </div>
           <div className="w-full sm:w-1/2 flex flex-col">
@@ -101,6 +106,7 @@ export default function PropertyDetailsForm() {
               label="Amount of people"
               id="noPeople"
               placeholder="Enter amount of people"
+              {...register("property.numberOfPeople")}
             />
           </div>
         </div>
