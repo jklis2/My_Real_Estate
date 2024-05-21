@@ -21,7 +21,7 @@ export default function PropertyCard({
 }: CardProps) {
   return (
     <div className={`${className || ""} w-full rounded-xl me-10`}>
-      <img src={imgPath} className="rounded-xl h-56 w-full" />
+      <img src={imgPath} className="rounded-xl h-52 lg:h-40 xl:h-48 w-full" />
       <h4 className="text-2xl mt-3">{name}</h4>
       <P>{location}</P>
       {price && <P>{price}</P>}

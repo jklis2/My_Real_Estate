@@ -87,7 +87,7 @@ export default function Gallery({ propertyId, photos }: GalleryProps) {
 
   return (
     <section className="my-6">
-      <div className="sm:h-72 md:h-96 lg:h-128">
+      <div className="sm:h-72 md:h-80 lg:h-96">
         {photos && (
           <img
             className="w-full h-full rounded-2xl"

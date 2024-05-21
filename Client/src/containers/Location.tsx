@@ -29,7 +29,7 @@ export default function Location() {
   return (
     <section className="my-10 ">
       <H2 className="mb-6">Location</H2>
-      <div className="w-full h-128">
+      <div className="w-full h-96">
       {!coords && <p>No coords</p>}
         {coords && (
           <MapContainer

@@ -11,7 +11,7 @@ import { PropertyType } from "../interfaces/PropertyType";
 interface PropertyInputs {
   property: Property;
   address: Address;
-  propertyType: PropertyType
+  propertyType: PropertyType;
 }
 
 export default function CreatePropertyForm() {

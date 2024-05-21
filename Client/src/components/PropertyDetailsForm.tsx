@@ -23,6 +23,7 @@ export default function PropertyDetailsForm() {
         <div className="flex flex-col w-full">
           <Input
             type="file"
+            multiple={true}
             className="w-full p-3 border border-slate-300 rounded-xl"
             label="Property photos"
             id="file"
@@ -60,11 +61,11 @@ export default function PropertyDetailsForm() {
             label="Type of operation"
             id="operation"
             placeholder="Select type of operation"
-            {...register("property.price")}
+            {...register("property.operationType")}
           />
         </div>
       </div>
-      <H3 className="my-10">Aditional Information</H3>
+      <H3 className="my-10">Additional Information</H3>
       <div className="flex flex-wrap">
         <div className="flex w-full sm:flex-row flex-col gap-12">
           <div className="w-full sm:w-1/2 flex flex-col">
@@ -72,7 +73,7 @@ export default function PropertyDetailsForm() {
               options={PROPERTY_TYPE}
               className="p-3 border border-slate-300 rounded-xl"
               label="Property type"
-              id="operation"
+              id="propertyTypeName"
               placeholder="Select type of property"
               {...register("propertyType.propertyTypeName")}
             />

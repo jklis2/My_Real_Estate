@@ -12,8 +12,10 @@ interface InputProps {
   autoComplete?: string;
   className?: string;
   labelClassName?: string;
+  multiple?: boolean;
   size?: "big" | "small";
   required?: boolean;
+
   onChange?: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
@@ -59,6 +61,7 @@ const Input = forwardRef(function Input(
         disabled={props.disabled}
         name={props.name}
         value={props.value}
+        multiple={props.multiple}
         onChange={props.onChange}
         ref={ref}
       ></input>
