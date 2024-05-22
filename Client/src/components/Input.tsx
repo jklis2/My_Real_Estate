@@ -1,4 +1,5 @@
 import { ChangeEvent, ForwardedRef, forwardRef } from "react";
+import deleteIcon from "../assets/icons/delete.svg";
 
 interface InputProps {
   type: "text" | "number" | "email" | "password" | "file" | "date";
@@ -15,7 +16,7 @@ interface InputProps {
   multiple?: boolean;
   size?: "big" | "small";
   required?: boolean;
-
+  onRemove?: () => void;
   onChange?: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
@@ -25,12 +26,23 @@ const Input = forwardRef(function Input(
 ) {
   return props.size === "big" ? (
     <>
-      {props.label && (
-        <label className="mb-3" htmlFor={props.id}>
-          {props.label}
-          {props.required && <span className="text-red-700">*</span>}
-        </label>
-      )}
+      <div className="flex justify-between">
+        {props.label && (
+          <label className="mb-3" htmlFor={props.id}>
+            {props.label}
+            {props.required && <span className="text-red-700">*</span>}
+          </label>
+        )}
+        {props.onRemove && (
+          <button
+            type="button"
+            onClick={props.onRemove}
+            className="text-red-500 ml-2"
+          >
+            <img src={deleteIcon} alt="Delete" className="w-4 h-4 mb-6" />
+          </button>
+        )}
+      </div>
       <textarea
         id={props.id}
         placeholder={props.placeholder}
@@ -46,12 +58,23 @@ const Input = forwardRef(function Input(
     </>
   ) : (
     <>
-      {props.label && (
-        <label className={`mb-3 ${props.labelClassName}`} htmlFor={props.id}>
-          {props.label}
-          {props.required && <span className="text-red-700">*</span>}
-        </label>
-      )}
+      <div className="flex justify-between">
+        {props.label && (
+          <label className={`mb-3 ${props.labelClassName}`} htmlFor={props.id}>
+            {props.label}
+            {props.required && <span className="text-red-700">*</span>}
+          </label>
+        )}
+        {props.onRemove && (
+          <button
+            type="button"
+            onClick={props.onRemove}
+            className="text-red-500 ml-2"
+          >
+            <img src={deleteIcon} alt="Delete" className="w-4 h-4 mb-4" />
+          </button>
+        )}
+      </div>
       <input
         type={props.type}
         id={props.id}

@@ -1,63 +1,64 @@
+import { useState } from "react";
 import Button from "../components/Button";
 import H2 from "../components/H2";
 import Input from "../components/Input";
+import ChargesModal from "../components/ChargesModal";
+import { FLAT_CHARGES, InputField } from "../consts/flatCharges";
 
 export default function FlatCharges() {
+  const [inputs, setInputs] = useState<InputField[]>(FLAT_CHARGES);
+  const [isModalVisible, setModalVisible] = useState<boolean>(false);
+
+  const handleAddInput = (label: string, placeholder: string) => {
+    const newInput: InputField = {
+      id: label.toLowerCase(),
+      label,
+      placeholder,
+    };
+    setInputs([...inputs, newInput]);
+  };
+
+  const handleRemoveInput = (id: string) => {
+    setInputs(inputs.filter((input) => input.id !== id));
+  };
+
+  const groupInputs = (inputs: InputField[]) => {
+    const grouped = [];
+    for (let i = 0; i < inputs.length; i += 2) {
+      grouped.push(inputs.slice(i, i + 2));
+    }
+    return grouped;
+  };
+
   return (
     <section className="mt-6">
       <H2>Flat Charges</H2>
-      <div className="flex w-full sm:flex-row flex-col gap-10 mt-3">
-        <div className="w-full sm:w-1/2 flex flex-col">
-          <Input
-            type="text"
-            className="p-3 border border-slate-300 rounded-xl"
-            label="Water"
-            id="water"
-            placeholder="Enter the amount for water"
-          />
-        </div>
-        <div className="w-full sm:w-1/2 flex flex-col">
-          <Input
-            type="text"
-            className="p-3 border border-slate-300 rounded-xl"
-            label="Electricity"
-            id="electricity"
-            placeholder="Enter the amount for electricity"
-          />
-        </div>
+      <div className="flex flex-wrap w-full gap-2 mt-3">
+        {groupInputs(inputs).map((group, index) => (
+          <div key={index} className="flex w-full gap-10">
+            {group.map((input) => (
+              <div key={input.id} className="w-full sm:w-1/2 flex flex-col">
+                <Input
+                  type="number"
+                  className="p-3 border border-slate-300 rounded-xl"
+                  label={input.label}
+                  id={input.id}
+                  placeholder={input.placeholder}
+                  onRemove={() => handleRemoveInput(input.id)}
+                />
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
-      <div className="flex w-full sm:flex-row flex-col gap-10 mt-3">
-        <div className="w-full sm:w-1/2 flex flex-col">
-          <Input
-            type="text"
-            className="p-3 border border-slate-300 rounded-xl"
-            label="Gas"
-            id="gas"
-            placeholder="Enter the amount for gas"
-          />
-        </div>
-        <div className="w-full sm:w-1/2 flex flex-col">
-          <Input
-            type="text"
-            className="p-3 border border-slate-300 rounded-xl"
-            label="Administrative Rent"
-            id="administrativeRent"
-            placeholder="Enter the amount for administrative rent"
-          />
-        </div>
-      </div>
-      <div className="flex w-full sm:flex-row flex-col gap-10 mt-3">
-        <div className="w-full sm:w-1/2 flex flex-col">
-          <Input
-            type="text"
-            className="p-3 border border-slate-300 rounded-xl"
-            label="Internet"
-            id="internet"
-            placeholder="Enter the amount for internet"
-          />
-        </div>
-      </div>
-      <Button className="mt-6">Add Flat Charges</Button>
+      <Button className="mt-6" onClick={() => setModalVisible(true)}>
+        Add Flat Charges
+      </Button>
+      <ChargesModal
+        isVisible={isModalVisible}
+        onClose={() => setModalVisible(false)}
+        onAdd={handleAddInput}
+      />
     </section>
   );
 }
