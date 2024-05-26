@@ -7,6 +7,7 @@ import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { Property } from "../interfaces/Property";
 import { Address } from "../interfaces/Address";
 import { PropertyType } from "../interfaces/PropertyType";
+import { useCreateProperty } from "../hooks/useCreateProperty";
 
 interface PropertyInputs {
   property: Property;
@@ -17,9 +18,10 @@ interface PropertyInputs {
 export default function CreatePropertyForm() {
   const methods = useForm<PropertyInputs>();
   const { handleSubmit } = methods;
+  const { createProperty } = useCreateProperty();
 
   const onSubmit: SubmitHandler<PropertyInputs> = async (data) => {
-    console.log(data);
+    createProperty(data);
   };
   return (
     <section>

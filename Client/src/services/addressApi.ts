@@ -19,6 +19,13 @@ const addressApi = createApi({
         }`,
       }),
     }),
+    createAddress: builder.mutation({
+      query: (address: Address) => ({
+        url: `Address`,
+        method: "POST",
+        body: address,
+      }),
+    }),
     editAddress: builder.mutation({
       query: (address: Address) => ({
         url: `Address?addressId=${address.id}`,
@@ -35,5 +42,6 @@ export const {
   useGetAddressesQuery,
   useLazyGetAddressesQuery,
   useEditAddressMutation,
+  useCreateAddressMutation,
 } = addressApi;
 export default addressApi;
