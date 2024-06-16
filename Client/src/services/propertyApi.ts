@@ -5,7 +5,7 @@ const propertyApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_API_URL }),
   endpoints: (builder) => ({
     createProperty: builder.mutation({
-      query: ({ property }) => ({
+      query: (property) => ({
         method: "POST",
         url: `Property`,
         body: property,

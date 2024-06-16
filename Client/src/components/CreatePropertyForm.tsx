@@ -23,6 +23,7 @@ export default function CreatePropertyForm() {
   const onSubmit: SubmitHandler<PropertyInputs> = async (data) => {
     createProperty(data);
   };
+  
   return (
     <section>
       <FormProvider {...methods}>

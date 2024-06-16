@@ -4,6 +4,12 @@ const propertyTypeApi = createApi({
   reducerPath: "propertyTypeApi",
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_API_URL }),
   endpoints: (builder) => ({
+    createPropertyType: builder.mutation({
+      query: () => ({
+        method: "POST",
+        url: `PropertyType`,
+      }),
+    }),
     getPropertyTypes: builder.query({
       query: () => ({
         method: "GET",
@@ -24,6 +30,7 @@ export const {
   useLazyGetPropertyTypeQuery,
   useGetPropertyTypesQuery,
   useLazyGetPropertyTypesQuery,
+  useCreatePropertyTypeMutation,
 } = propertyTypeApi;
 
 export default propertyTypeApi;
