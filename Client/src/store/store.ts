@@ -8,6 +8,7 @@ import propertyTypeApi from "../services/propertyTypeApi";
 import featuresApi from "../services/featuresApi";
 import geoApi from "../services/geoApi";
 import avatarApi from "../services/avatarApi";
+import photoApi from "../services/photoApi";
 
 export const store = configureStore({
   reducer: {
@@ -19,6 +20,7 @@ export const store = configureStore({
     [featuresApi.reducerPath]: featuresApi.reducer,
     [geoApi.reducerPath]: geoApi.reducer,
     [avatarApi.reducerPath]: avatarApi.reducer,
+    [photoApi.reducerPath]: photoApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
@@ -29,7 +31,8 @@ export const store = configureStore({
       propertyApi.middleware,
       propertyTypeApi.middleware,
       featuresApi.middleware,
-      geoApi.middleware
+      geoApi.middleware,
+      photoApi.middleware
     ),
 });
 

@@ -10,6 +10,6 @@ export interface Property {
   rentEnd: string;
   state: number;
   userId: string;
-  photos?: string[];
+  photos?: File[];
   features?: string[];
 }

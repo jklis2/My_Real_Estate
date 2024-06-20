@@ -20,10 +20,12 @@ const addressApi = createApi({
       }),
     }),
     createAddress: builder.mutation({
-      query: (address: Address) => ({
-        url: `Address`,
+      query: ({ address, state, propertyId, userId }) => ({
+        url: `Address?${
+          propertyId ? `PropertyId=${propertyId}` : `userId=${userId}`
+        }`,
         method: "POST",
-        body: address,
+        body: { ...address, state },
       }),
     }),
     editAddress: builder.mutation({
