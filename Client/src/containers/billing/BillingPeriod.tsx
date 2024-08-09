@@ -1,5 +1,5 @@
-import H2 from "../components/H2";
-import Input from "../components/Input";
+import H2 from "../../components/H2.tsx";
+import Input from "../../components/Input.tsx";
 
 export default function BillingPeriod() {
   return (

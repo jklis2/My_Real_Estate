@@ -1,13 +1,13 @@
-import H3 from "./H3";
-import MultiSelect from "./MultiSelect";
-import Button from "./Button";
-import PropertyDetailsForm from "./PropertyDetailsForm";
-import LocationForm from "./LocationForm";
+import H3 from "../H3.tsx";
+import MultiSelect from "../MultiSelect.tsx";
+import Button from "../Button.tsx";
+import PropertyDetailsForm from "./PropertyDetailsForm.tsx";
+import LocationForm from "./LocationForm.tsx";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { Property } from "../interfaces/Property";
-import { Address } from "../interfaces/Address";
-import { PropertyType } from "../interfaces/PropertyType";
-import { useCreateProperty } from "../hooks/useCreateProperty";
+import { Property } from "../../interfaces/Property.ts";
+import { Address } from "../../interfaces/Address.ts";
+import { PropertyType } from "../../interfaces/PropertyType.ts";
+import { useCreateProperty } from "../../hooks/useCreateProperty.ts";
 
 interface PropertyInputs {
   property: Property;
@@ -20,10 +20,8 @@ export default function CreatePropertyForm() {
   const { handleSubmit } = methods;
   const { createProperty } = useCreateProperty();
 
-  const onSubmit: SubmitHandler<PropertyInputs> = async (data) => {
-    createProperty(data);
-  };
-  
+  const onSubmit: SubmitHandler<PropertyInputs> = async (data) => createProperty(data);
+
   return (
     <section>
       <FormProvider {...methods}>

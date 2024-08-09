@@ -1,4 +1,4 @@
-import CreatePropertyForm from "../components/CreatePropertyForm";
+import CreatePropertyForm from "../components/create-property/CreatePropertyForm.tsx";
 import H2 from "../components/H2";
 
 export default function CreateProperty() {

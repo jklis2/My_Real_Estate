@@ -1,7 +1,7 @@
-import Input from "./Input";
-import H3 from "./H3";
+import Input from "../Input.tsx";
+import H3 from "../H3.tsx";
 import { useFormContext } from "react-hook-form";
-import { LOCATION_INPUTS } from "../consts/locationInputs";
+import { LOCATION_INPUTS } from "../../consts/locationInputs.ts";
 
 export default function LocationForm() {
   const { register } = useFormContext();

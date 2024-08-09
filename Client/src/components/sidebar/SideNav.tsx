@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import NavLink from "./SideLink";
-import { LINKS_BEFORE, LINKS_AFTER, LINKS_ADMIN } from "../consts/links";
-import Button from "./Button";
-import NavLogo from "../assets/Logo.png";
+import NavLink from "./SideLink.tsx";
+import { LINKS_BEFORE, LINKS_AFTER, LINKS_ADMIN } from "../../consts/links.ts";
+import Button from "../Button.tsx";
+import NavLogo from "../../assets/Logo.png";
 import { Link, useLocation } from "react-router-dom";
 
 export default function SideNav() {

@@ -8,9 +8,7 @@ import { QUESTIONS } from "../consts/questions";
 export default function FAQ() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
 
-  const toggleAccordion = (number: number) => {
-    setOpenAccordion(openAccordion === number ? null : number);
-  };
+  const toggleAccordion = (number: number) => setOpenAccordion(openAccordion === number ? null : number);
 
   return (
     <section className="my-16 text-center">

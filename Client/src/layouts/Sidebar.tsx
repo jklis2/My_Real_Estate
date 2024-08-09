@@ -1,4 +1,4 @@
-import SideNav from "../components/SideNav";
+import SideNav from "../components/sidebar/SideNav.tsx";
 import { IoCloseOutline } from "react-icons/io5";
 
 interface sidebarProps {

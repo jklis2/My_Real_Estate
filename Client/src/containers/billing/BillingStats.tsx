@@ -1,7 +1,7 @@
-import StatsCard from "../components/StatsCard";
-import P from "../components/P";
-import Button from "../components/Button";
-import H2 from "../components/H2";
+import StatsCard from "../../components/StatsCard.tsx";
+import P from "../../components/P.tsx";
+import Button from "../../components/Button.tsx";
+import H2 from "../../components/H2.tsx";
 
 export default function BillingStats() {
   const action = (

@@ -3,7 +3,7 @@ import Input from "./Input";
 
 export default function ContactForm() {
   return (
-    <form onSubmit={(e) => e.preventDefault()}>
+    <form onSubmit={e => e.preventDefault()}>
       <div className="w-full flex flex-col sm:flex-row gap-5 my-5">
         <Input
           type="text"

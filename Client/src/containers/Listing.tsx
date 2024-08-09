@@ -15,9 +15,7 @@ interface ListingProps {
 export default function Listing({ properties, addresses }: ListingProps) {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
+  const handlePageChange = (page: number) => setCurrentPage(page);
 
   return (
     <section>

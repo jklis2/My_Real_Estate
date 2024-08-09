@@ -1,5 +1,5 @@
 import Button from "../components/Button";
-import BillingPeriod from "../containers/BillingPeriod";
+import BillingPeriod from "../containers/billing/BillingPeriod.tsx";
 import ExtraCharges from "../containers/ExtraCharges";
 import FlatCharges from "../containers/FlatCharges";
 import PropertyTenantPicker from "../containers/PropertyTenantPicker";

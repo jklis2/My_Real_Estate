@@ -1,5 +1,5 @@
-import H2 from "../components/H2";
-import Table from "../components/Table";
+import H2 from "../../components/H2.tsx";
+import Table from "../../components/Table.tsx";
 
 export default function BillingHistory() {
   return (

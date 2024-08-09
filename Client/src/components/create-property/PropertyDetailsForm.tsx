@@ -1,8 +1,8 @@
-import Select from "./Select";
-import Input from "./Input";
-import H3 from "./H3";
+import Select from "../Select.tsx";
+import Input from "../Input.tsx";
+import H3 from "../H3.tsx";
 import { useFormContext } from "react-hook-form";
-import { PROPERTY_TYPE } from "../consts/propertyType";
+import { PROPERTY_TYPE } from "../../consts/propertyType.ts";
 
 export default function PropertyDetailsForm() {
   const { register } = useFormContext();
