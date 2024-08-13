@@ -1,5 +1,5 @@
 import TenantCard from "../components/TenantCard";
-import H2 from "../components/H2";
+import H2 from "../components/shared/H2.tsx";
 
 
 export default function TenantsList() {

@@ -1,10 +1,10 @@
-import H2 from "../components/H2";
-import P from "../components/P";
+import H2 from "../components/shared/H2.tsx";
+import P from "../components/shared/P.tsx";
 import firstStep from "../assets/FirstStep.png";
 import secondStep from "../assets/SecondStep.png";
 import thirdStep from "../assets/ThirdStep.png";
-import StepArrow from "../components/StepArrow";
-import StepCard from "../components/StepCard";
+import StepArrow from "../components/step/StepArrow.tsx";
+import StepCard from "../components/step/StepCard.tsx";
 
 export default function HowItWorks() {
   return (

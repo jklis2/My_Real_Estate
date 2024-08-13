@@ -1,4 +1,4 @@
-import H3 from "./H3";
+import H3 from "./shared/H3.tsx";
 
 interface CardProps {
   name: string;

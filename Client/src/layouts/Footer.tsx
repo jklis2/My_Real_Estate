@@ -1,4 +1,4 @@
-import P from "../components/P"
+import P from "../components/shared/P.tsx"
 
 export default function Footer() {
   return <footer className="border-t py-8 flex flex-col-reverse items-center gap-8 lg:flex-row justify-between">

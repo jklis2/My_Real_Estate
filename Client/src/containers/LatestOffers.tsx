@@ -1,9 +1,9 @@
 import React, { Suspense } from "react";
-import H2 from "../components/H2";
+import H2 from "../components/shared/H2.tsx";
 import OfferCard from "../components/OfferCard";
 import { SLIDES } from "../consts/slides";
 import { useInView } from "react-intersection-observer";
-import Loader from "../components/Loader";
+import Loader from "../components/shared/Loader.tsx";
 import leftArrow from "../assets/icons/leftArrow.svg";
 import rightArrow from "../assets/icons/rightArrow.svg";
 

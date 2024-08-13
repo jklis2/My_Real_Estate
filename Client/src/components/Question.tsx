@@ -1,5 +1,5 @@
-import H3 from "../components/H3";
-import P from "../components/P";
+import H3 from "./shared/H3.tsx";
+import P from "./shared/P.tsx";
 import FAQNumber from "./FAQNumber";
 import chevron from '../assets/icons/chevron.svg'
 

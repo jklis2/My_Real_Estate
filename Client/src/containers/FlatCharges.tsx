@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Button from "../components/Button";
-import H2 from "../components/H2";
-import Input from "../components/Input";
+import Button from "../components/shared/Button.tsx";
+import H2 from "../components/shared/H2.tsx";
+import Input from "../components/shared/Input.tsx";
 import ChargesModal from "../components/ChargesModal";
 import { FLAT_CHARGES, InputField } from "../consts/flatCharges";
 

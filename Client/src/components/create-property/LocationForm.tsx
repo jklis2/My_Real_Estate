@@ -1,5 +1,5 @@
-import Input from "../Input.tsx";
-import H3 from "../H3.tsx";
+import Input from "../shared/Input.tsx";
+import H3 from "../shared/H3.tsx";
 import { useFormContext } from "react-hook-form";
 import { LOCATION_INPUTS } from "../../consts/locationInputs.ts";
 

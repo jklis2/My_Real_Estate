@@ -1,8 +1,8 @@
 import { Suspense } from "react";
-import H2 from "../components/H2";
-import P from "../components/P";
+import H2 from "../components/shared/H2.tsx";
+import P from "../components/shared/P.tsx";
 import PricingCard from "../components/PricingCard";
-import Loader from "../components/Loader";
+import Loader from "../components/shared/Loader.tsx";
 import { useInView } from "react-intersection-observer";
 import { PLANS } from "../consts/plans";
 

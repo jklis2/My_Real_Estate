@@ -1,6 +1,6 @@
-import H3 from "../H3.tsx";
-import MultiSelect from "../MultiSelect.tsx";
-import Button from "../Button.tsx";
+import H3 from "../shared/H3.tsx";
+import MultiSelect from "../shared/MultiSelect.tsx";
+import Button from "../shared/Button.tsx";
 import PropertyDetailsForm from "./PropertyDetailsForm.tsx";
 import LocationForm from "./LocationForm.tsx";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";

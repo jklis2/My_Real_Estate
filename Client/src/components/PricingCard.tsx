@@ -1,8 +1,8 @@
 import checkLight from "../assets/icons/checkLight.svg";
 import checkDark from "../assets/icons/checkDark.svg";
-import Button from "./Button";
-import P from "./P";
-import H3 from "./H3";
+import Button from "./shared/Button.tsx";
+import P from "./shared/P.tsx";
+import H3 from "./shared/H3.tsx";
 
 interface Feature {
   id: number;

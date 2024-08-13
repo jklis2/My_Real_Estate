@@ -1,6 +1,6 @@
-import Select from "../Select.tsx";
-import Input from "../Input.tsx";
-import H3 from "../H3.tsx";
+import Select from "../shared/Select.tsx";
+import Input from "../shared/Input.tsx";
+import H3 from "../shared/H3.tsx";
 import { useFormContext } from "react-hook-form";
 import { PROPERTY_TYPE } from "../../consts/propertyType.ts";
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Button from "../components/Button";
-import H2 from "../components/H2";
-import Select from "../components/Select";
+import Button from "../components/shared/Button.tsx";
+import H2 from "../components/shared/H2.tsx";
+import Select from "../components/shared/Select.tsx";
 import TenantsList from "../containers/TenantsList";
 
 export default function Tenants() {

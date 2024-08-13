@@ -12,7 +12,6 @@ export default function UserAvatar({ userId }: AvatarProps) {
   const [, { isSuccess }] = useUpdateAvatarMutation();
 
   useEffect(() => {
-    isSuccess && console.log('Success')
     if (isSuccess) {
       setTimestamp(Date.now());
     }

@@ -1,7 +1,7 @@
-import ChangePassword from "../containers/ChangePassword";
-import DeleteAccount from "../containers/DeleteAccount";
-import SecurityPreferences from "../containers/SecurityPreferences";
-import TwoFactorAuthentication from "../containers/TwoFactorAuthentication";
+import ChangePassword from "../containers/profile/ChangePassword.tsx";
+import DeleteAccount from "../containers/profile/DeleteAccount.tsx";
+import SecurityPreferences from "../containers/profile/SecurityPreferences.tsx";
+import TwoFactorAuthentication from "../containers/profile/TwoFactorAuthentication.tsx";
 
 export default function Security() {
   return (

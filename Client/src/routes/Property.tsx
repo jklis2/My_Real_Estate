@@ -1,8 +1,8 @@
-import AditionalInfo from "../containers/AditionalInfo";
-import Description from "../containers/Description";
-import Features from "../containers/Features";
-import Gallery from "../containers/Gallery";
-import Location from "../containers/Location";
+import AditionalInfo from "../containers/property/AditionalInfo.tsx";
+import Description from "../containers/property/Description.tsx";
+import Features from "../containers/property/Features.tsx";
+import Gallery from "../containers/property/Gallery.tsx";
+import Location from "../containers/property/Location.tsx";
 import SimilarProperties from "../containers/SimilarProperties";
 import { useMergedProperty } from "../hooks/useMergedProperty";
 import { useParams } from "react-router-dom";

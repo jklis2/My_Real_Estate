@@ -1,7 +1,7 @@
-import H2 from "../components/H2";
+import H2 from "../components/shared/H2.tsx";
 import LoginForm from "../components/LoginForm";
-import P from "../components/P";
-import Button from "../components/Button";
+import P from "../components/shared/P.tsx";
+import Button from "../components/shared/Button.tsx";
 import SocialButton from "../components/SocialButton";
 import { Link } from "react-router-dom";
 import google from "../assets/icons/google.svg";
@@ -18,7 +18,7 @@ export default function Login() {
   const [login, { error }] = useLoginMutation();
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setLoginData({ ...loginData, [name]: value });
@@ -42,7 +42,7 @@ export default function Login() {
         <H2 className="mb-4">Welcome Back</H2>
         <P>Please sign in to continue</P>
       </div>
-      <LoginForm loginData={loginData} handleInputChange={handleInputChange} />
+      7<LoginForm loginData={loginData} handleInputChange={handleInputChange} />
       <div className="flex justify-between items-center pt-1">
         <div className="pt-5 flex items-center">
           <input type="checkbox" />
@@ -50,11 +50,9 @@ export default function Login() {
         </div>
         <P className="text-sm text-blue-600 pt-5">Forgot Password?</P>
       </div>
-
       {error && (
         <P className="text-red-500 mt-3">Incorrect e-mail or password.</P>
       )}
-
       <Button className="mt-4 w-full " onClick={handleSubmit}>
         Login
       </Button>

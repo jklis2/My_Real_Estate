@@ -1,10 +1,6 @@
-export interface InputField {
-  id: string;
-  label: string;
-  placeholder: string;
-}
+import { ChargeField } from "../interfaces/ChargeField";
 
-export const FLAT_CHARGES: InputField[] = [
+export const FLAT_CHARGES: ChargeField[] = [
   {
     id: "administrativeRent",
     label: "Administrative Rent",

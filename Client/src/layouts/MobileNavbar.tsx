@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Button from "../components/Button";
-import BurgerMenu from "../components/BurgerMenu";
+import Button from "../components/shared/Button.tsx";
+import BurgerMenu from "../components/shared/BurgerMenu.tsx";
 import { useEffect } from "react";
 import { useLazyGetUserQuery } from "../services/userApi";
 import UserAvatar from "../components/UserAvatar";

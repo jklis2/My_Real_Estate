@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import P from "../components/P";
-import Input from "./Input";
-import Select from "./Select";
+import P from "./shared/P.tsx";
+import Input from "./shared/Input.tsx";
+import Select from "./shared/Select.tsx";
 
 export default function RegisterForm() {
   const inputClasses =

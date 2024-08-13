@@ -1,4 +1,4 @@
-import H2 from "./H2";
+import H2 from "./shared/H2.tsx";
 
 export default function TimeLine() {
   return (

@@ -1,4 +1,4 @@
-import Button from "../components/Button";
+import Button from "../components/shared/Button.tsx";
 import BillingPeriod from "../containers/billing/BillingPeriod.tsx";
 import ExtraCharges from "../containers/ExtraCharges";
 import FlatCharges from "../containers/FlatCharges";

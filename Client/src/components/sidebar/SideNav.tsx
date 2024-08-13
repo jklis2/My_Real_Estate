@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import NavLink from "./SideLink.tsx";
 import { LINKS_BEFORE, LINKS_AFTER, LINKS_ADMIN } from "../../consts/links.ts";
-import Button from "../Button.tsx";
+import Button from "../shared/Button.tsx";
 import NavLogo from "../../assets/Logo.png";
 import { Link, useLocation } from "react-router-dom";
 

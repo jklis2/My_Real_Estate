@@ -1,5 +1,5 @@
-import Button from "./Button";
-import P from "./P";
+import Button from "./shared/Button.tsx";
+import P from "./shared/P.tsx";
 
 interface CardProps {
   logo: string;

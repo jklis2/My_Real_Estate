@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import H2 from "../components/H2";
-import Select from "../components/Select";
+import H2 from "../components/shared/H2.tsx";
+import Select from "../components/shared/Select.tsx";
 import PropertiesList from "../containers/PropertiesList";
 import { useOwnProperties } from "../hooks/useOwnProperties";
 

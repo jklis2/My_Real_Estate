@@ -1,4 +1,4 @@
-import P from "./P";
+import P from "./shared/P.tsx";
 import pin from "../assets/icons/pin.svg";
 
 interface CardProps {

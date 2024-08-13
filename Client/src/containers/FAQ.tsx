@@ -1,6 +1,6 @@
 import { useState } from "react";
-import H2 from "../components/H2";
-import H3 from "../components/H3";
+import H2 from "../components/shared/H2.tsx";
+import H3 from "../components/shared/H3.tsx";
 import FAQImg from "../assets/FAQImg.png";
 import Question from "../components/Question";
 import { QUESTIONS } from "../consts/questions";

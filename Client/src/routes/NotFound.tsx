@@ -1,6 +1,6 @@
-import Button from "../components/Button";
-import H2 from "../components/H2";
-import P from "../components/P";
+import Button from "../components/shared/Button.tsx";
+import H2 from "../components/shared/H2.tsx";
+import P from "../components/shared/P.tsx";
 import notFoundPhoto from "../assets/NotFoundPhoto.png";
 import { Link } from "react-router-dom";
 

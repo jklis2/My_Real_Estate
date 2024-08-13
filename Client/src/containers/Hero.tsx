@@ -1,4 +1,4 @@
-import HeroForm from "../components/HeroForm";
+import HeroForm from "../components/hero/HeroForm.tsx";
 
 export default function Hero() {
   return (

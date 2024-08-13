@@ -1,4 +1,4 @@
-import H2 from "../components/H2";
+import H2 from "../components/shared/H2.tsx";
 import StatsCard from "../components/StatsCard";
 import { useGetUserQuery } from "../services/userApi";
 

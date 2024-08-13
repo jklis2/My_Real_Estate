@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Button from "../components/Button";
+import Button from "../components/shared/Button.tsx";
 import NavLogo from "../assets/Logo.png";
-import BurgerMenu from "../components/BurgerMenu";
+import BurgerMenu from "../components/shared/BurgerMenu.tsx";
 import { Link } from "react-router-dom";
 import MobileNavbar from "./MobileNavbar";
 import { useLazyGetUserQuery } from "../services/userApi";

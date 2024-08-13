@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Button from "../components/Button";
-import Pagination from "../components/Pagination";
+import Button from "../components/shared/Button.tsx";
+import Pagination from "../components/shared/Pagination.tsx";
 import PropertyCard from "../components/PropertyCard";
 import { Property } from "../interfaces/Property";
 import { Address } from "../interfaces/Address";

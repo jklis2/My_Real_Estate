@@ -1,4 +1,4 @@
-import P from "./P";
+import P from "./shared/P.tsx";
 
 interface CardProps {
   name: string;

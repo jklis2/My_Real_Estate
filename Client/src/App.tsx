@@ -17,7 +17,7 @@ import AdminPanel from "./routes/AdminPanel";
 import PropertyManagement from "./routes/PropertyManagement";
 import UsersManagement from "./routes/UsersManagement";
 import AdminSettings from "./routes/AdminSettings";
-import Loader from "./components/Loader";
+import Loader from "./components/shared/Loader.tsx";
 import AuthLayout from "./layouts/AuthRoot";
 import CreateProperty from "./routes/CreateProperty";
 
@@ -26,6 +26,14 @@ const Property = React.lazy(() => import("./routes/Property"));
 const DashboardLayout = React.lazy(() => import("./layouts/DashboardRoot"));
 const Login = React.lazy(() => import("./routes/Login"));
 const Register = React.lazy(() => import("./routes/Register"));
+
+const loaderComponent = (
+  <div className="absolute z-10 bg-white h-screen w-screen top-0 left-0">
+    <div className="relative h-screen w-screen flex justify-center items-center">
+      <Loader className="w-72" />
+    </div>
+  </div>
+);
 
 const router = createBrowserRouter([
   {
@@ -39,7 +47,7 @@ const router = createBrowserRouter([
       {
         path: "properties",
         element: (
-          <Suspense fallback={<Loader />}>
+          <Suspense fallback={loaderComponent}>
             <PropertyListing />
           </Suspense>
         ),
@@ -47,7 +55,7 @@ const router = createBrowserRouter([
       {
         path: "property/:id",
         element: (
-          <Suspense fallback={<Loader size={12} />}>
+          <Suspense fallback={loaderComponent}>
             <Property />
           </Suspense>
         ),
@@ -61,7 +69,7 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: (
-          <Suspense fallback={<Loader />}>
+          <Suspense fallback={loaderComponent}>
             <Login />
           </Suspense>
         ),
@@ -69,7 +77,7 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: (
-          <Suspense fallback={<Loader />}>
+          <Suspense fallback={loaderComponent}>
             <Register />
           </Suspense>
         ),
@@ -79,13 +87,7 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: (
-      <Suspense
-        fallback={
-          <main className="h-screen flex justify-center items-center">
-            <Loader />
-          </main>
-        }
-      >
+      <Suspense fallback={loaderComponent}>
         <DashboardLayout />
       </Suspense>
     ),
@@ -141,13 +143,7 @@ const router = createBrowserRouter([
   {
     path: "admin",
     element: (
-      <Suspense
-        fallback={
-          <main className="h-screen flex justify-center items-center">
-            <Loader />
-          </main>
-        }
-      >
+      <Suspense fallback={loaderComponent}>
         <DashboardLayout />
       </Suspense>
     ),

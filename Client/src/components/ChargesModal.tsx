@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
-import Button from "./Button";
+import Button from "./shared/Button.tsx";
 
 interface ModalProps {
   isVisible: boolean;
@@ -35,7 +35,7 @@ export default function ChargesModal({
             type="text"
             className="p-2 border border-slate-300 rounded w-full"
             value={label}
-            onChange={(e) => setLabel(e.target.value)}
+            onChange={e => setLabel(e.target.value)}
           />
         </div>
         <div className="mb-4">
@@ -44,7 +44,7 @@ export default function ChargesModal({
             type="text"
             className="p-2 border border-slate-300 rounded w-full"
             value={placeholder}
-            onChange={(e) => setPlaceholder(e.target.value)}
+            onChange={e => setPlaceholder(e.target.value)}
           />
         </div>
         <div className="flex justify-end gap-x-4">
