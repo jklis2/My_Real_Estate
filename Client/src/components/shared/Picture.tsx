@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 interface PictureProps {
   size?: string;
@@ -18,13 +18,7 @@ export default function Picture({ isSuccess, size, id }: PictureProps) {
   return (
     <figure>
       {size}
-      <img
-        src={`${
-          import.meta.env.VITE_API_URL
-        }Avatar?userId=${id}&t=${timestamp}`}
-        className="w-32 h-32 rounded-full"
-        alt="avatar"
-      ></img>
+      <img src={`${import.meta.env.VITE_API_URL}Avatar?userId=${id}&t=${timestamp}`} className="w-32 h-32 rounded-full" alt="avatar"></img>
     </figure>
   );
 }

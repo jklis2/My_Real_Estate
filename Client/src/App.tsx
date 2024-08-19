@@ -1,31 +1,31 @@
-import React, { Suspense } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import RootLayout from "./layouts/Root";
-import Home from "./routes/Home";
-import Dashboard from "./routes/Dashboard";
-import Rent from "./routes/Rent";
-import Properties from "./routes/Properties";
-import Tenants from "./routes/Tenants";
-import Reports from "./routes/Reports";
-import NotFound from "./routes/NotFound";
-import Profile from "./routes/Profile";
-import Billing from "./routes/Billing";
-import Security from "./routes/Security";
-import Notifications from "./routes/Notifications";
-import SettingsLayout from "./layouts/SettingsRoot";
-import AdminPanel from "./routes/AdminPanel";
-import PropertyManagement from "./routes/PropertyManagement";
-import UsersManagement from "./routes/UsersManagement";
-import AdminSettings from "./routes/AdminSettings";
-import Loader from "./components/shared/Loader.tsx";
-import AuthLayout from "./layouts/AuthRoot";
-import CreateProperty from "./routes/CreateProperty";
+import React, { Suspense } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import RootLayout from 'layouts/Root';
+import Home from 'routes/Home';
+import Dashboard from 'routes/Dashboard';
+import Rent from 'routes/Rent';
+import Properties from 'routes/Properties';
+import Tenants from 'routes/Tenants';
+import Reports from 'routes/Reports';
+import NotFound from 'routes/NotFound';
+import Profile from 'routes/Profile';
+import Billing from 'routes/Billing';
+import Security from 'routes/Security';
+import Notifications from 'routes/Notifications';
+import SettingsLayout from 'layouts/SettingsRoot';
+import AdminPanel from 'routes/AdminPanel';
+import PropertyManagement from 'routes/PropertyManagement';
+import UsersManagement from 'routes/UsersManagement';
+import AdminSettings from 'routes/AdminSettings';
+import Loader from 'components/shared/Loader.tsx';
+import AuthLayout from 'layouts/AuthRoot';
+import CreateProperty from 'routes/CreateProperty';
 
-const PropertyListing = React.lazy(() => import("./routes/PropertyListing"));
-const Property = React.lazy(() => import("./routes/Property"));
-const DashboardLayout = React.lazy(() => import("./layouts/DashboardRoot"));
-const Login = React.lazy(() => import("./routes/Login"));
-const Register = React.lazy(() => import("./routes/Register"));
+const PropertyListing = React.lazy(() => import('./routes/PropertyListing'));
+const Property = React.lazy(() => import('./routes/Property'));
+const DashboardLayout = React.lazy(() => import('./layouts/DashboardRoot'));
+const Login = React.lazy(() => import('./routes/Login'));
+const Register = React.lazy(() => import('./routes/Register'));
 
 const loaderComponent = (
   <div className="absolute z-10 bg-white h-screen w-screen top-0 left-0">
@@ -37,7 +37,7 @@ const loaderComponent = (
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <RootLayout />,
     children: [
       {
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "properties",
+        path: 'properties',
         element: (
           <Suspense fallback={loaderComponent}>
             <PropertyListing />
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "property/:id",
+        path: 'property/:id',
         element: (
           <Suspense fallback={loaderComponent}>
             <Property />
@@ -63,11 +63,11 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/auth",
+    path: '/auth',
     element: <AuthLayout />,
     children: [
       {
-        path: "login",
+        path: 'login',
         element: (
           <Suspense fallback={loaderComponent}>
             <Login />
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "register",
+        path: 'register',
         element: (
           <Suspense fallback={loaderComponent}>
             <Register />
@@ -85,7 +85,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/dashboard",
+    path: '/dashboard',
     element: (
       <Suspense fallback={loaderComponent}>
         <DashboardLayout />
@@ -97,43 +97,43 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "rent",
+        path: 'rent',
         element: <Rent />,
       },
       {
-        path: "properties",
+        path: 'properties',
         element: <Properties />,
       },
       {
-        path: "tenants",
+        path: 'tenants',
         element: <Tenants />,
       },
       {
-        path: "reports",
+        path: 'reports',
         element: <Reports />,
       },
       {
-        path: "create",
+        path: 'create',
         element: <CreateProperty />,
       },
       {
-        path: "settings",
+        path: 'settings',
         element: <SettingsLayout />,
         children: [
           {
-            path: "profile",
+            path: 'profile',
             element: <Profile />,
           },
           {
-            path: "billing",
+            path: 'billing',
             element: <Billing />,
           },
           {
-            path: "security",
+            path: 'security',
             element: <Security />,
           },
           {
-            path: "notifications",
+            path: 'notifications',
             element: <Notifications />,
           },
         ],
@@ -141,7 +141,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "admin",
+    path: 'admin',
     element: (
       <Suspense fallback={loaderComponent}>
         <DashboardLayout />
@@ -153,21 +153,21 @@ const router = createBrowserRouter([
         element: <AdminPanel />,
       },
       {
-        path: "properties",
+        path: 'properties',
         element: <PropertyManagement />,
       },
       {
-        path: "users",
+        path: 'users',
         element: <UsersManagement />,
       },
       {
-        path: "settings",
+        path: 'settings',
         element: <AdminSettings />,
       },
     ],
   },
   {
-    path: "*",
+    path: '*',
     element: <NotFound />,
   },
 ]);

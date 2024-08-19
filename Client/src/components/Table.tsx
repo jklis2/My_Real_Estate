@@ -23,47 +23,27 @@ export default function Table() {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr>
+                  <td className="p-6 whitespace-nowrap bg-gray-100">#39201</td>
+                  <td className="p-6 whitespace-nowrap bg-gray-100">06/15/2021</td>
+                  <td className="p-6 whitespace-nowrap bg-gray-100">$1000.99</td>
                   <td className="p-6 whitespace-nowrap bg-gray-100">
-                    #39201
-                  </td>
-                  <td className="p-6 whitespace-nowrap bg-gray-100">
-                    06/15/2021
-                  </td>
-                  <td className="p-6 whitespace-nowrap bg-gray-100">
-                    $1000.99
-                  </td>
-                  <td className="p-6 whitespace-nowrap bg-gray-100">
-                    <span className="font-semibold text-yellow-600">
-                      Pending
-                    </span>
+                    <span className="font-semibold text-yellow-600">Pending</span>
                   </td>
                 </tr>
 
                 <tr>
-                  <td className="p-6 whitespace-nowrap bg-gray-100">
-                    #38594
-                  </td>
-                  <td className="p-6 whitespace-nowrap bg-gray-100">
-                    05/15/2021
-                  </td>
-                  <td className="p-6 whitespace-nowrap bg-gray-100">
-                    $2000.99
-                  </td>
+                  <td className="p-6 whitespace-nowrap bg-gray-100">#38594</td>
+                  <td className="p-6 whitespace-nowrap bg-gray-100">05/15/2021</td>
+                  <td className="p-6 whitespace-nowrap bg-gray-100">$2000.99</td>
                   <td className="p-6 whitespace-nowrap bg-gray-100">
                     <span className="font-semibold text-green-600">Paid</span>
                   </td>
                 </tr>
 
                 <tr>
-                  <td className="p-6 whitespace-nowrap bg-gray-100">
-                    #38223
-                  </td>
-                  <td className="p-6 whitespace-nowrap bg-gray-100">
-                    04/15/2021
-                  </td>
-                  <td className="p-6 whitespace-nowrap bg-gray-100">
-                    $1230.42
-                  </td>
+                  <td className="p-6 whitespace-nowrap bg-gray-100">#38223</td>
+                  <td className="p-6 whitespace-nowrap bg-gray-100">04/15/2021</td>
+                  <td className="p-6 whitespace-nowrap bg-gray-100">$1230.42</td>
                   <td className="p-6 whitespace-nowrap bg-gray-100">
                     <span className="font-semibold text-green-600">Paid</span>
                   </td>

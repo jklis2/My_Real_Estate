@@ -1,8 +1,8 @@
-import Select from "../shared/Select.tsx";
-import Input from "../shared/Input.tsx";
-import H3 from "../shared/H3.tsx";
-import { useFormContext } from "react-hook-form";
-import { PROPERTY_TYPE } from "../../consts/propertyType.ts";
+import Select from 'components/shared/Select.tsx';
+import Input from 'components/shared/Input.tsx';
+import H3 from 'components/shared/H3.tsx';
+import { useFormContext } from 'react-hook-form';
+import { PROPERTY_TYPE } from 'consts/propertyType.ts';
 
 export default function PropertyDetailsForm() {
   const { register } = useFormContext();
@@ -11,14 +11,7 @@ export default function PropertyDetailsForm() {
     <>
       <div className="flex flex-col justify-between gap-3 lg:gap-6 mt-3">
         <div className="flex flex-col w-full">
-          <Input
-            type="text"
-            className="w-full p-3 border border-slate-300 rounded-xl"
-            label="Property name"
-            id="name"
-            placeholder="Enter property name"
-            {...register("property.name")}
-          />
+          <Input type="text" className="w-full p-3 border border-slate-300 rounded-xl" label="Property name" id="name" placeholder="Enter property name" {...register('property.name')} />
         </div>
         <div className="flex flex-col w-full">
           <Input
@@ -28,7 +21,7 @@ export default function PropertyDetailsForm() {
             label="Property photos"
             id="file"
             placeholder="Drop photos of your property"
-            {...register("property.photos[0]")}
+            {...register('property.photos[0]')}
           />
         </div>
         <div className="flex flex-col w-full">
@@ -39,29 +32,22 @@ export default function PropertyDetailsForm() {
             id="description"
             placeholder="Enter property description"
             size="big"
-            {...register("property.description")}
+            {...register('property.description')}
           />
         </div>
       </div>
       <div className="flex justify-between gap-3 lg:gap-6 mt-3 lg:flex-row flex-col">
         <div className="flex flex-col w-full my-2">
-          <Input
-            type="text"
-            className="w-full p-3 border border-slate-300 rounded-xl"
-            label="Price"
-            id="price"
-            placeholder="Enter price for property"
-            {...register("property.price")}
-          />
+          <Input type="text" className="w-full p-3 border border-slate-300 rounded-xl" label="Price" id="price" placeholder="Enter price for property" {...register('property.price')} />
         </div>
         <div className="flex flex-col w-full">
           <Select
-            options={["For Rent", "For Sell"]}
+            options={['For Rent', 'For Sell']}
             className="w-full p-3 border border-slate-300 rounded-xl"
             label="Type of operation"
             id="operation"
             placeholder="Select type of operation"
-            {...register("property.operationType")}
+            {...register('property.operationType')}
           />
         </div>
       </div>
@@ -75,30 +61,16 @@ export default function PropertyDetailsForm() {
               label="Property type"
               id="propertyTypeName"
               placeholder="Select type of property"
-              {...register("propertyType.propertyTypeName")}
+              {...register('propertyType.propertyTypeName')}
             />
           </div>
           <div className="w-full sm:w-1/2 flex flex-col">
-            <Input
-              type="text"
-              className="p-3 border border-slate-300 rounded-xl my-2"
-              label="Size"
-              id="size"
-              placeholder="Enter size of property"
-              {...register("property.size")}
-            />
+            <Input type="text" className="p-3 border border-slate-300 rounded-xl my-2" label="Size" id="size" placeholder="Enter size of property" {...register('property.size')} />
           </div>
         </div>
         <div className="flex w-full sm:flex-row flex-col gap-12">
           <div className="w-full sm:w-1/2 flex flex-col">
-            <Input
-              type="text"
-              className="p-3 border border-slate-300 rounded-xl"
-              label="Amount of rooms"
-              id="noRooms"
-              placeholder="Enter amount of rooms"
-              {...register("property.numberOfRooms")}
-            />
+            <Input type="text" className="p-3 border border-slate-300 rounded-xl" label="Amount of rooms" id="noRooms" placeholder="Enter amount of rooms" {...register('property.numberOfRooms')} />
           </div>
           <div className="w-full sm:w-1/2 flex flex-col">
             <Input
@@ -107,7 +79,7 @@ export default function PropertyDetailsForm() {
               label="Amount of people"
               id="noPeople"
               placeholder="Enter amount of people"
-              {...register("property.numberOfPeople")}
+              {...register('property.numberOfPeople')}
             />
           </div>
         </div>

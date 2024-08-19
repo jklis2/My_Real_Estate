@@ -1,5 +1,5 @@
-import H2 from "../../components/shared/H2.tsx";
-import P from "../../components/shared/P.tsx";
+import H2 from '../../components/shared/H2.tsx';
+import P from '../../components/shared/P.tsx';
 
 interface DescriptionProps {
   name: string;
@@ -8,12 +8,7 @@ interface DescriptionProps {
   description: string;
 }
 
-export default function Description({
-  name,
-  price,
-  city,
-  description,
-}: DescriptionProps) {
+export default function Description({ name, price, city, description }: DescriptionProps) {
   return (
     <section className="my-10">
       <div className="flex justify-between">

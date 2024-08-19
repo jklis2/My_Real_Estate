@@ -1,8 +1,8 @@
-import Button from "../components/shared/Button.tsx";
-import BillingPeriod from "../containers/billing/BillingPeriod.tsx";
-import ExtraCharges from "../containers/ExtraCharges";
-import FlatCharges from "../containers/FlatCharges";
-import PropertyTenantPicker from "../containers/PropertyTenantPicker";
+import Button from 'components/shared/Button.tsx';
+import BillingPeriod from 'containers/billing/BillingPeriod.tsx';
+import ExtraCharges from 'containers/ExtraCharges';
+import FlatCharges from 'containers/FlatCharges';
+import PropertyTenantPicker from 'containers/PropertyTenantPicker';
 
 export default function Reports() {
   return (

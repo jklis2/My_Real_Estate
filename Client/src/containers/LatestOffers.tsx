@@ -1,13 +1,13 @@
-import React, { Suspense } from "react";
-import H2 from "../components/shared/H2.tsx";
-import OfferCard from "../components/OfferCard";
-import { SLIDES } from "../consts/slides";
-import { useInView } from "react-intersection-observer";
-import Loader from "../components/shared/Loader.tsx";
-import leftArrow from "../assets/icons/leftArrow.svg";
-import rightArrow from "../assets/icons/rightArrow.svg";
+import React, { Suspense } from 'react';
+import H2 from 'components/shared/H2.tsx';
+import OfferCard from 'components/OfferCard';
+import { SLIDES } from 'consts/slides';
+import { useInView } from 'react-intersection-observer';
+import Loader from 'components/shared/Loader.tsx';
+import leftArrow from 'assets/icons/leftArrow.svg';
+import rightArrow from 'assets/icons/rightArrow.svg';
 
-const Slider = React.lazy(() => import("react-slick"));
+const Slider = React.lazy(() => import('react-slick'));
 
 interface ArrowProps {
   onClick?: React.MouseEventHandler<HTMLDivElement>;
@@ -15,10 +15,7 @@ interface ArrowProps {
 
 const NextArrow = ({ onClick }: ArrowProps) => {
   return (
-    <div
-      className="text-neutral-700 absolute right-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10"
-      onClick={onClick}
-    >
+    <div className="text-neutral-700 absolute right-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10" onClick={onClick}>
       <img alt="arrow icon" src={rightArrow} width={70} height={70} />
     </div>
   );
@@ -26,10 +23,7 @@ const NextArrow = ({ onClick }: ArrowProps) => {
 
 const PrevArrow = ({ onClick }: ArrowProps) => {
   return (
-    <div
-      className="text-neutral-700 absolute left-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10"
-      onClick={onClick}
-    >
+    <div className="text-neutral-700 absolute left-0 top-1/2 transform -translate-y-1/2 cursor-pointer z-10" onClick={onClick}>
       <img alt="arrow icon" src={leftArrow} width={70} height={70} />
     </div>
   );

@@ -1,6 +1,6 @@
-import H2 from "../components/shared/H2.tsx";
-import SearchForm from "../components/search-property/SearchForm.tsx";
-import Table from "../components/Table";
+import H2 from 'components/shared/H2.tsx';
+import SearchForm from 'components/search-property/SearchForm.tsx';
+import Table from 'components/Table';
 
 export default function UsersManagement() {
   return (

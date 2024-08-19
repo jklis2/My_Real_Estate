@@ -1,8 +1,8 @@
-import { ChangeEvent, ForwardedRef, forwardRef } from "react";
-import deleteIcon from "../../assets/icons/delete.svg";
+import { ChangeEvent, ForwardedRef, forwardRef } from 'react';
+import deleteIcon from 'assets/icons/delete.svg';
 
 interface InputProps {
-  type: "text" | "number" | "email" | "password" | "file" | "date";
+  type: 'text' | 'number' | 'email' | 'password' | 'file' | 'date';
   label?: string;
   value?: string | number;
   name?: string;
@@ -14,17 +14,14 @@ interface InputProps {
   className?: string;
   labelClassName?: string;
   multiple?: boolean;
-  size?: "big" | "small";
+  size?: 'big' | 'small';
   required?: boolean;
   onRemove?: () => void;
   onChange?: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
-const Input = forwardRef(function Input(
-  props: InputProps,
-  ref: ForwardedRef<HTMLInputElement> | undefined,
-) {
-  return props.size === "big" ? (
+const Input = forwardRef(function Input(props: InputProps, ref: ForwardedRef<HTMLInputElement> | undefined) {
+  return props.size === 'big' ? (
     <>
       {props.label && (
         <div className="flex justify-between">
@@ -33,11 +30,7 @@ const Input = forwardRef(function Input(
             {props.required && <span className="text-red-700">*</span>}
           </label>
           {props.onRemove && (
-            <button
-              type="button"
-              onClick={props.onRemove}
-              className="text-red-500 ml-2"
-            >
+            <button type="button" onClick={props.onRemove} className="text-red-500 ml-2">
               <img src={deleteIcon} alt="Delete" className="w-4 h-4 mb-6" />
             </button>
           )}
@@ -46,15 +39,14 @@ const Input = forwardRef(function Input(
       <textarea
         id={props.id}
         placeholder={props.placeholder}
-        autoComplete={props.autoComplete ? props.autoComplete : "off"}
+        autoComplete={props.autoComplete ? props.autoComplete : 'off'}
         rows={5}
         className={props.className}
         disabled={props.disabled}
         name={props.name}
         value={props.value}
         onChange={props.onChange}
-        ref={ref as ForwardedRef<HTMLTextAreaElement>}
-      ></textarea>
+        ref={ref as ForwardedRef<HTMLTextAreaElement>}></textarea>
     </>
   ) : (
     <>
@@ -65,11 +57,7 @@ const Input = forwardRef(function Input(
             {props.required && <span className="text-red-700">*</span>}
           </label>
           {props.onRemove && (
-            <button
-              type="button"
-              onClick={props.onRemove}
-              className="text-red-500 ml-2"
-            >
+            <button type="button" onClick={props.onRemove} className="text-red-500 ml-2">
               <img src={deleteIcon} alt="Delete" className="w-4 h-4 mb-4" />
             </button>
           )}
@@ -79,15 +67,14 @@ const Input = forwardRef(function Input(
         type={props.type}
         id={props.id}
         placeholder={props.placeholder}
-        autoComplete={props.autoComplete ? props.autoComplete : "off"}
+        autoComplete={props.autoComplete ? props.autoComplete : 'off'}
         className={props.className}
         disabled={props.disabled}
         name={props.name}
         value={props.value}
         multiple={props.multiple}
         onChange={props.onChange}
-        ref={ref}
-      ></input>
+        ref={ref}></input>
     </>
   );
 });

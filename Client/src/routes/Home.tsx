@@ -1,13 +1,13 @@
-import React, { Suspense } from "react";
-import About from "../containers/About";
-import Hero from "../containers/Hero";
-import LatestOffers from "../containers/LatestOffers";
-import HowItWorks from "../containers/HowItWorks";
-import FAQ from "../containers/FAQ";
-import Loader from "../components/shared/Loader.tsx";
-import PricingPlans from "../containers/PricingPlans";
+import React, { Suspense } from 'react';
+import About from 'containers/About';
+import Hero from 'containers/Hero';
+import LatestOffers from 'containers/LatestOffers';
+import HowItWorks from 'containers/HowItWorks';
+import FAQ from 'containers/FAQ';
+import Loader from 'components/shared/Loader.tsx';
+import PricingPlans from 'containers/PricingPlans';
 
-const Contact = React.lazy(() => import("../containers/Contact"));
+const Contact = React.lazy(() => import('../containers/Contact'));
 
 export default function Home() {
   return (

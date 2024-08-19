@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import DropdownMenu from "./Dropdown";
-import { useUpdateAvatarMutation } from "../services/avatarApi";
+import { useState, useEffect } from 'react';
+import DropdownMenu from 'components/Dropdown';
+import { useUpdateAvatarMutation } from 'services/avatarApi';
 
 interface AvatarProps {
   userId: string;
@@ -19,15 +19,8 @@ export default function UserAvatar({ userId }: AvatarProps) {
 
   return (
     <div className="d-flex flex-col relative">
-      <div
-        className="h-16 w-16 "
-        onClick={() => setDropdownOpen((prevOpen) => !prevOpen)}
-      >
-        <img
-          src={`${import.meta.env.VITE_API_URL}Avatar?userId=${userId}&t=${timestamp}`}
-          className="w-full h-full rounded-full bg-slate-300"
-          loading="lazy"
-        />
+      <div className="h-16 w-16 " onClick={() => setDropdownOpen(prevOpen => !prevOpen)}>
+        <img src={`${import.meta.env.VITE_API_URL}Avatar?userId=${userId}&t=${timestamp}`} className="w-full h-full rounded-full bg-slate-300" loading="lazy" />
       </div>
       <DropdownMenu isOpen={isDropdownOpen} />
     </div>

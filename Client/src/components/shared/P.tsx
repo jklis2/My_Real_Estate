@@ -1,4 +1,4 @@
-import { ReactChild, ReactNode } from "react";
+import { ReactChild, ReactNode } from 'react';
 
 interface PProps {
   children: ReactChild | ReactNode;
@@ -7,10 +7,7 @@ interface PProps {
 }
 export default function P({ children, onClick, className }: PProps) {
   return (
-    <p
-      onClick={onClick}
-      className={`${className || ""} text-sm md:text-base text-neutral-700`}
-    >
+    <p onClick={onClick} className={`${className || ''} text-sm md:text-base text-neutral-700`}>
       {children}
     </p>
   );

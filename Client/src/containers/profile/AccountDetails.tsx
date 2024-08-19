@@ -1,5 +1,5 @@
-import H2 from "../../components/shared/H2.tsx";
-import ProfileForms from "../../components/profile/ProfileForms.tsx";
+import H2 from 'components/shared/H2.tsx';
+import ProfileForms from 'components/profile/ProfileForms.tsx';
 
 export default function AccountDetails() {
   return (

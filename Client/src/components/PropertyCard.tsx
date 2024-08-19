@@ -1,4 +1,4 @@
-import P from "./shared/P.tsx";
+import P from 'components/shared/P.tsx';
 
 interface CardProps {
   name: string;
@@ -10,17 +10,9 @@ interface CardProps {
   area?: string;
 }
 
-export default function PropertyCard({
-  name,
-  location,
-  imgPath,
-  price,
-  action,
-  className,
-  area,
-}: CardProps) {
+export default function PropertyCard({ name, location, imgPath, price, action, className, area }: CardProps) {
   return (
-    <div className={`${className || ""} w-full rounded-xl me-10`}>
+    <div className={`${className || ''} w-full rounded-xl me-10`}>
       <img src={imgPath} className="rounded-xl h-52 lg:h-40 xl:h-48 w-full" />
       <h4 className="text-2xl mt-3">{name}</h4>
       <P>{location}</P>

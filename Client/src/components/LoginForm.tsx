@@ -1,10 +1,8 @@
-import Input from "./shared/Input.tsx";
+import Input from 'components/shared/Input.tsx';
 
 interface FormProps {
   loginData: { email: string; password: string };
-  handleInputChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => void;
+  handleInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
 export default function LoginForm({ loginData, handleInputChange }: FormProps) {

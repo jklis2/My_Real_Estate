@@ -1,4 +1,4 @@
-import P from "./shared/P.tsx";
+import P from 'components/shared/P.tsx';
 
 interface FeatureProps {
   name: string | number;
@@ -10,15 +10,7 @@ interface FeatureProps {
   className?: string;
 }
 
-export default function FeatureCard({
-  name,
-  icon,
-  options,
-  input,
-  placeholder,
-  showCheckbox,
-  className = "",
-}: FeatureProps) {
+export default function FeatureCard({ name, icon, options, input, placeholder, showCheckbox, className = '' }: FeatureProps) {
   return (
     <div className={`flex px-16 py-4 border rounded-xl text-center items-center ${className}`}>
       <div className="mr-3">{icon}</div>
@@ -33,13 +25,7 @@ export default function FeatureCard({
           ))}
         </select>
       )}
-      {input && (
-        <input
-          type="text"
-          className="ml-3 p-1 border rounded"
-          placeholder={placeholder || "Enter value"}
-        />
-      )}
+      {input && <input type="text" className="ml-3 p-1 border rounded" placeholder={placeholder || 'Enter value'} />}
     </div>
   );
 }

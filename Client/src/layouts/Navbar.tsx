@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import Button from "../components/shared/Button.tsx";
-import NavLogo from "../assets/Logo.png";
-import BurgerMenu from "../components/shared/BurgerMenu.tsx";
-import { Link } from "react-router-dom";
-import MobileNavbar from "./MobileNavbar";
-import { useLazyGetUserQuery } from "../services/userApi";
-import UserAvatar from "../components/UserAvatar";
+import { useEffect, useState } from 'react';
+import Button from 'components/shared/Button.tsx';
+import NavLogo from 'assets/Logo.png';
+import BurgerMenu from 'components/shared/BurgerMenu.tsx';
+import { Link } from 'react-router-dom';
+import MobileNavbar from 'layouts/MobileNavbar';
+import { useLazyGetUserQuery } from 'services/userApi';
+import UserAvatar from 'components/UserAvatar';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,17 +14,14 @@ export default function Navbar() {
   const [getUser, { data: userData }] = useLazyGetUserQuery();
 
   useEffect(() => {
-    getUser("");
+    getUser('');
   }, [getUser]);
 
   const [data] = userData?.result || [];
 
   return (
     <header>
-      <nav
-        className="flex items-center justify-between py-6 lg:py-8"
-        aria-label="Navigation menu"
-      >
+      <nav className="flex items-center justify-between py-6 lg:py-8" aria-label="Navigation menu">
         <div className="flex lg:flex-1">
           <Link to="" className="-m-1.5 p-1.5">
             <img className="h-16 w-auto" src={NavLogo} alt="NavLogo" />
@@ -37,24 +34,15 @@ export default function Navbar() {
           <a href="#" className="text-xl uppercase leading-6 text-gray-700">
             About
           </a>
-          <Link
-            to="properties"
-            className="text-xl uppercase leading-6 text-gray-700"
-          >
+          <Link to="properties" className="text-xl uppercase leading-6 text-gray-700">
             Offers
           </Link>
           {userData && (
-            <Link
-              to="dashboard"
-              className="text-xl uppercase leading-6 text-gray-700"
-            >
+            <Link to="dashboard" className="text-xl uppercase leading-6 text-gray-700">
               Dashboard
             </Link>
           )}
-          <Link
-            to="admin"
-            className="text-xl uppercase leading-6 text-gray-700"
-          >
+          <Link to="admin" className="text-xl uppercase leading-6 text-gray-700">
             Admin
           </Link>
         </div>

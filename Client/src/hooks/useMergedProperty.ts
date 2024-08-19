@@ -1,15 +1,12 @@
-import { useEffect } from "react";
-import { useLazyGetPropertyQuery } from "../services/propertyApi";
-import { useLazyGetPropertyTypeQuery } from "../services/propertyTypeApi";
-import { useLazyGetAddressQuery } from "../services/addressApi";
+import { useEffect } from 'react';
+import { useLazyGetPropertyQuery } from 'services/propertyApi';
+import { useLazyGetPropertyTypeQuery } from 'services/propertyTypeApi';
+import { useLazyGetAddressQuery } from 'services/addressApi';
 
 export const useMergedProperty = (propertyId: string) => {
-  const [getProperty, { data: propertyData, error: propertyError }] =
-    useLazyGetPropertyQuery();
-  const [getPropertyType, { data: typeData, error: typeError }] =
-    useLazyGetPropertyTypeQuery();
-  const [getAddress, { data: addressData, error: addressError }] =
-    useLazyGetAddressQuery();
+  const [getProperty, { data: propertyData, error: propertyError }] = useLazyGetPropertyQuery();
+  const [getPropertyType, { data: typeData, error: typeError }] = useLazyGetPropertyTypeQuery();
+  const [getAddress, { data: addressData, error: addressError }] = useLazyGetAddressQuery();
 
   useEffect(() => {
     getProperty(propertyId);

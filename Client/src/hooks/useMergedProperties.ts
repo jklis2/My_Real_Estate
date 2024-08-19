@@ -1,24 +1,20 @@
-import { useLazyGetPropertiesQuery } from "../services/propertyApi";
-import { useLazyGetPropertyTypesQuery } from "../services/propertyTypeApi";
-import { useLazyGetFeaturesQuery } from "../services/featuresApi";
-import { useLazyGetAddressesQuery } from "../services/addressApi";
-import { useEffect } from "react";
+import { useLazyGetPropertiesQuery } from 'services/propertyApi';
+import { useLazyGetPropertyTypesQuery } from 'services/propertyTypeApi';
+import { useLazyGetFeaturesQuery } from 'services/featuresApi';
+import { useLazyGetAddressesQuery } from 'services/addressApi';
+import { useEffect } from 'react';
 
 export const useMergedProperties = () => {
-  const [getProperties, { data: propertiesData, error: propertiesError }] =
-    useLazyGetPropertiesQuery();
-  const [getPropertyTypes, { data: typesData, error: typesError }] =
-    useLazyGetPropertyTypesQuery();
-  const [getFeatures, { data: featuresData, error: featuresError }] =
-    useLazyGetFeaturesQuery();
-  const [getAddresses, { data: addressesData, error: addresessError }] =
-    useLazyGetAddressesQuery();
+  const [getProperties, { data: propertiesData, error: propertiesError }] = useLazyGetPropertiesQuery();
+  const [getPropertyTypes, { data: typesData, error: typesError }] = useLazyGetPropertyTypesQuery();
+  const [getFeatures, { data: featuresData, error: featuresError }] = useLazyGetFeaturesQuery();
+  const [getAddresses, { data: addressesData, error: addresessError }] = useLazyGetAddressesQuery();
 
   useEffect(() => {
-    getProperties("");
-    getPropertyTypes("");
-    getFeatures("");
-    getAddresses("");
+    getProperties('');
+    getPropertyTypes('');
+    getFeatures('');
+    getAddresses('');
   }, [getProperties, getPropertyTypes, getFeatures, getAddresses]);
 
   propertiesError && console.log(propertiesError);

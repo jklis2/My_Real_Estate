@@ -1,5 +1,5 @@
-import AllStats from "../containers/AllStats";
-import PropertyStats from "../containers/PropertyStats";
+import AllStats from 'containers/AllStats';
+import PropertyStats from 'containers/PropertyStats';
 
 export default function AdminPanel() {
   return (

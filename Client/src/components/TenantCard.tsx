@@ -1,4 +1,4 @@
-import P from "./shared/P.tsx";
+import P from 'components/shared/P.tsx';
 
 interface CardProps {
   name: string;
@@ -7,12 +7,7 @@ interface CardProps {
   imgPath?: string;
 }
 
-export default function TenantCard({
-  name,
-  surname,
-  propertyName,
-  imgPath,
-}: CardProps) {
+export default function TenantCard({ name, surname, propertyName, imgPath }: CardProps) {
   return (
     <div className="rounded-xl flex-1 me-10">
       <img src={imgPath} className="w-full rounded-xl" />

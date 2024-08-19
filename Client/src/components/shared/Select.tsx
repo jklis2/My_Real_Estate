@@ -1,4 +1,4 @@
-import { ChangeEvent, ForwardedRef, forwardRef } from "react";
+import { ChangeEvent, ForwardedRef, forwardRef } from 'react';
 
 interface SelectProps {
   label?: string;
@@ -14,10 +14,7 @@ interface SelectProps {
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const Select = forwardRef(function Select(
-  props: SelectProps,
-  ref: ForwardedRef<HTMLSelectElement>
-) {
+const Select = forwardRef(function Select(props: SelectProps, ref: ForwardedRef<HTMLSelectElement>) {
   return (
     <div className="flex flex-col my-2 w-full">
       {props.label && (
@@ -25,14 +22,7 @@ const Select = forwardRef(function Select(
           {props.label}
         </label>
       )}
-      <select
-        className={props.className}
-        value={props.selectedOption}
-        id={props.id}
-        onChange={props.onChange}
-        ref={ref}
-        {...props}
-      >
+      <select className={props.className} value={props.selectedOption} id={props.id} onChange={props.onChange} ref={ref} {...props}>
         <option value="" disabled hidden>
           {props.placeholder}
         </option>

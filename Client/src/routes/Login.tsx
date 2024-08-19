@@ -1,25 +1,23 @@
-import H2 from "../components/shared/H2.tsx";
-import LoginForm from "../components/LoginForm";
-import P from "../components/shared/P.tsx";
-import Button from "../components/shared/Button.tsx";
-import SocialButton from "../components/SocialButton";
-import { Link } from "react-router-dom";
-import google from "../assets/icons/google.svg";
-import apple from "../assets/icons/apple.svg";
-import { useState } from "react";
-import { useLoginMutation } from "../services/authApi";
-import { setCookie } from "../utils/setCookie";
+import H2 from 'components/shared/H2.tsx';
+import LoginForm from 'components/LoginForm';
+import P from 'components/shared/P.tsx';
+import Button from 'components/shared/Button.tsx';
+import SocialButton from 'components/SocialButton';
+import { Link } from 'react-router-dom';
+import google from 'assets/icons/google.svg';
+import apple from 'assets/icons/apple.svg';
+import { useState } from 'react';
+import { useLoginMutation } from 'services/authApi';
+import { setCookie } from 'utils/setCookie';
 
 export default function Login() {
   const [loginData, setLoginData] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
   const [login, { error }] = useLoginMutation();
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setLoginData({ ...loginData, [name]: value });
   };
@@ -29,7 +27,7 @@ export default function Login() {
       const response = await login(loginData).unwrap();
       if (response) {
         const { token } = response;
-        setCookie("token", token, 24);
+        setCookie('token', token, 24);
       }
     } catch (err) {
       console.log(err);
@@ -50,9 +48,7 @@ export default function Login() {
         </div>
         <P className="text-sm text-blue-600 pt-5">Forgot Password?</P>
       </div>
-      {error && (
-        <P className="text-red-500 mt-3">Incorrect e-mail or password.</P>
-      )}
+      {error && <P className="text-red-500 mt-3">Incorrect e-mail or password.</P>}
       <Button className="mt-4 w-full " onClick={handleSubmit}>
         Login
       </Button>

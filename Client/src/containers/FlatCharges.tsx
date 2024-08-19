@@ -1,16 +1,17 @@
-import { useState } from "react";
-import Button from "../components/shared/Button.tsx";
-import H2 from "../components/shared/H2.tsx";
-import Input from "../components/shared/Input.tsx";
-import ChargesModal from "../components/ChargesModal";
-import { FLAT_CHARGES, InputField } from "../consts/flatCharges";
+import { useState } from 'react';
+import Button from 'components/shared/Button.tsx';
+import H2 from 'components/shared/H2.tsx';
+import Input from 'components/shared/Input.tsx';
+import ChargesModal from 'components/ChargesModal';
+import { FLAT_CHARGES } from 'consts/flatCharges';
+import { ChargeField } from 'interfaces/ChargeField.ts';
 
 export default function FlatCharges() {
-  const [inputs, setInputs] = useState<InputField[]>(FLAT_CHARGES);
+  const [inputs, setInputs] = useState<ChargeField[]>(FLAT_CHARGES);
   const [isModalVisible, setModalVisible] = useState<boolean>(false);
 
   const handleAddInput = (label: string, placeholder: string) => {
-    const newInput: InputField = {
+    const newInput: ChargeField = {
       id: label.toLowerCase(),
       label,
       placeholder,
@@ -19,10 +20,10 @@ export default function FlatCharges() {
   };
 
   const handleRemoveInput = (id: string) => {
-    setInputs(inputs.filter((input) => input.id !== id));
+    setInputs(inputs.filter(input => input.id !== id));
   };
 
-  const groupInputs = (inputs: InputField[]) => {
+  const groupInputs = (inputs: ChargeField[]) => {
     const grouped = [];
     for (let i = 0; i < inputs.length; i += 2) {
       grouped.push(inputs.slice(i, i + 2));
@@ -36,7 +37,7 @@ export default function FlatCharges() {
       <div className="flex flex-wrap w-full gap-2 mt-3">
         {groupInputs(inputs).map((group, index) => (
           <div key={index} className="flex w-full gap-10">
-            {group.map((input) => (
+            {group.map(input => (
               <div key={input.id} className="w-full sm:w-1/2 flex flex-col">
                 <Input
                   type="number"
@@ -54,11 +55,7 @@ export default function FlatCharges() {
       <Button className="mt-6" onClick={() => setModalVisible(true)}>
         Add Flat Charges
       </Button>
-      <ChargesModal
-        isVisible={isModalVisible}
-        onClose={() => setModalVisible(false)}
-        onAdd={handleAddInput}
-      />
+      <ChargesModal isVisible={isModalVisible} onClose={() => setModalVisible(false)} onAdd={handleAddInput} />
     </section>
   );
 }

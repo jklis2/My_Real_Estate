@@ -1,5 +1,5 @@
-import CreatePropertyForm from "../components/create-property/CreatePropertyForm.tsx";
-import H2 from "../components/shared/H2.tsx";
+import CreatePropertyForm from 'components/create-property/CreatePropertyForm.tsx';
+import H2 from 'components/shared/H2.tsx';
 
 export default function CreateProperty() {
   return (

@@ -1,11 +1,11 @@
-import { useCreatePropertyMutation } from "../services/propertyApi";
-import { useCreateAddressMutation } from "../services/addressApi";
-import { Property } from "../interfaces/Property";
-import { Address } from "../interfaces/Address";
-import { PropertyType } from "../interfaces/PropertyType";
-import { useGetUserQuery } from "../services/userApi";
-import { useCreatePropertyTypeMutation } from "../services/propertyTypeApi";
-import { useCreatePhotosMutation } from "../services/photoApi";
+import { Property } from 'interfaces/Property';
+import { Address } from 'interfaces/Address';
+import { PropertyType } from 'interfaces/PropertyType';
+import { useGetUserQuery } from 'services/userApi';
+import { useCreatePropertyTypeMutation } from 'services/propertyTypeApi';
+import { useCreatePhotosMutation } from 'services/photoApi';
+import { useCreatePropertyMutation } from 'services/propertyApi';
+import { useCreateAddressMutation } from 'services/addressApi';
 
 interface CreatePropertyProps {
   property: Property;
@@ -16,7 +16,7 @@ interface CreatePropertyProps {
 export function useCreateProperty() {
   const [createPropertyMutation] = useCreatePropertyMutation();
   const [createAddressMutation] = useCreateAddressMutation();
-  const [createPropertyTypeMutation] = useCreatePropertyTypeMutation();
+  const [createPropertyTypeMutation, { error: typeErr }] = useCreatePropertyTypeMutation();
   const [createPhotosMutation] = useCreatePhotosMutation();
 
   const { data: userData } = useGetUserQuery(null);
@@ -34,20 +34,32 @@ export function useCreateProperty() {
 
       if (propertyResponse) {
         const { propertyId } = propertyResponse;
+
         await createAddressMutation({
-          ...address,
+          address,
           state: 1,
           propertyId,
         }).unwrap();
 
-        await createPropertyTypeMutation(propertyType).unwrap();
+        await createPropertyTypeMutation({ propertyType, propertyId }).unwrap(); // PropertyType { propertyTypeName: "Apartment" }
 
-        if (photos && photos.length > 0 && photos.length < 6) {
-          await createPhotosMutation({ propertyId, photos }).unwrap();
+        if (typeErr) {
+          console.error(typeErr);
+        }
+
+        if (photos && photos.length > 0) {
+          console.log(photos);
+        }
+
+        if (photos && photos.length > 0) {
+          await createPhotosMutation({
+            propertyId,
+            photos,
+          }).unwrap();
         }
       }
     } catch (error) {
-      console.error("Could not create property:", error);
+      console.error('Could not create property:', error);
       throw error;
     }
   }

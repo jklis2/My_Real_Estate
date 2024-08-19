@@ -1,10 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 export default function SettingsNav() {
   const navLinkCssClasses = ({ isActive }: { isActive: boolean }): string => {
-    return `w-full rounded-full p-3 ${
-      isActive ? " transition-all bg-gray-100" : ""
-    }`;
+    return `w-full rounded-full p-3 ${isActive ? ' transition-all bg-gray-100' : ''}`;
   };
   return (
     <nav className="rounded-3xl md:rounded-full bg-slate-300 py-2 w-100 flex flex-col md:flex-row justify-between items-center text-center text-xl px-3">

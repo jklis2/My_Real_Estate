@@ -7,6 +7,23 @@
     "skipLibCheck": true,
     "types": ["@testing-library/jest-dom"],
 
+    /* Paths */
+    "baseUrl": "./src",
+    "paths": {
+      "assets/*": ["assets/*"],
+      "components/*": ["components/*"],
+      "consts/*": ["consts/*"],
+      "containers/*": ["containers/*"],
+      "hooks/*": ["hooks/*"],
+      "layouts/*": ["layouts/*"],
+      "interfaces/*": ["interfaces/*"],
+      "routes/*": ["routes/*"],
+      "services/*": ["services/*"],
+      "store/*": ["store/*"],
+      "styles/*": ["styles/*"],
+      "utils/*": ["utils/*"]
+    },
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,

@@ -1,6 +1,6 @@
-import H2 from "../components/shared/H2.tsx";
-import StatsCard from "../components/StatsCard";
-import { useGetUserQuery } from "../services/userApi";
+import H2 from 'components/shared/H2.tsx';
+import StatsCard from 'components/StatsCard';
+import { useGetUserQuery } from 'services/userApi';
 
 export default function QuickStats() {
   const { data } = useGetUserQuery(null);

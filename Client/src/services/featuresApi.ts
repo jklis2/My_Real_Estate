@@ -1,18 +1,18 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const featuresApi = createApi({
-  reducerPath: "featuresApi",
+  reducerPath: 'featuresApi',
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_API_URL }),
-  endpoints: (builder) => ({
+  endpoints: builder => ({
     getFeatures: builder.query({
       query: ({ id }) => ({
-        method: "GET",
+        method: 'GET',
         url: `Features${id && `?PropertyId=${id}`}`,
       }),
     }),
     createFeatures: builder.mutation({
       query: ({ propertyId, featuresList }) => ({
-        method: "POST",
+        method: 'POST',
         url: `Features?propertyId=${propertyId}`,
         body: featuresList,
       }),

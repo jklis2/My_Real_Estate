@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
-import Button from "../components/shared/Button.tsx";
-import BurgerMenu from "../components/shared/BurgerMenu.tsx";
-import { useEffect } from "react";
-import { useLazyGetUserQuery } from "../services/userApi";
-import UserAvatar from "../components/UserAvatar";
+import { Link } from 'react-router-dom';
+import Button from 'components/shared/Button.tsx';
+import BurgerMenu from 'components/shared/BurgerMenu.tsx';
+import { useEffect } from 'react';
+import { useLazyGetUserQuery } from 'services/userApi';
+import UserAvatar from 'components/UserAvatar';
 
 interface MNavbarProps {
   toggleMenu: () => void;
@@ -13,7 +13,7 @@ export default function MobileNavbar({ toggleMenu }: MNavbarProps) {
   const [getUser, { data: userData }] = useLazyGetUserQuery();
 
   useEffect(() => {
-    getUser("");
+    getUser('');
   }, [getUser]);
 
   return (
@@ -29,24 +29,15 @@ export default function MobileNavbar({ toggleMenu }: MNavbarProps) {
               <a href="#" className="text-xl uppercase leading-6 text-gray-700">
                 About
               </a>
-              <Link
-                to="properties"
-                className="text-xl uppercase leading-6 text-gray-700"
-              >
+              <Link to="properties" className="text-xl uppercase leading-6 text-gray-700">
                 Offers
               </Link>
               {userData && (
-                <Link
-                  to="dashboard"
-                  className="text-xl uppercase leading-6 text-gray-700"
-                >
+                <Link to="dashboard" className="text-xl uppercase leading-6 text-gray-700">
                   Dashboard
                 </Link>
               )}
-              <Link
-                to="admin"
-                className="text-xl uppercase leading-6 text-gray-700"
-              >
+              <Link to="admin" className="text-xl uppercase leading-6 text-gray-700">
                 Admin
               </Link>
             </div>

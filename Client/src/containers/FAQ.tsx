@@ -1,9 +1,9 @@
-import { useState } from "react";
-import H2 from "../components/shared/H2.tsx";
-import H3 from "../components/shared/H3.tsx";
-import FAQImg from "../assets/FAQImg.png";
-import Question from "../components/Question";
-import { QUESTIONS } from "../consts/questions";
+import { useState } from 'react';
+import H2 from 'components/shared/H2.tsx';
+import H3 from 'components/shared/H3.tsx';
+import FAQImg from 'assets/FAQImg.png';
+import Question from 'components/Question';
+import { QUESTIONS } from 'consts/questions';
 
 export default function FAQ() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
@@ -20,7 +20,7 @@ export default function FAQ() {
 
       <div className="mt-12 flex items-center space-x-4"></div>
       <div id="accordion-collapse" data-accordion="collapse">
-        {QUESTIONS.map((question) => (
+        {QUESTIONS.map(question => (
           <Question
             key={question.number}
             number={question.number}

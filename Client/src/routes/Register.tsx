@@ -1,10 +1,10 @@
-import Button from "../components/shared/Button.tsx";
-import H2 from "../components/shared/H2.tsx";
-import P from "../components/shared/P.tsx";
-import RegisterForm from "../components/RegisterForm";
-import SocialButton from "../components/SocialButton";
-import google from "../assets/icons/google.svg";
-import apple from "../assets/icons/apple.svg";
+import Button from 'components/shared/Button.tsx';
+import H2 from 'components/shared/H2.tsx';
+import P from 'components/shared/P.tsx';
+import RegisterForm from 'components/RegisterForm';
+import SocialButton from 'components/SocialButton';
+import google from 'assets/icons/google.svg';
+import apple from 'assets/icons/apple.svg';
 
 export default function Register() {
   return (

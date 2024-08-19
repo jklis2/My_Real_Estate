@@ -1,4 +1,4 @@
-import H3 from "./shared/H3.tsx";
+import H3 from 'components/shared/H3.tsx';
 
 interface FAQProps {
   number: number;

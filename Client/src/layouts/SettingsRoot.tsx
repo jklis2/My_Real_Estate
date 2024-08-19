@@ -1,5 +1,5 @@
-import { Outlet } from "react-router-dom";
-import SettingsNav from "./SettingsNav";
+import { Outlet } from 'react-router-dom';
+import SettingsNav from 'layouts/SettingsNav';
 
 export default function SettingsLayout() {
   return (

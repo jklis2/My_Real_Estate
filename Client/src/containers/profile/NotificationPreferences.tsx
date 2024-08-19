@@ -1,6 +1,6 @@
-import H2 from "../../components/shared/H2.tsx";
-import SettingsCheck from "../../components/settings/SettingsCheck.tsx";
-import Button from "../../components/shared/Button.tsx";
+import H2 from 'components/shared/H2.tsx';
+import SettingsCheck from 'components/settings/SettingsCheck.tsx';
+import Button from 'components/shared/Button.tsx';
 
 export default function NotificationPreferences() {
   return (

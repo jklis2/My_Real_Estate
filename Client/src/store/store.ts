@@ -1,14 +1,14 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { setupListeners } from "@reduxjs/toolkit/query/react";
-import authApi from "../services/authApi";
-import userApi from "../services/userApi";
-import addressApi from "../services/addressApi";
-import propertyApi from "../services/propertyApi";
-import propertyTypeApi from "../services/propertyTypeApi";
-import featuresApi from "../services/featuresApi";
-import geoApi from "../services/geoApi";
-import avatarApi from "../services/avatarApi";
-import photoApi from "../services/photoApi";
+import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query/react';
+import authApi from 'services/authApi';
+import userApi from 'services/userApi';
+import addressApi from 'services/addressApi';
+import propertyApi from 'services/propertyApi';
+import propertyTypeApi from 'services/propertyTypeApi';
+import featuresApi from 'services/featuresApi';
+import geoApi from 'services/geoApi';
+import avatarApi from 'services/avatarApi';
+import photoApi from 'services/photoApi';
 
 export const store = configureStore({
   reducer: {
@@ -22,7 +22,7 @@ export const store = configureStore({
     [avatarApi.reducerPath]: avatarApi.reducer,
     [photoApi.reducerPath]: photoApi.reducer,
   },
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware().concat(
       avatarApi.middleware,
       authApi.middleware,
@@ -32,7 +32,7 @@ export const store = configureStore({
       propertyTypeApi.middleware,
       featuresApi.middleware,
       geoApi.middleware,
-      photoApi.middleware
+      photoApi.middleware,
     ),
 });
 

@@ -1,12 +1,12 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const geoApi = createApi({
-  reducerPath: "geoApi",
+  reducerPath: 'geoApi',
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_MAP_API }),
-  endpoints: (builder) => ({
+  endpoints: builder => ({
     getGeo: builder.query({
-      query: (city) => ({
-        method: "GET",
+      query: city => ({
+        method: 'GET',
         url: `json?key=${import.meta.env.VITE_MAP_KEY}&q=${city}`,
       }),
     }),
