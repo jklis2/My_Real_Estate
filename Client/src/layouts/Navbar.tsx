@@ -6,18 +6,27 @@ import { Link } from 'react-router-dom';
 import MobileNavbar from 'layouts/MobileNavbar';
 import { useLazyGetUserQuery } from 'services/userApi';
 import UserAvatar from 'components/UserAvatar';
+import Loader from 'components/shared/Loader.tsx';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const [getUser, { data: userData }] = useLazyGetUserQuery();
+  const [getUser, { data: userData, isLoading }] = useLazyGetUserQuery();
 
   useEffect(() => {
     getUser('');
   }, [getUser]);
 
   const [data] = userData?.result || [];
+
+  const isLoadingData = isLoading && !userData && <Loader size={16} />;
+  const isDataLoaded = !isLoading && userData && <UserAvatar userId={data?.id} />;
+  const isDataError = !isLoading && !userData && (
+    <Link to="/auth/login">
+      <Button>Sign in</Button>
+    </Link>
+  );
 
   return (
     <header>
@@ -47,13 +56,9 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          {userData && userData.result.length > 0 ? (
-            <UserAvatar userId={data?.id} />
-          ) : (
-            <Link to="/auth/login">
-              <Button>Sign in</Button>
-            </Link>
-          )}
+          {isLoadingData}
+          {isDataLoaded}
+          {isDataError}
         </div>
       </nav>
 
