@@ -16,7 +16,7 @@ interface CreatePropertyProps {
 export function useCreateProperty() {
   const [createPropertyMutation] = useCreatePropertyMutation();
   const [createAddressMutation] = useCreateAddressMutation();
-  const [createPropertyTypeMutation, { error: typeErr }] = useCreatePropertyTypeMutation();
+  const [createPropertyTypeMutation] = useCreatePropertyTypeMutation();
   const [createPhotosMutation] = useCreatePhotosMutation();
 
   const { data: userData } = useGetUserQuery(null);
@@ -42,14 +42,6 @@ export function useCreateProperty() {
         }).unwrap();
 
         await createPropertyTypeMutation({ propertyType, propertyId }).unwrap(); // PropertyType { propertyTypeName: "Apartment" }
-
-        if (typeErr) {
-          console.error(typeErr);
-        }
-
-        if (photos && photos.length > 0) {
-          console.log(photos);
-        }
 
         if (photos && photos.length > 0) {
           await createPhotosMutation({

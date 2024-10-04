@@ -8,7 +8,7 @@ interface InputProps {
   name?: string;
   id?: string;
   placeholder?: string;
-  error?: boolean;
+  error?: string;
   disabled?: boolean;
   autoComplete?: string;
   className?: string;
@@ -47,6 +47,7 @@ const Input = forwardRef(function Input(props: InputProps, ref: ForwardedRef<HTM
         value={props.value}
         onChange={props.onChange}
         ref={ref as ForwardedRef<HTMLTextAreaElement>}></textarea>
+      {props.error && <span className="text-red-700">This field is required</span>}
     </>
   ) : (
     <>
@@ -74,7 +75,9 @@ const Input = forwardRef(function Input(props: InputProps, ref: ForwardedRef<HTM
         value={props.value}
         multiple={props.multiple}
         onChange={props.onChange}
-        ref={ref}></input>
+        ref={ref}
+      />
+      {props.error && <span className="text-red-700">This field is required</span>}
     </>
   );
 });

@@ -22,7 +22,8 @@ module.exports = {
     "react/no-array-index-key": "warn",
     "react-hooks/rules-of-hooks": "error",
     'react/react-in-jsx-scope': 'off',
-    'react/no-unescaped-entities': 'off'
+    'react/no-unescaped-entities': 'off',
+    'no-console': 'warn',
   },
   settings: {
     react: {

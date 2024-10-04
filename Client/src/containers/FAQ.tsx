@@ -17,7 +17,6 @@ export default function FAQ() {
       <div className="flex justify-center items-center border-b-2 border-gray-700">
         <img src={FAQImg} alt="FAQ image" />
       </div>
-
       <div className="mt-12 flex items-center space-x-4"></div>
       <div id="accordion-collapse" data-accordion="collapse">
         {QUESTIONS.map(question => (

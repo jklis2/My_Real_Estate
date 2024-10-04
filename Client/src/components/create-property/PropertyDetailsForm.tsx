@@ -3,15 +3,27 @@ import Input from 'components/shared/Input.tsx';
 import H3 from 'components/shared/H3.tsx';
 import { useFormContext } from 'react-hook-form';
 import { PROPERTY_TYPE } from 'consts/propertyType.ts';
+import { descriptionValidation, nameValidation } from 'utils/validations.ts';
+import { PropertyInputs } from 'interfaces/PropertyInputs.ts';
 
 export default function PropertyDetailsForm() {
-  const { register } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<PropertyInputs>();
 
   return (
     <>
       <div className="flex flex-col justify-between gap-3 lg:gap-6 mt-3">
         <div className="flex flex-col w-full">
-          <Input type="text" className="w-full p-3 border border-slate-300 rounded-xl" label="Property name" id="name" placeholder="Enter property name" {...register('property.name')} />
+          <Input
+            type="text"
+            className="w-full p-3 border border-slate-300 rounded-xl"
+            label="Property name"
+            id="name"
+            placeholder="Enter property name"
+            {...register('property.name', nameValidation)}
+          />
         </div>
         <div className="flex flex-col w-full">
           <Input
@@ -21,7 +33,7 @@ export default function PropertyDetailsForm() {
             label="Property photos"
             id="file"
             placeholder="Drop photos of your property"
-            {...register('property.photos[0]')}
+            {...register('property.photos')}
           />
         </div>
         <div className="flex flex-col w-full">
@@ -32,7 +44,8 @@ export default function PropertyDetailsForm() {
             id="description"
             placeholder="Enter property description"
             size="big"
-            {...register('property.description')}
+            {...register('property.description', descriptionValidation)}
+            error={errors?.property?.description?.message?.toString() || ''}
           />
         </div>
       </div>
@@ -41,14 +54,8 @@ export default function PropertyDetailsForm() {
           <Input type="text" className="w-full p-3 border border-slate-300 rounded-xl" label="Price" id="price" placeholder="Enter price for property" {...register('property.price')} />
         </div>
         <div className="flex flex-col w-full">
-          <Select
-            options={['For Rent', 'For Sell']}
-            className="w-full p-3 border border-slate-300 rounded-xl"
-            label="Type of operation"
-            id="operation"
-            placeholder="Select type of operation"
-            {...register('property.operationType')}
-          />
+          {/*IT DOES NOT EXIST ON BACKEND*/}
+          <Select options={['For Rent', 'For Sell']} className="w-full p-3 border border-slate-300 rounded-xl" label="Type of operation" id="operation" placeholder="Select type of operation" />
         </div>
       </div>
       <H3 className="my-10">Additional Information</H3>
