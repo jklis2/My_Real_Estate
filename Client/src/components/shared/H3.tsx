@@ -1,9 +1,16 @@
-import { ReactChild } from 'react';
+import { ReactChild, ReactNode, useContext } from 'react';
+import { ThemeContext } from 'contexts/ThemeContext.ts';
 
 interface H3Props {
-  children: ReactChild;
+  children: ReactChild | ReactNode;
   className?: string;
 }
 export default function H3({ children, className }: H3Props) {
-  return <h3 className={`${className || ''} text-xl md:text-2xl font-bold text-neutral-700`}>{children}</h3>;
+  const themeContext = useContext(ThemeContext);
+
+  if (!themeContext) return null;
+
+  const { themeColors } = themeContext;
+
+  return <h3 className={`${className || ''} text-xl md:text-2xl font-bold ${themeColors.textColor}`}>{children}</h3>;
 }

@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useContext } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import RootLayout from 'layouts/Root';
 import Home from 'routes/Home';
@@ -20,6 +20,7 @@ import AdminSettings from 'routes/AdminSettings';
 import Loader from 'components/shared/Loader.tsx';
 import AuthLayout from 'layouts/AuthRoot';
 import CreateProperty from 'routes/CreateProperty';
+import { ThemeContext } from 'contexts/ThemeContext.ts';
 
 const PropertyListing = React.lazy(() => import('./routes/PropertyListing'));
 const Property = React.lazy(() => import('./routes/Property'));
@@ -35,143 +36,147 @@ const loaderComponent = (
   </div>
 );
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <RootLayout />,
-    children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: 'properties',
-        element: (
-          <Suspense fallback={loaderComponent}>
-            <PropertyListing />
-          </Suspense>
-        ),
-      },
-      {
-        path: 'property/:id',
-        element: (
-          <Suspense fallback={loaderComponent}>
-            <Property />
-          </Suspense>
-        ),
-      },
-    ],
-  },
-  {
-    path: '/auth',
-    element: <AuthLayout />,
-    children: [
-      {
-        path: 'login',
-        element: (
-          <Suspense fallback={loaderComponent}>
-            <Login />
-          </Suspense>
-        ),
-      },
-      {
-        path: 'register',
-        element: (
-          <Suspense fallback={loaderComponent}>
-            <Register />
-          </Suspense>
-        ),
-      },
-    ],
-  },
-  {
-    path: '/dashboard',
-    element: (
-      <Suspense fallback={loaderComponent}>
-        <DashboardLayout />
-      </Suspense>
-    ),
-    children: [
-      {
-        index: true,
-        element: <Dashboard />,
-      },
-      {
-        path: 'rent',
-        element: <Rent />,
-      },
-      {
-        path: 'properties',
-        element: <Properties />,
-      },
-      {
-        path: 'tenants',
-        element: <Tenants />,
-      },
-      {
-        path: 'reports',
-        element: <Reports />,
-      },
-      {
-        path: 'create',
-        element: <CreateProperty />,
-      },
-      {
-        path: 'settings',
-        element: <SettingsLayout />,
-        children: [
-          {
-            path: 'profile',
-            element: <Profile />,
-          },
-          {
-            path: 'billing',
-            element: <Billing />,
-          },
-          {
-            path: 'security',
-            element: <Security />,
-          },
-          {
-            path: 'notifications',
-            element: <Notifications />,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    path: 'admin',
-    element: (
-      <Suspense fallback={loaderComponent}>
-        <DashboardLayout />
-      </Suspense>
-    ),
-    children: [
-      {
-        index: true,
-        element: <AdminPanel />,
-      },
-      {
-        path: 'properties',
-        element: <PropertyManagement />,
-      },
-      {
-        path: 'users',
-        element: <UsersManagement />,
-      },
-      {
-        path: 'settings',
-        element: <AdminSettings />,
-      },
-    ],
-  },
-  {
-    path: '*',
-    element: <NotFound />,
-  },
-]);
-
 export default function App() {
+  const themeContext = useContext(ThemeContext);
+
+  if (!themeContext) return null;
+
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <RootLayout />,
+      children: [
+        {
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: 'properties',
+          element: (
+            <Suspense fallback={loaderComponent}>
+              <PropertyListing />
+            </Suspense>
+          ),
+        },
+        {
+          path: 'property/:id',
+          element: (
+            <Suspense fallback={loaderComponent}>
+              <Property />
+            </Suspense>
+          ),
+        },
+      ],
+    },
+    {
+      path: '/auth',
+      element: <AuthLayout />,
+      children: [
+        {
+          path: 'login',
+          element: (
+            <Suspense fallback={loaderComponent}>
+              <Login />
+            </Suspense>
+          ),
+        },
+        {
+          path: 'register',
+          element: (
+            <Suspense fallback={loaderComponent}>
+              <Register />
+            </Suspense>
+          ),
+        },
+      ],
+    },
+    {
+      path: '/dashboard',
+      element: (
+        <Suspense fallback={loaderComponent}>
+          <DashboardLayout />
+        </Suspense>
+      ),
+      children: [
+        {
+          index: true,
+          element: <Dashboard />,
+        },
+        {
+          path: 'rent',
+          element: <Rent />,
+        },
+        {
+          path: 'properties',
+          element: <Properties />,
+        },
+        {
+          path: 'tenants',
+          element: <Tenants />,
+        },
+        {
+          path: 'reports',
+          element: <Reports />,
+        },
+        {
+          path: 'create',
+          element: <CreateProperty />,
+        },
+        {
+          path: 'settings',
+          element: <SettingsLayout />,
+          children: [
+            {
+              path: 'profile',
+              element: <Profile />,
+            },
+            {
+              path: 'billing',
+              element: <Billing />,
+            },
+            {
+              path: 'security',
+              element: <Security />,
+            },
+            {
+              path: 'notifications',
+              element: <Notifications />,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      path: 'admin',
+      element: (
+        <Suspense fallback={loaderComponent}>
+          <DashboardLayout />
+        </Suspense>
+      ),
+      children: [
+        {
+          index: true,
+          element: <AdminPanel />,
+        },
+        {
+          path: 'properties',
+          element: <PropertyManagement />,
+        },
+        {
+          path: 'users',
+          element: <UsersManagement />,
+        },
+        {
+          path: 'settings',
+          element: <AdminSettings />,
+        },
+      ],
+    },
+    {
+      path: '*',
+      element: <NotFound />,
+    },
+  ]);
+
   return <RouterProvider router={router} />;
 }

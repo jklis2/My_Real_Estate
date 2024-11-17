@@ -13,6 +13,7 @@
       "assets/*": ["assets/*"],
       "components/*": ["components/*"],
       "consts/*": ["consts/*"],
+      "contexts/*": ["contexts/*"],
       "containers/*": ["containers/*"],
       "hooks/*": ["hooks/*"],
       "layouts/*": ["layouts/*"],

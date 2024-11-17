@@ -6,11 +6,12 @@ interface FormProps {
 }
 
 export default function LoginForm({ loginData, handleInputChange }: FormProps) {
+  const { email, password } = loginData;
   return (
     <form>
       <div className="flex flex-col mb-3">
         <Input
-          value={loginData.email}
+          value={email}
           type="email"
           autoComplete="email"
           id="email"
@@ -23,7 +24,7 @@ export default function LoginForm({ loginData, handleInputChange }: FormProps) {
       </div>
       <div className="flex flex-col">
         <Input
-          value={loginData.password}
+          value={password}
           type="password"
           id="password"
           name="password"

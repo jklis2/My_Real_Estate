@@ -1,4 +1,5 @@
 import H3 from 'components/shared/H3.tsx';
+import P from 'components/shared/P.tsx';
 
 interface CardProps {
   img: string;
@@ -10,10 +11,10 @@ export default function StepCard({ img, title, description }: CardProps) {
   return (
     <div className="flex flex-col justify-center">
       <div className="w-100 flex justify-center mb-5">
-        <img src={img} />
+        <img alt="step" src={img} />
       </div>
       <H3 className="mb-8">{title}</H3>
-      <p className="px-10">{description}</p>
+      <P className="px-10">{description}</P>
     </div>
   );
 }

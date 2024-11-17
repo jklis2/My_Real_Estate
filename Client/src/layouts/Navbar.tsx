@@ -8,7 +8,11 @@ import { useLazyGetUserQuery } from 'services/userApi';
 import UserAvatar from 'components/UserAvatar';
 import Loader from 'components/shared/Loader.tsx';
 
-export default function Navbar() {
+interface NavbarProps {
+  textColor: string;
+}
+
+export default function Navbar({ textColor }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -32,7 +36,7 @@ export default function Navbar() {
     <header>
       <nav className="flex items-center justify-between py-6 lg:py-8" aria-label="Navigation menu">
         <div className="flex lg:flex-1">
-          <Link to="" className="-m-1.5 p-1.5">
+          <Link to="" className={`-m-1.5 p-1.5`}>
             <img className="h-16 w-auto" src={NavLogo} alt="NavLogo" />
           </Link>
         </div>
@@ -40,18 +44,18 @@ export default function Navbar() {
           <BurgerMenu toggleMenu={toggleMenu} />
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
-          <a href="#" className="text-xl uppercase leading-6 text-gray-700">
+          <Link to="#" className={`text-xl uppercase leading-6 ${textColor} custom-link-class`}>
             About
-          </a>
-          <Link to="properties" className="text-xl uppercase leading-6 text-gray-700">
+          </Link>
+          <Link to="properties" className={`text-xl uppercase leading-6 ${textColor} custom-link-class`}>
             Offers
           </Link>
           {userData && (
-            <Link to="dashboard" className="text-xl uppercase leading-6 text-gray-700">
+            <Link to="dashboard" className={`text-xl uppercase leading-6 ${textColor} custom-link-class`}>
               Dashboard
             </Link>
           )}
-          <Link to="admin" className="text-xl uppercase leading-6 text-gray-700">
+          <Link to="admin" className={`text-xl uppercase leading-6 ${textColor} custom-link-class`}>
             Admin
           </Link>
         </div>
